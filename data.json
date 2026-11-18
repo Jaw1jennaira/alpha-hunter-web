@@ -2,7 +2,7 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-19 03:29 WIB",
+  "data_snapshot_at": "2026-11-19 04:33 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
    "total": 72,
@@ -503,7 +503,7 @@
    "cost": "Gratis (gas ETH saja)",
    "potential": "Sedang (free mint ETH, Genesis Bugs = akses prioritas drop Unvault berikutnya)",
    "risk": "Sedang (tanpa kontrak = tanpa audit; selisih supply 5.000 vs 5.600)",
-   "verdict": "Watch — cek live run 03:00 WIB 19 Nov (browser live 02:58-02:59 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka padahal jadwal 02:00 WIB. Semua fase UPCOMING (Fase 1: 4.000, Fase 2: 1.000, Publik: 309; total 5.309, MINTED 0/5.309). Tanpa countdown timer, tanpa alamat kontrak di halaman (hanya \"uses the DeBugz contract\"). Fase 1-2 butuh eligibilitas Genesis Bugz (tidak dipegang); fase publik 309 slot. Tanpa kontrak publik = tanpa audit, mint via connect wallet di situs (bukan via [alat]). Cek ulang run 03:30.",
+   "verdict": "Watch — cek live run 03:00 WIB 19 Nov (browser live 02:58-02:59 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka padahal jadwal 02:00 WIB. Semua fase UPCOMING (Fase 1: 4.000, Fase 2: 1.000, Publik: 309; total 5.309, MINTED 0/5.309). Tanpa countdown timer, tanpa alamat kontrak di halaman (hanya \"uses the DeBugz contract\"). Fase 1-2 butuh eligibilitas Genesis Bugz (tidak dipegang); fase publik 309 slot. Tanpa kontrak publik = tanpa audit, mint via connect wallet di situs (bukan via [alat]). | Cek live run 03:30 WIB 19 Nov (crawl 03:26 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka padahal jadwal 02:00 WIB (1,5 jam lewat). Tanpa countdown timer, tanpa alamat kontrak di halaman (hanya \"uses the DeBugz contract\"). Fase publik 309 slot belum mulai. Tanpa kontrak publik = tanpa audit, mint via connect wallet di situs (bukan via [alat]). Cek ulang run 04:00.",
    "details": "Free mint 5.600 NFT di Ethereum, mint 18 Nov 19:00 UTC (19 Nov 02:00 WIB) via unvault.com.",
    "portal": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']",
    "found": "2026-11-18",

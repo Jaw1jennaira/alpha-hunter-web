@@ -2737,23 +2737,42 @@ function clearNotifications(){
   showToast(t('notifReadToast'));
 }
 
-/* ===== Notifikasi Push (Web Push via server push Replit) =====
-   Service worker (sw.js di root) didaftarkan saat aplikasi dimuat, tetapi
-   izin notifikasi HANYA diminta lewat gestur pengguna: tombol toggle
-   "Notifikasi Push" di tab Profil (status terlihat: Aktif / Ditolak /
-   Belum didukung / Nonaktif). Kunci publik VAPID diambil dari server push
+/* ===== Notifikasi Push (dua jalur: FCM native di APK, Web Push di browser) =====
+   Jalur dipilih dari keberadaan jembatan native APK:
+   window.AgentJennaiNative. Bila jembatan ADA (di dalam APK WebView shell),
+   PushManager TIDAK dipakai sama sekali: tombol Aktifkan memanggil
+   AgentJennaiNative.requestNotificationPermission(), lalu
+   AgentJennaiNative.requestFcmToken(); token FCM disampaikan native lewat
+   window.__onFcmToken(token) dan didaftarkan ke POST /subscribe sebagai
+   { userId, fcmToken } (userId & URL backend sama seperti Web Push).
+   Bila jembatan TIDAK ada (browser biasa), jalur Web Push dipakai:
+   service worker (sw.js di root) didaftarkan saat aplikasi dimuat dan
+   langganan PushManager + VAPID dikirim ke POST /subscribe yang sama.
+   Di kedua jalur, izin notifikasi HANYA diminta lewat gestur pengguna:
+   tombol toggle "Notifikasi Push" di tab Profil (status terlihat:
+   Aktif / Ditolak / Belum didukung / Nonaktif) — tidak pernah otomatis
+   saat aplikasi dibuka. Kunci publik VAPID diambil dari server push
    (GET /vapid-public-key) — tidak ada kunci privat VAPID dan tidak ada
    PUSH_API_KEY di sisi client; kunci privat & API key hanya hidup di
-   server. Langganan dikirim ke POST /subscribe beserta userId (alamat SOL
-   bila terisi, kalau tidak username). Status langganan disimpan lokal
-   (localStorage 'ah-push-sub'). Bila server menjawab 410/404 (langganan
-   kedaluwarsa / tidak dikenal), langganan lama dilepas lalu subscribe
-   ulang sekali. Sistem notifikasi in-app (bell + laci Pemberitahuan)
-   TIDAK diganti — push adalah tambahan, laci tetap fallback. */
+   server. Status langganan disimpan lokal (localStorage 'ah-push-sub').
+   Bila server menjawab 410/404 (langganan Web Push kedaluwarsa / tidak
+   dikenal), langganan lama dilepas lalu subscribe ulang sekali. Sistem
+   notifikasi in-app (bell + laci Pemberitahuan) TIDAK diganti — push
+   adalah tambahan, laci tetap fallback. */
 var PUSH_SERVER = 'https://barren-scholarly-characters.replit.app';
 var PUSH_STORE_KEY = 'ah-push-sub';
 var pushUi = { status:'checking', busy:false };
 var pushRegPromise = null;
+var pushNativePending = false;
+var pushNativeTimer = null;
+
+/* Deteksi shell native APK: jembatan JavaScript yang disuntikkan APK. */
+function isNativeShell(){
+  try {
+    var b = window.AgentJennaiNative;
+    return !!(b && typeof b.requestNotificationPermission === 'function' && typeof b.requestFcmToken === 'function');
+  } catch (e) { return false; }
+}
 
 function pushSupported(){
   return ('serviceWorker' in navigator) && ('PushManager' in window) && ('Notification' in window);
@@ -2784,6 +2803,84 @@ function registerPushSW(){
     });
   }
   return pushRegPromise;
+}
+/* ===== Jalur native (APK): FCM lewat jembatan AgentJennaiNative =====
+   Daftarkan token FCM ke backend yang sama dengan langganan Web Push:
+   POST /subscribe { userId, fcmToken } — userId = alamat SOL bila terisi,
+   kalau tidak username (pushUserId yang sama). */
+function postFcmSubscription(token){
+  var payload = { userId: pushUserId(), fcmToken: token };
+  return fetch(PUSH_SERVER + '/subscribe', {
+    method:'POST',
+    headers:{ 'Content-Type':'application/json' },
+    body: JSON.stringify(payload)
+  }).then(function(res){
+    if (!res.ok) throw new Error('subscribe-http-' + res.status);
+    savePushLocal({ status:'active', fcmToken: token, userId: pushUserId(), at: Date.now() });
+    return token;
+  });
+}
+function pushNativeFail(statusKey, toastKey){
+  if (pushNativeTimer){ clearTimeout(pushNativeTimer); pushNativeTimer = null; }
+  pushNativePending = false;
+  pushUi.busy = false;
+  pushUi.status = statusKey;
+  renderPushStatus();
+  showToast(t(toastKey));
+}
+/* Token FCM disampaikan native lewat callback global ini. Token hanya
+   didaftarkan bila pengguna sedang menekan Aktifkan (pushNativePending),
+   atau bila perangkat ini sudah Aktif sebelumnya (rotasi token FCM) —
+   token yang datang tanpa diminta tidak pernah didaftarkan diam-diam. */
+window.__onFcmToken = function(token){
+  token = String(token || '').trim();
+  var local = loadPushLocal();
+  var wasPending = pushNativePending;
+  if (!token){
+    /* Token kosong dari native = izin ditolak / FCM belum siap. */
+    if (wasPending) pushNativeFail('denied', 'pushDeniedToast');
+    return;
+  }
+  var alreadyActive = !!(local && local.status === 'active' && local.fcmToken);
+  if (!wasPending && !alreadyActive) return;
+  if (!pushUserId()){
+    if (wasPending) pushNativeFail('off', 'pushNeedIdentityToast');
+    return;
+  }
+  if (!wasPending && local.fcmToken === token && local.userId === pushUserId()){
+    pushUi.status = 'active';
+    renderPushStatus();
+    return;
+  }
+  postFcmSubscription(token).then(function(){
+    if (pushNativeTimer){ clearTimeout(pushNativeTimer); pushNativeTimer = null; }
+    pushNativePending = false;
+    pushUi.busy = false;
+    pushUi.status = 'active';
+    renderPushStatus();
+    if (wasPending) showToast(t('pushEnabledToast'));
+  }).catch(function(){
+    if (wasPending) pushNativeFail('off', 'pushFailedToast');
+  });
+};
+function enablePushNative(){
+  if (!pushUserId()){ showToast(t('pushNeedIdentityToast')); return; }
+  pushUi.busy = true; renderPushStatus();
+  pushNativePending = true;
+  if (pushNativeTimer) clearTimeout(pushNativeTimer);
+  /* Jembatan tidak menjawab sama sekali: jangan biarkan tombol macet. */
+  pushNativeTimer = setTimeout(function(){
+    if (pushNativePending) pushNativeFail('off', 'pushFailedToast');
+  }, 20000);
+  var permResult;
+  try { permResult = window.AgentJennaiNative.requestNotificationPermission(); }
+  catch (e) { permResult = undefined; }
+  if (permResult === false || permResult === 'denied' || permResult === 'false'){
+    pushNativeFail('denied', 'pushDeniedToast');
+    return;
+  }
+  try { window.AgentJennaiNative.requestFcmToken(); }
+  catch (e) { pushNativeFail('off', 'pushFailedToast'); }
 }
 function renderPushStatus(){
   var txt = document.getElementById('pushStatusText');
@@ -2840,6 +2937,16 @@ function subscribePushFresh(isRetry){
   });
 }
 function refreshPushStatus(){
+  if (isNativeShell()){
+    /* Di APK status dibaca dari catatan lokal: Aktif hanya bila token FCM
+       sudah terdaftar untuk userId saat ini. Tidak ada permintaan izin
+       dan tidak ada panggilan jembatan saat aplikasi dibuka. */
+    var nLocal = loadPushLocal();
+    var nUid = pushUserId();
+    pushUi.status = (nLocal && nLocal.status === 'active' && nLocal.fcmToken && nUid && nLocal.userId === nUid) ? 'active' : 'off';
+    renderPushStatus();
+    return;
+  }
   if (!pushSupported()){ pushUi.status = 'unsupported'; renderPushStatus(); return; }
   if (Notification.permission === 'denied'){ pushUi.status = 'denied'; renderPushStatus(); return; }
   registerPushSW().then(function(reg){
@@ -2866,6 +2973,7 @@ function refreshPushStatus(){
   });
 }
 function enablePush(){
+  if (isNativeShell()){ enablePushNative(); return; }
   if (!pushSupported()){ pushUi.status = 'unsupported'; renderPushStatus(); showToast(t('pushUnsupportedToast')); return; }
   if (!pushUserId()){ showToast(t('pushNeedIdentityToast')); return; }
   pushUi.busy = true; renderPushStatus();
@@ -2893,6 +3001,18 @@ function enablePush(){
 }
 function disablePush(){
   if (pushUi.busy) return;
+  if (isNativeShell()){
+    /* Jalur native tidak punya langganan PushManager untuk dilepas:
+       cukup matikan catatan lokal (sama seperti jalur Web Push yang juga
+       tidak memberi tahu server saat dinonaktifkan). */
+    if (pushNativeTimer){ clearTimeout(pushNativeTimer); pushNativeTimer = null; }
+    pushNativePending = false;
+    savePushLocal({ status:'off', fcmToken:'', userId: pushUserId(), at: Date.now() });
+    pushUi.status = 'off';
+    renderPushStatus();
+    showToast(t('pushDisabledToast'));
+    return;
+  }
   pushUi.busy = true; renderPushStatus();
   navigator.serviceWorker.ready.then(function(reg){
     return reg.pushManager.getSubscription();
@@ -4497,7 +4617,9 @@ if (obVid && window.matchMedia && window.matchMedia('(prefers-reduced-motion: re
    wallet "Mobile Wallet Adapter" sudah siap saat tombol Seed Vault diketuk —
    di HP Seeker inilah jalur koneksi yang didukung Web Shell secara native. */
 initStandardMwa();
-if ('serviceWorker' in navigator){ registerPushSW().catch(function(){}); }
+/* Di dalam APK (jembatan native ada) service worker Web Push tidak
+   didaftarkan: push berjalan lewat FCM native, PushManager tidak dipakai. */
+if (!isNativeShell() && 'serviceWorker' in navigator){ registerPushSW().catch(function(){}); }
 refreshPushStatus();
 startTaskBanner();
 startActBanner();
