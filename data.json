@@ -2,12 +2,12 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-19 02:42 WIB",
+  "data_snapshot_at": "2026-11-19 03:29 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
-   "total": 73,
+   "total": 72,
    "early": 7,
-   "freemint": 33,
+   "freemint": 32,
    "airdrop": 17,
    "whitelist": 16
   },
@@ -77,22 +77,6 @@
    "found": "2026-11-18",
    "status": "Watch",
    "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
-  },
-  {
-   "id": "hooddrakes",
-   "project": "hooddrakes",
-   "chain": "Robinhood Chain (diduga)",
-   "category": "freemint",
-   "type": "Free mint (NFT)",
-   "cost": "Gratis + gas",
-   "potential": "Tidak dinilai",
-   "risk": "Tinggi (tanpa situs/kontrak terverifikasi)",
-   "verdict": "Watch — cek ulang run 02:30 WIB 19 Nov: pencarian \"hooddrakes NFT\" hanya menemukan baris daftar KuCoin (19:45 UTC); tetap tanpa situs/kontrak/X resmi terverifikasi. Mint buka 02:45 WIB (15 mnt lagi); cek ulang run 03:00 apakah situs/kontrak muncul setelah mint buka.",
-   "details": "Free mint 1.333 NFT, 18 Nov 2026 19:45 UTC (19 Nov 02:45 WIB).",
-   "portal": "['https://www.kucoin.com/news/trends/ETH/6afb1ae8e5453b00076dd08f']",
-   "found": "2026-11-18",
-   "status": "Watch — cek ulang run 02:30 WIB 19 Nov: pencarian \"hooddrakes NFT\" hanya menemukan baris daftar KuCoin (19:45 UTC); tetap tanpa situs/kontrak/X resmi terverifikasi. Mint buka 02:45 WIB (15 mnt lagi); cek ulang run 03:00 ",
-   "source": "['https://www.kucoin.com/news/trends/ETH/6afb1ae8e5453b00076dd08f']"
   },
   {
    "id": "zero-punk-zro-punks",
@@ -519,11 +503,11 @@
    "cost": "Gratis (gas ETH saja)",
    "potential": "Sedang (free mint ETH, Genesis Bugs = akses prioritas drop Unvault berikutnya)",
    "risk": "Sedang (tanpa kontrak = tanpa audit; selisih supply 5.000 vs 5.600)",
-   "verdict": "Watch — cek live run 02:30 WIB 19 Nov: unvault.com/bugz (crawl 18:57 UTC / 01:57 WIB) masih \"Soonererer\", mint belum buka; 3 fase x 25 mnt; fase 1-2 butuh eligibilitas Genesis Bugz (tidak dipegang); fase 3 publik ~02:50 WIB bila fase 1 mulai 02:00; tanpa kontrak publik = tanpa audit, mint via connect wallet di situs (bukan via [alat]). Cek ulang run 03:00.",
+   "verdict": "Watch — cek live run 03:00 WIB 19 Nov (browser live 02:58-02:59 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka padahal jadwal 02:00 WIB. Semua fase UPCOMING (Fase 1: 4.000, Fase 2: 1.000, Publik: 309; total 5.309, MINTED 0/5.309). Tanpa countdown timer, tanpa alamat kontrak di halaman (hanya \"uses the DeBugz contract\"). Fase 1-2 butuh eligibilitas Genesis Bugz (tidak dipegang); fase publik 309 slot. Tanpa kontrak publik = tanpa audit, mint via connect wallet di situs (bukan via [alat]). Cek ulang run 03:30.",
    "details": "Free mint 5.600 NFT di Ethereum, mint 18 Nov 19:00 UTC (19 Nov 02:00 WIB) via unvault.com.",
    "portal": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']",
    "found": "2026-11-18",
-   "status": "Watch — cek live run 02:30 WIB 19 Nov: unvault.com/bugz (crawl 18:57 UTC / 01:57 WIB) masih \"Soonererer\", mint belum buka; 3 fase x 25 mnt; fase 1-2 butuh eligibilitas Genesis Bugz (tidak dipegang); fase 3 publik ~02:50 ",
+   "status": "Watch — cek live run 03:00 WIB 19 Nov (browser live 02:58-02:59 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka padahal jadwal 02:00 WIB. Semua fase UPCOMING (Fase 1: 4.000, Fase 2: 1.000, Publik: 309; total 5",
    "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']"
   },
   {
