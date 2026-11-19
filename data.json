@@ -2,7 +2,7 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-19 23:29 WIB",
+  "data_snapshot_at": "2026-11-19 23:44 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
    "total": 101,
@@ -466,7 +466,27 @@
    "portal": "https://www.null.xyz/",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "[akun] (msg 129767)"
+   "source": "[akun] (msg 129767)",
+   "i18n": {
+    "en": {
+     "type": "Whitelist",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "CAUTION",
+     "details": "Null NFT project; waitlist registration opened on the official website. Supply details, price, and mint date have not been announced.",
+     "status": "Waiting for approval",
+     "source": "[akun] (msg 129767)"
+    },
+    "zh": {
+     "type": "Whitelist",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "谨慎",
+     "details": "Null NFT 项目；等待名单注册已在官方网站开启。供应细节、价格和铸造日期尚未公布。",
+     "status": "等待批准",
+     "source": "[akun] (msg 129767)"
+    }
+   }
   },
   {
    "id": "motes",
@@ -482,7 +502,27 @@
    "portal": "https://meetmotes.com/apply-form",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED — form allowlist LIVE di meetmotes.com/apply-form (terverifikasi live browser 19 Nov 2026 11:53 WIB): 5 langkah — 1 Connect X (OAuth, tanpa kolom handle manual), 2 Your wallet (terkunci, belum terlihat",
-   "source": "Bitrue $MOTES airdrop guide (22 jam lalu, merujuk docs resmi + X [akun]) + daftar 99airdrops.com ('Motes Genesis NFT', Robinhood Chain)"
+   "source": "Bitrue $MOTES airdrop guide (22 jam lalu, merujuk docs resmi + X [akun]) + daftar 99airdrops.com ('Motes Genesis NFT', Robinhood Chain)",
+   "i18n": {
+    "en": {
+     "type": "Whitelist (Genesis NFT) — NOT OPENED",
+     "potential": "Medium (10% supply $MOTES for NFT holders; 1 NFT = 1 AI agent identity + smart account)",
+     "risk": "Medium (no mint date, no contract, no official WL process; source only Bitrue guide + 99airdrops list)",
+     "verdict": "WATCH",
+     "details": "Motes is a financial agent ecosystem based on NFTs on the Robinhood Chain. Genesis NFT 1,000 units; holders receive 10% of the $MOTES token supply, priority for the next sale, and Motes Aura. Mint date and whitelist process have not been announced; allowlist form is available on the official website.",
+     "status": "Waiting for approval — form allowlist LIVE at meetmotes.com/apply-form (verified live browser 19 Nov 2026 11:53 WIB): 5 steps — 1 Connect X (OAuth, without manual handle field), 2 Your wallet (locked, not visible)",
+     "source": "Bitrue $MOTES airdrop guide (22 hours ago, referencing official docs + X [akun]) + 99airdrops.com list ('Motes Genesis NFT', Robinhood Chain)"
+    },
+    "zh": {
+     "type": "Whitelist (Genesis NFT) — 未开启",
+     "potential": "中等 (10% supply $MOTES 为 NFT 持有者; 1 NFT = 1 AI 代理身份 + 智能账户)",
+     "risk": "中等 (无铸造日期, 无合约, 无官方白名单流程; 来源仅 Bitrue 指南 + 99airdrops 列表)",
+     "verdict": "观察",
+     "details": "Motes 是基于 Robinhood Chain 上 NFT 的金融代理生态系统。Genesis NFT 1,000 枚；持有者获得 10% 的 $MOTES 代币供应、下一轮销售的优先权以及 Motes Aura。铸造日期和白名单流程尚未公布；官方站点提供 allowlist 表单。",
+     "status": "等待批准 — 表单 allowlist 已在 meetmotes.com/apply-form 上上线 (已在 2026年11月19日 11:53 WIB 的实时浏览器中验证)：5 步骤 — 1 连接 X (OAuth, 无手动 handle 栏位)，2 您的钱包 (已锁定, 未显示)",
+     "source": "Bitrue $MOTES 空投指南 (22 小时前, 引用官方文档 + X [akun]) + 99airdrops.com 列表 ('Motes Genesis NFT', Robinhood Chain)"
+    }
+   }
   },
   {
    "id": "mopes",
@@ -534,7 +574,27 @@
    "portal": "https://t.me/LuxaEcosystemBot?start=ref_515933843",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "https://t.me/LuxaEcosystemBot?start=ref_515933843"
+   "source": "https://t.me/LuxaEcosystemBot?start=ref_515933843",
+   "i18n": {
+    "en": {
+     "type": "Airdrop",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "Luxa Ecosystem is a project with instant reward of 5 LUXA tokens via Telegram bot, including mining feature within the bot. Project details and tokenomics have not been verified.",
+     "status": "Waiting for approval",
+     "source": "https://t.me/LuxaEcosystemBot?start=ref_515933843"
+    },
+    "zh": {
+     "type": "Airdrop",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "Luxa Ecosystem 是一个通过 Telegram 机器人提供即时奖励 5 个 LUXA 代币的项目，机器人内还包含挖矿功能。项目细节和代币经济学尚未验证。",
+     "status": "等待批准",
+     "source": "https://t.me/LuxaEcosystemBot?start=ref_515933843"
+    }
+   }
   },
   {
    "id": "lamoryant",
@@ -588,7 +648,27 @@
    "portal": "https://kismonft.com/genesis/whitelist",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "[akun] (msg 129726)"
+   "source": "[akun] (msg 129726)",
+   "i18n": {
+    "en": {
+     "type": "Whitelist",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "CAUTION",
+     "details": "Kismo Genesis NFT collection. Snapshot 18 November 2026 at 13:00 UTC: Kismo Seeker holders receive 2 free GTD mints per Seeker. Genesis whitelist registration also opens for those who do not hold a Seeker.",
+     "status": "Waiting for approval",
+     "source": "[akun] (msg 129726)"
+    },
+    "zh": {
+     "type": "Whitelist",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "谨慎",
+     "details": "Kismo Genesis NFT 系列。2026年11月18日 13:00 UTC 快照：持有 Kismo Seeker 的用户每持有一个 Seeker 可免费获得 2 个 GTD 铸造。Genesis 白名单注册也向未持有 Seeker 的用户开放。",
+     "status": "等待批准",
+     "source": "[akun] (msg 129726)"
+    }
+   }
   },
   {
    "id": "intuition",
@@ -604,7 +684,27 @@
    "portal": "https://airdrop.intuition.systems",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "https://airdrop.intuition.systems"
+   "source": "https://airdrop.intuition.systems",
+   "i18n": {
+    "en": {
+     "type": "Airdrop",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "Intuition is a trust/attestation network. The airdrop vesting token $TRUST can now be claimed; the token will be fully unlocked on 4 May 2027.",
+     "status": "Waiting for approval",
+     "source": "https://airdrop.intuition.systems"
+    },
+    "zh": {
+     "type": "Airdrop",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "Intuition 是一个信任/证明网络。空投 vesting 代币 $TRUST 已可领取；代币将在 2027年5月4日 完全解锁。",
+     "status": "等待批准",
+     "source": "https://airdrop.intuition.systems"
+    }
+   }
   },
   {
    "id": "formation",
@@ -620,7 +720,27 @@
    "portal": "https://app.formation.so",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "[akun] (msg 129732)"
+   "source": "[akun] (msg 129732)",
+   "i18n": {
+    "en": {
+     "type": "Whitelist",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "CAUTION",
+     "details": "Formation is a platform that opens a waitlist; registration uses a new Solana wallet and X account, then completes all tasks. Product details and dates have not been announced yet.",
+     "status": "Waiting for approval",
+     "source": "[akun] (msg 129732)"
+    },
+    "zh": {
+     "type": "Whitelist",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "谨慎",
+     "details": "Formation 是一个开放等候名单的平台；注册使用新的 Solana 钱包和 X 账户，然后完成所有任务。产品细节和日期尚未公布。",
+     "status": "等待批准",
+     "source": "[akun] (msg 129732)"
+    }
+   }
   },
   {
    "id": "foome",
@@ -672,7 +792,21 @@
    "portal": "",
    "found": "2026-11-19",
    "status": "Watch — mint buka 20 Nov 2026 03:00 UTC (10:00 WIB), supply 5.000, fase HOLDER, gratis. Belum ada situs resmi / akun X / contract address di sumber (Trencher Daily 19 Nov). Cek ulang saat mint buka.",
-   "source": ""
+   "source": "",
+   "i18n": {
+    "en": {
+     "type": "Free Mint",
+     "verdict": "WATCH",
+     "details": "Feral Frog Federation is a free mint of 5,000 NFT on Robinhood Chain, opens 20 November 2026 at 03:00 UTC (10:00 WIB), HOLDER phase, free. No official website, X account, or contract address in source — recheck when mint opens.",
+     "status": "Watch — mint opens 20 Nov 2026 03:00 UTC (10:00 WIB), supply 5,000, HOLDER phase, free. No official website / X account / contract address in source (Trencher Daily 19 Nov). Recheck when mint opens."
+    },
+    "zh": {
+     "type": "Free Mint",
+     "verdict": "观察",
+     "details": "Feral Frog Federation 是在 Robinhood Chain 上的免费铸造 5,000 NFT，开放时间为 2026 年 11 月 20 日 03:00 UTC（10:00 WIB），HOLDER 阶段，免费。来源中没有官方站点、X 账号或合约地址——请在铸造开启时重新检查。",
+     "status": "观察 — 铸造开启于 2026 年 11 月 20 日 03:00 UTC（10:00 WIB），供应 5,000，HOLDER 阶段，免费。来源中没有官方站点 / X 账号 / 合约地址（Trencher Daily 19 Nov）。请在铸造开启时重新检查。"
+    }
+   }
   },
   {
    "id": "dividends",
@@ -688,7 +822,29 @@
    "portal": "https://dividendsarts.xyz/check",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "[akun] (msg 129734)"
+   "source": "[akun] (msg 129734)",
+   "i18n": {
+    "en": {
+     "type": "Free Mint",
+     "cost": "Free",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "Dividends is an NFT collection with free mint GTD for the top 300 participants on the leaderboard. Check eligibility available on the official site; if it shows not eligible, check again later.",
+     "status": "Waiting for approval",
+     "source": "[akun] (msg 129734)"
+    },
+    "zh": {
+     "type": "Free Mint",
+     "cost": "免费",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "Dividends 是一个 NFT 系列，针对排行榜前 300 名参与者提供免费铸造 GTD。可在官方网站检查资格；如果显示不符合资格，请稍后再检查。",
+     "status": "等待批准",
+     "source": "[akun] (msg 129734)"
+    }
+   }
   },
   {
    "id": "dialectica",
@@ -711,7 +867,7 @@
      "potential": "Not yet assessed",
      "risk": "Not yet audited",
      "verdict": "WATCH",
-     "details": "Dialectica is an AI agent platform with the token $TRUED. Registration via the app: sign up with email or connect X, then create an agent from a prompt. It is recommended not to connect a wallet first.",
+     "details": "Dialectica is an AI agent platform with token $TRUED. Registration via app: sign up with email or connect X, then create an agent from prompt. It is recommended not to connect wallet first.",
      "status": "Waiting for approval",
      "source": "https://dialectica.xyz/app"
     },
@@ -720,7 +876,7 @@
      "potential": "未评估",
      "risk": "未审计",
      "verdict": "观察",
-     "details": "Dialectica 是一个拥有代币 $TRUED 的 AI 代理平台。通过应用注册：使用电子邮件注册或连接 X，然后从提示创建代理。建议先不要连接钱包。",
+     "details": "Dialectica 是一个 AI 代理平台，代币为 $TRUED。通过应用程序注册：使用电子邮件注册或连接 X，然后从提示创建代理。建议先不要连接钱包。",
      "status": "等待批准",
      "source": "https://dialectica.xyz/app"
     }
@@ -740,7 +896,27 @@
    "portal": "https://di.xyz/",
    "found": "2026-11-19",
    "status": "WATCH — butuh connect wallet + signature + tx on-chain gas $BNB SETIAP HARI (streak 30 hari) untuk kualifikasi WL Genesis NFT; harga + tanggal mint Genesis NFT BELUM diumumkan; jangan daftar sebelum APPROVED user + top-u",
-   "source": "Situs resmi di.xyz (live, ada tautan 'Daily on-chain check-in', crawl 05:52 WIB) + press release GlobeNewswire 17 Nov 2026 (investor OKX Ventures, Lingfeng, Dra"
+   "source": "Situs resmi di.xyz (live, ada tautan 'Daily on-chain check-in', crawl 05:52 WIB) + press release GlobeNewswire 17 Nov 2026 (investor OKX Ventures, Lingfeng, Dra",
+   "i18n": {
+    "en": {
+     "type": "Whitelist (Genesis NFT, via 30-day daily check-in)",
+     "potential": "Medium-High (if WL passes: Genesis NFT = seed user network; investor OKX Ventures, valuation $100 jt) — BUT needs grind 30 days + daily gas, payoff not certain",
+     "risk": "Medium (project legit verified by 2 sources; check-in mechanism only from third-party tracker; no contract/audit; mint price/date TBA)",
+     "verdict": "WATCH",
+     "details": "DI builds a network of AI financial agents owned by users. Whitelist Genesis NFT is obtained via daily on-chain check-in on BNB Chain for 30 days (requires small daily BNB gas). Mint price and date not announced yet. Investors include OKX Ventures.",
+     "status": "WATCH — need to connect wallet + signature + on-chain tx gas $BNB DAILY (streak 30 days) to qualify for WL Genesis NFT; price + mint date of Genesis NFT NOT announced; do not register before APPROVED user + top-u",
+     "source": "Official site di.xyz (live, has link 'Daily on-chain check-in', crawl 05:52 WIB) + press release GlobeNewswire 17 Nov 2026 (investor OKX Ventures, Lingfeng, Dra)"
+    },
+    "zh": {
+     "type": "Whitelist (Genesis NFT, via 30-day daily check-in)",
+     "potential": "中高 (如果 WL 通过：Genesis NFT = seed user network; 投资者 OKX Ventures, 估值 $100 jt) — 但需要 grind 30 天 + 每日 gas，回报尚不确定",
+     "risk": "中等 (project legit verified by 2 sources; check-in mechanism only from third-party tracker; no contract/audit; mint price/date TBA)",
+     "verdict": "观察",
+     "details": "DI 构建了由用户拥有的 AI 金融代理网络。Whitelist Genesis NFT 通过在 BNB Chain 上每日链上签到 30 天获得（需要少量每日 BNB gas）。铸造价格和日期尚未公布。投资者包括 OKX Ventures。",
+     "status": "观察 — 需要连接钱包 + 签名 + 链上交易 gas $BNB 每日（连续 30 天）以获得 WL Genesis NFT；Genesis NFT 的价格 + 铸造日期 尚未公布；不要在 APPROVED 用户 + top-u 之前注册",
+     "source": "官方站点 di.xyz（实时，包含链接“Daily on-chain check-in”，爬取时间 05:52 WIB）+ GlobeNewswire 2026年11月17日新闻稿（投资者 OKX Ventures、Lingfeng、Dra）"
+    }
+   }
   },
   {
    "id": "cubist-hoods",
@@ -756,7 +932,23 @@
    "portal": "https://cubisthoods.io/",
    "found": "2026-11-19",
    "status": "Sudah join",
-   "source": "https://cubisthoods.io/whitelist/"
+   "source": "https://cubisthoods.io/whitelist/",
+   "i18n": {
+    "en": {
+     "type": "Whitelist",
+     "verdict": "WATCH",
+     "details": "Cubist Hoods NFT collection on Robinhood Chain, supply 7,777, ERC-721; tentative mint 24 November 2026 with Free WL/GTD phase and Paid (paid price not announced). Whitelist application has been submitted and is awaiting review. Contract address not yet published.",
+     "status": "Joined",
+     "source": "https://cubisthoods.io/whitelist/"
+    },
+    "zh": {
+     "type": "Whitelist",
+     "verdict": "观察",
+     "details": "Cubist Hoods NFT 系列在 Robinhood Chain 上，供应 7,777，ERC-721；预计铸造时间为 2026 年 11 月 24 日，包含免费白名单/抢先认领阶段和付费阶段（付费价格尚未公布）。白名单申请已提交，正在等待审核。合约地址尚未发布。",
+     "status": "已加入",
+     "source": "https://cubisthoods.io/whitelist/"
+    }
+   }
   },
   {
    "id": "chaotic-order",
@@ -772,7 +964,29 @@
    "portal": "https://chaoticorder.fun/whitelist",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "[akun] (msg 129680)"
+   "source": "[akun] (msg 129680)",
+   "i18n": {
+    "en": {
+     "type": "Free Mint",
+     "cost": "Free",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "Chaotic Order NFT collection, supply 1.111, free mint; mint date not announced. Waitlist registration via official website by completing tasks and submitting EVM address.",
+     "status": "Waiting for approval",
+     "source": "[akun] (msg 129680)"
+    },
+    "zh": {
+     "type": "Free Mint",
+     "cost": "免费",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "Chaotic Order NFT 系列，供应 1.111，免费铸造；铸造日期未公布。通过官方站点完成任务并提交 EVM 地址进行等待名单注册。",
+     "status": "等待批准",
+     "source": "[akun] (msg 129680)"
+    }
+   }
   },
   {
    "id": "cash-grab",
@@ -793,15 +1007,15 @@
     "en": {
      "type": "Free Mint (signed/allowlist stages)",
      "verdict": "WATCH",
-     "details": "Koleksi NFT Cash Grab di Robinhood Chain, max supply 2.222, free mint (gas tetap dibayar). Tahap free memakai signed allowlist lewat form/raffle. Data dari agregator 27 Oktober 2026 dan perlu verifikasi ulang; contract address belum terverifikasi penuh.",
-     "status": "Watch — free stages signed (butuh signature creator via form/raffle); kontrak terpotong di sumber (0x66de…d22d), belum terverifikasi penuh",
+     "details": "Cash Grab NFT collection on Robinhood Chain, max supply 2.222, free mint (gas still paid). Free stage uses signed allowlist via form/raffle. Data from aggregator October 27 2026 and needs re‑verification; contract address not fully verified.",
+     "status": "Watch — free stages signed (needs creator signature via form/raffle); contract truncated in source (0x66de…d22d), not fully verified",
      "source": "['https://oozlings.com/robinhood-chain-nft-mints/']"
     },
     "zh": {
      "type": "Free Mint (signed/allowlist stages)",
      "verdict": "观察",
-     "details": "Koleksi NFT Cash Grab di Robinhood Chain, max supply 2.222, free mint (gas tetap dibayar). Tahap free memakai signed allowlist lewat form/raffle. Data dari agregator 27 Oktober 2026 dan perlu verifikasi ulang; contract address belum terverifikasi penuh.",
-     "status": "Watch — free stages signed (butuh signature creator via form/raffle); kontrak terpotong di sumber (0x66de…d22d), belum terverifikasi penuh",
+     "details": "Cash Grab NFT 系列在 Robinhood Chain，最大供应 2.222，免费铸造（仍需支付 gas）。免费阶段使用通过表单/抽奖的签名白名单。数据来自聚合器 2026 年 10 月 27 日，需要重新验证；合约地址尚未完全验证。",
+     "status": "观察 — 免费阶段已签名（需要创作者签名通过表单/抽奖）；合约在来源中被截断 (0x66de…d22d)，尚未完全验证",
      "source": "['https://oozlings.com/robinhood-chain-nft-mints/']"
     }
    }
@@ -820,7 +1034,21 @@
    "portal": "",
    "found": "2026-11-19",
    "status": "WATCH — baru dicatat run 15:00 WIB 19 Nov 2026; belum actionable (tanpa kontrak / akun X / situs resmi — single-source Trencher Daily 19 Nov). Cek ulang saat mint buka 20 Nov 03:20 WIB (night run).",
-   "source": ""
+   "source": "",
+   "i18n": {
+    "en": {
+     "type": "Paid Mint (Public)",
+     "verdict": "WATCH",
+     "details": "Burnout Relic is a paid public mint on Robinhood Chain, opened on 20 November 2026 at 03:20 WIB. Not actionable: no contract, X account, or official website — single-source from Trencher Daily. Re‑check when mint opens.",
+     "status": "WATCH — newly recorded run 15:00 WIB 19 Nov 2026; not actionable (no contract / X account / official website — single-source Trencher Daily 19 Nov). Re‑check when mint opens 20 Nov 03:20 WIB (night run)."
+    },
+    "zh": {
+     "type": "Paid Mint (Public)",
+     "verdict": "观察",
+     "details": "Burnout Relic 是 Robinhood Chain 上的付费公开铸造，开放时间为 2026 年 11 月 20 日 03:20 WIB。暂无可操作信息：无合约、X 账户或官方网站——信息来源单一，来自 Trencher Daily。请在铸造开启时重新检查。",
+     "status": "观察 — 2026 年 11 月 19 日 15:00 WIB 新记录运行；暂无可操作信息（无合约 / X 账户 / 官方网站——信息来源单一 Trencher Daily 19 Nov）。请在 2026 年 11 月 20 日 03:20 WIB（夜间运行）铸造开启时重新检查。"
+    }
+   }
   },
   {
    "id": "axis-hub",
@@ -836,7 +1064,27 @@
    "portal": "https://hub.axisrobotics.ai/",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "https://hub.axisrobotics.ai/"
+   "source": "https://hub.axisrobotics.ai/",
+   "i18n": {
+    "en": {
+     "type": "Airdrop",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "Axis Hub Season 2 from Axis Robotics: each verified robot trajectory that is signed receives $AXIS token, can be claimed every Saturday at 10:00 UTC, up to 2.5 $AXIS per trajectory depending on task difficulty.",
+     "status": "Waiting for approval",
+     "source": "https://hub.axisrobotics.ai/"
+    },
+    "zh": {
+     "type": "Airdrop",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "Axis Hub 第 2 赛季来自 Axis Robotics：每个经过验证并签名的机器人轨迹可获得 $AXIS 代币，可在每周六 10:00 UTC 领取，每条轨迹最高 2.5 $AXIS，取决于任务难度。",
+     "status": "等待批准",
+     "source": "https://hub.axisrobotics.ai/"
+    }
+   }
   },
   {
    "id": "agent-games",
@@ -852,7 +1100,27 @@
    "portal": "https://agentgames.zkverify.io/register?ref=H3MWL6YR",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "https://agentgames.zkverify.io/register?ref=H3MWL6YR"
+   "source": "https://agentgames.zkverify.io/register?ref=H3MWL6YR",
+   "i18n": {
+    "en": {
+     "type": "Airdrop",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "Agent Games is an AI agent competition from ZkVerify with a reward pool of 400,000 $VFY. Participants register with an X account or a new wallet, manage agents, and enter the arena. There are 4 tracks available, including Proof Gatekeeper where agents evaluate payments.",
+     "status": "Waiting for approval",
+     "source": "https://agentgames.zkverify.io/register?ref=H3MWL6YR"
+    },
+    "zh": {
+     "type": "Airdrop",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "Agent Games 是来自 ZkVerify 的 AI 代理人竞赛，奖励池为 400,000 $VFY。参与者使用 X 账户或新钱包注册，管理代理人并进入竞技场。提供 4 条赛道，包括代理人评估支付的 Proof Gatekeeper。",
+     "status": "等待批准",
+     "source": "https://agentgames.zkverify.io/register?ref=H3MWL6YR"
+    }
+   }
   },
   {
    "id": "100millionseek",
@@ -868,7 +1136,27 @@
    "portal": "https://100milionseek.top/signup",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "https://100milionseek.top/signup"
+   "source": "https://100milionseek.top/signup",
+   "i18n": {
+    "en": {
+     "type": "FCFS",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "100MillionSeek opens FCFS registration, 200 people per day. Project details are not yet available from the source.",
+     "status": "Waiting for approval",
+     "source": "https://100milionseek.top/signup"
+    },
+    "zh": {
+     "type": "FCFS",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "100MillionSeek 开放 FCFS 注册，每天 200 人。项目细节尚未从来源获取。",
+     "status": "等待批准",
+     "source": "https://100milionseek.top/signup"
+    }
+   }
   },
   {
    "id": "zero-punk",
@@ -900,7 +1188,29 @@
    "portal": "https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']"
+   "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']",
+   "i18n": {
+    "en": {
+     "type": "Free mint (NFT)",
+     "cost": "Free (gas only)",
+     "potential": "Low",
+     "risk": "Cannot be audited/executed without a contract.",
+     "verdict": "WATCH",
+     "details": "TinyLegends NFT collection on Robinhood Chain, free mint (gas only). Project details, mint date, and contract not available from source.",
+     "status": "Watch",
+     "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']"
+    },
+    "zh": {
+     "type": "免费铸造 (NFT)",
+     "cost": "免费 (仅 gas)",
+     "potential": "低",
+     "risk": "没有合约无法审计/执行。",
+     "verdict": "观察",
+     "details": "TinyLegends NFT 系列在 Robinhood Chain，免费铸造（仅 gas）。项目详情、铸造日期和合约未从来源获取。",
+     "status": "观察",
+     "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']"
+    }
+   }
   },
   {
    "id": "tideboundrh",
@@ -916,7 +1226,29 @@
    "portal": "https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']"
+   "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']",
+   "i18n": {
+    "en": {
+     "type": "Free mint (NFT)",
+     "cost": "Free / 0,0019 / 0,0049 ETH (different stages)",
+     "potential": "Low",
+     "risk": "Cannot be audited/executed without contract.",
+     "verdict": "WATCH",
+     "details": "TideboundRH NFT collection on Robinhood Chain; free mint and paid stages 0,0019 / 0,0049 ETH. Project details, mint date, and contract not available from source.",
+     "status": "Watch",
+     "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']"
+    },
+    "zh": {
+     "type": "免费铸造 (NFT)",
+     "cost": "免费 / 0,0019 / 0,0049 ETH（不同阶段）",
+     "potential": "低",
+     "risk": "没有合约无法审计/执行。",
+     "verdict": "观察",
+     "details": "TideboundRH NFT 系列在 Robinhood Chain；免费铸造和付费阶段 0,0019 / 0,0049 ETH。项目详情、铸造日期和合约未从来源获得。",
+     "status": "Watch",
+     "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']"
+    }
+   }
   },
   {
    "id": "thinkersclub",
@@ -932,7 +1264,29 @@
    "portal": "",
    "found": "2026-11-18",
    "status": "Menunggu persetujuan",
-   "source": "Tweet [akun] 18 Nov 2026 00:13 WIB + profil X [akun] + [akun] (dicek via browser 18 Nov 00:20-00:25 WIB)"
+   "source": "Tweet [akun] 18 Nov 2026 00:13 WIB + profil X [akun] + [akun] (dicek via browser 18 Nov 00:20-00:25 WIB)",
+   "i18n": {
+    "en": {
+     "type": "Whitelist / NFT Mint",
+     "cost": "TBA (harga mint belum diumumkan)",
+     "potential": "Medium — konsep baru (stock-paired NFT via NFTX), tapi info masih tipis, proyek sangat baru, belum ada detail WL/harga",
+     "risk": "Medium — proyek baru tanpa website/Discord; chain Ink NOT supported by our mint path currently ([alat]/[wallet]) — perlu siapkan wallet Ink sebelum mint; harga mint TBA",
+     "verdict": "WATCH",
+     "details": "ThinkersClub is the first NFT paired with stocks (stock-paired NFT via NFTX), supply 3,333, mint 24 November 2026, price not announced. How to get whitelist not announced. Project without official website/Discord.",
+     "status": "Waiting for approval",
+     "source": "Tweet [akun] 18 Nov 2026 00:13 WIB + profil X [akun] + [akun] (dicek via browser 18 Nov 00:20-00:25 WIB)"
+    },
+    "zh": {
+     "type": "Whitelist / NFT Mint",
+     "cost": "TBA (harga mint belum diumumkan)",
+     "potential": "中等 — konsep baru (stock-paired NFT via NFTX), tapi info masih tipis, proyek sangat baru, belum ada detail WL/harga",
+     "risk": "中等 — proyek baru tanpa website/Discord; chain Ink NOT supported by our mint path currently ([alat]/[wallet]) — perlu siapkan wallet Ink sebelum mint; harga mint TBA",
+     "verdict": "观察",
+     "details": "ThinkersClub 是首个与股票配对的 NFT（stock-paired NFT via NFTX），供应 3,333，铸造时间 2026年11月24日，价格未公布。获取白名单的方式未公布。项目没有官方网页/Discord。",
+     "status": "等待批准",
+     "source": "Tweet [akun] 18 Nov 2026 00:13 WIB + profil X [akun] + [akun] (dicek via browser 18 Nov 00:20-00:25 WIB)"
+    }
+   }
   },
   {
    "id": "the-last-warm-day",
@@ -948,7 +1302,29 @@
    "portal": "https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']",
+   "i18n": {
+    "en": {
+     "type": "Free mint / Paid mint (NFT)",
+     "cost": "Not known",
+     "potential": "Low",
+     "risk": "Cannot be assessed without official contract/site",
+     "verdict": "WATCH",
+     "details": "NFT collection The Last Warm Day; mint recorded 18 November 2026 in the NFT calendar. Chain, price, and official website not verified.",
+     "status": "Watch",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    },
+    "zh": {
+     "type": "Free mint / Paid mint (NFT)",
+     "cost": "未知",
+     "potential": "低",
+     "risk": "无法在没有官方合约/网站的情况下评估",
+     "verdict": "观察",
+     "details": "NFT 系列 The Last Warm Day；铸造记录于 2026年11月18日 于 NFT 日历。链、价格和官方网站尚未验证。",
+     "status": "Watch",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    }
+   }
   },
   {
    "id": "spacerznft",
@@ -964,7 +1340,29 @@
    "portal": "https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']"
+   "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']",
+   "i18n": {
+    "en": {
+     "type": "Free mint (NFT)",
+     "cost": "Free (gas only)",
+     "potential": "Low",
+     "risk": "Without contract cannot be audited/executed.",
+     "verdict": "WATCH",
+     "details": "SpacerzNFT NFT collection on Robinhood Chain, free mint (gas only). Project details, mint date, and contract not available from source.",
+     "status": "Watch",
+     "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']"
+    },
+    "zh": {
+     "type": "Free mint (NFT)",
+     "cost": "免费 (仅 gas)",
+     "potential": "低",
+     "risk": "没有合约无法审计/执行。",
+     "verdict": "观察",
+     "details": "SpacerzNFT NFT 系列在 Robinhood Chain，免费铸造（仅 gas）。项目详情、铸造日期和合约尚未从来源获取。",
+     "status": "Watch",
+     "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']"
+    }
+   }
   },
   {
    "id": "sonic-bodies",
@@ -984,21 +1382,21 @@
    "i18n": {
     "en": {
      "type": "Free mint / Paid mint (NFT)",
-     "cost": "Not known (price/chain not listed in the source readable this run)",
+     "cost": "Not known (price/chain not listed in readable source this run)",
      "potential": "Low",
-     "risk": "Cannot be assessed without official contract/website",
+     "risk": "Cannot be assessed without official contract/site",
      "verdict": "WATCH",
-     "details": "NFT collection Sonic Bodies; mint recorded on 18 November 2026 in the NFT calendar. Chain, price, and official website not yet verified.",
+     "details": "NFT collection Sonic Bodies; mint recorded 18 November 2026 in the NFT calendar. Chain, price, and official website not verified.",
      "status": "Watch",
      "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
     },
     "zh": {
      "type": "Free mint / Paid mint (NFT)",
-     "cost": "未知（价格/链未在此运行可读的来源中列出）",
+     "cost": "未知（此运行中可读来源未列出价格/链）",
      "potential": "低",
-     "risk": "没有官方合约/网站无法评估",
+     "risk": "无法在没有官方合约/网站的情况下评估",
      "verdict": "观察",
-     "details": "NFT 系列 Sonic Bodies；铸造记录于 2026年11月18日 的 NFT 日历。链、价格和官方网站尚未验证。",
+     "details": "NFT 系列 Sonic Bodies；铸造记录于 2026年11月18日 于 NFT 日历。链、价格和官方网站尚未验证。",
      "status": "Watch",
      "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
     }
@@ -1018,7 +1416,29 @@
    "portal": "https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']",
+   "i18n": {
+    "en": {
+     "type": "Free mint / Paid mint (NFT)",
+     "cost": "Belum diketahui",
+     "potential": "Rendah",
+     "risk": "Tidak bisa dinilai tanpa kontrak/situs resmi",
+     "verdict": "WATCH",
+     "details": "Koleksi NFT Skull Monster; mint tercatat 18 November 2026 di kalender NFT. Chain, harga, dan situs resmi belum terverifikasi.",
+     "status": "Watch",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    },
+    "zh": {
+     "type": "Free mint / Paid mint (NFT)",
+     "cost": "未确定",
+     "potential": "低",
+     "risk": "无法在没有官方合约/网站的情况下评估",
+     "verdict": "观察",
+     "details": "Skull Monster NFT 系列；铸造记录在 2026年11月18日的 NFT 日历中。链、价格和官方站点尚未验证。",
+     "status": "Watch",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    }
+   }
   },
   {
    "id": "playpumpkinpit",
@@ -1034,7 +1454,29 @@
    "portal": "https://www.kucoin.com/news/community/NFT/6aedce24abae5e0007c53604",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://www.kucoin.com/news/community/NFT/6aedce24abae5e0007c53604']"
+   "source": "['https://www.kucoin.com/news/community/NFT/6aedce24abae5e0007c53604']",
+   "i18n": {
+    "en": {
+     "type": "Free mint (NFT)",
+     "cost": "Free (gas saja)",
+     "potential": "Rendah",
+     "risk": "Tanpa kontrak tidak bisa diaudit/dieksekusi.",
+     "verdict": "WATCH",
+     "details": "Koleksi NFT PlayPumpkinPit di Robinhood Chain, free mint (hanya gas). Detail proyek, tanggal mint, dan kontrak belum tersedia dari sumber.",
+     "status": "Watch",
+     "source": "['https://www.kucoin.com/news/community/NFT/6aedce24abae5e0007c53604']"
+    },
+    "zh": {
+     "type": "Free mint (NFT)",
+     "cost": "免费（仅 gas）",
+     "potential": "低",
+     "risk": "没有合约无法审计/执行。",
+     "verdict": "观察",
+     "details": "PlayPumpkinPit NFT 系列在 Robinhood 链上，免费铸造（仅 gas）。项目细节、铸造日期和合约信息尚未从来源获取。",
+     "status": "Watch",
+     "source": "['https://www.kucoin.com/news/community/NFT/6aedce24abae5e0007c53604']"
+    }
+   }
   },
   {
    "id": "payphonenft",
@@ -1050,7 +1492,27 @@
    "portal": "https://x.com/PayphoneNFT",
    "found": "2026-11-18",
    "status": "WATCH — status allowlist belum terverifikasi",
-   "source": "https://www.neversidelinedagain.com/weeks/2026-10-18/voices + https://www.kucoin.com/news/community/NFT/6aedce24abae5e0007c53604"
+   "source": "https://www.neversidelinedagain.com/weeks/2026-10-18/voices + https://www.kucoin.com/news/community/NFT/6aedce24abae5e0007c53604",
+   "i18n": {
+    "en": {
+     "type": "Free mint / allowlist",
+     "potential": "Medium — 1.111 supply, free mint Robinhood Chain, allowlist reported open (report 26 Oct 2026 + KuCoin list 6 Nov 2026); BUT mint date NOT found and current allowlist status not confirmed",
+     "risk": "Medium (only third‑party reports; official site / mint date / contract not found)",
+     "verdict": "WATCH",
+     "details": "Payphone NFT collection (PAYPHONES), 1.111 supply, free mint on Robinhood Chain. Mint date and allowlist status not confirmed from official sources; do not offer until verified.",
+     "status": "WATCH — allowlist status not verified",
+     "source": "https://www.neversidelinedagain.com/weeks/2026-10-18/voices + https://www.kucoin.com/news/community/NFT/6aedce24abae5e0007c53604"
+    },
+    "zh": {
+     "type": "Free mint / allowlist",
+     "potential": "中等 — 1.111 supply, free mint Robinhood Chain, allowlist 报告 开放 (报告 26 Oct 2026 + KuCoin 列表 6 Nov 2026); 但 mint 日期 未找到 且 当前 allowlist 状态 未确认",
+     "risk": "中等 (仅 第三方 报告; 官方网站 / mint 日期 / 合约 未找到)",
+     "verdict": "观察",
+     "details": "Payphone NFT 系列 (PAYPHONES)，1.111 supply，Robinhood Chain 免费铸造。mint 日期 和 allowlist 状态 未从官方来源确认；在验证之前 请勿提供。",
+     "status": "观察 — allowlist 状态 未验证",
+     "source": "https://www.neversidelinedagain.com/weeks/2026-10-18/voices + https://www.kucoin.com/news/community/NFT/6aedce24abae5e0007c53604"
+    }
+   }
   },
   {
    "id": "pawhood",
@@ -1066,7 +1528,29 @@
    "portal": "https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']"
+   "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']",
+   "i18n": {
+    "en": {
+     "type": "Paid mint (NFT)",
+     "cost": "0,0002 / 0,0003 ETH (~$0,48-0,72, at [alat] limit $3)",
+     "potential": "Low",
+     "risk": "Without contract cannot be audited/executed.",
+     "verdict": "WATCH",
+     "details": "Pawhood NFT collection on Robinhood Chain; paid mint 0,0002 / 0,0003 ETH. Project details, mint date, and contract not available from sources.",
+     "status": "Watch",
+     "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']"
+    },
+    "zh": {
+     "type": "Paid mint (NFT)",
+     "cost": "0,0002 / 0,0003 ETH (~$0,48-0,72, 在 [alat] 限额 $3)",
+     "potential": "低",
+     "risk": "没有 合约 无法 审计/执行。",
+     "verdict": "观察",
+     "details": "Pawhood NFT 系列 在 Robinhood Chain；付费铸造 0,0002 / 0,0003 ETH。项目详情、mint 日期 和 合约 未从来源提供。",
+     "status": "观察",
+     "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']"
+    }
+   }
   },
   {
    "id": "lunagirls",
@@ -1082,7 +1566,29 @@
    "portal": "https://www.lunagirlsnfts.com/faq",
    "found": "2026-11-18",
    "status": "WATCH",
-   "source": "['https://www.lunagirlsnfts.com/faq']"
+   "source": "['https://www.lunagirlsnfts.com/faq']",
+   "i18n": {
+    "en": {
+     "type": "Paid Mint",
+     "cost": "0,02 SOL (~$1,44)",
+     "potential": "Low",
+     "risk": "Medium",
+     "verdict": "WATCH",
+     "details": "LunaGirls Genesis is an NFT collection on Solana; mint 0.02 SOL opens November 11 2026. Whitelist via quest: follow X, join Telegram and Discord, then submit SOL wallet through form.",
+     "status": "WATCH",
+     "source": "['https://www.lunagirlsnfts.com/faq']"
+    },
+    "zh": {
+     "type": "Paid Mint",
+     "cost": "0,02 SOL (~$1,44)",
+     "potential": "低",
+     "risk": "中等",
+     "verdict": "观察",
+     "details": "LunaGirls Genesis 是 Solana 上的 NFT 系列；铸造 0.02 SOL 于 2026年11月11日 开放。通过任务获取白名单：关注 X，加入 Telegram 和 Discord，然后通过表单提交 SOL 钱包。",
+     "status": "观察",
+     "source": "['https://www.lunagirlsnfts.com/faq']"
+    }
+   }
   },
   {
    "id": "kitsune",
@@ -1098,7 +1604,29 @@
    "portal": "https://kitsuneagents.pages.dev/",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://kitsuneagents.pages.dev/', 'https://kitsuneagents.pages.dev/skill.md', 'https://thecolony.cc/post/1b22706a-462a-4a25-aaa0-6a42a7388cef']"
+   "source": "['https://kitsuneagents.pages.dev/', 'https://kitsuneagents.pages.dev/skill.md', 'https://thecolony.cc/post/1b22706a-462a-4a25-aaa0-6a42a7388cef']",
+   "i18n": {
+    "en": {
+     "type": "Free Mint",
+     "cost": "Gratis (gas saja); paid 0,002 BNB (tidak ditawarkan)",
+     "potential": "Medium (free NFT transferable + art 100% on-chain + staking yields daily KITSUNE; but token has no market price and drip only 50/day — competition)",
+     "risk": "Medium (owner can withdraw paid mint proceeds; KITSUNE token without market; full audit not done)",
+     "verdict": "WATCH",
+     "details": "KITSUNE is an NFT collection on BSC with daily free drip claim: 50 per day, 1 per wallet per day, max 4 per wallet lifetime; reset 00:00 UTC. NFT transferable with art 100% on-chain and staking yields daily KITSUNE tokens; token has no market price. Paid mint option 0.002 BNB not offered.",
+     "status": "Watch",
+     "source": "['https://kitsuneagents.pages.dev/', 'https://kitsuneagents.pages.dev/skill.md', 'https://thecolony.cc/post/1b22706a-462a-4a25-aaa0-6a42a7388cef']"
+    },
+    "zh": {
+     "type": "Free Mint",
+     "cost": "Gratis (gas saja); paid 0,002 BNB (tidak ditawarkan)",
+     "potential": "中等 (免费 NFT 可转让 + 艺术 100% 链上 + 质押每日产出 KITSUNE；但代币无市场价格且每日空投仅 50 个 — 竞争激烈)",
+     "risk": "中等 (所有者可提取付费铸造收益；KITSUNE 代币无市场；尚未完成完整审计)",
+     "verdict": "观察",
+     "details": "KITSUNE 是 BSC 上的 NFT 系列，提供每日免费空投领取：每天 50 个，每个钱包每天 1 个，单钱包终生最多 4 个；在 00:00 UTC 重置。NFT 可转让，艺术 100% 链上，质押可每日产出 KITSUNE 代币；代币暂无市场价格。付费铸造选项 0.002 BNB 未提供。",
+     "status": "观察",
+     "source": "['https://kitsuneagents.pages.dev/', 'https://kitsuneagents.pages.dev/skill.md', 'https://thecolony.cc/post/1b22706a-462a-4a25-aaa0-6a42a7388cef']"
+    }
+   }
   },
   {
    "id": "kijin",
@@ -1114,7 +1642,29 @@
    "portal": "https://boltbook.fun/alphapedia/kijin?lang=en",
    "found": "2026-11-18",
    "status": "WATCH",
-   "source": "['https://boltbook.fun/alphapedia/kijin?lang=en', 'https://bscscan.com/address/[alamat wallet]']"
+   "source": "['https://boltbook.fun/alphapedia/kijin?lang=en', 'https://bscscan.com/address/[alamat wallet]']",
+   "i18n": {
+    "en": {
+     "type": "Free mint NFT (Agent ID-gated)",
+     "cost": "Free + gas ~134.043 gas (~0,0000107 BNB, ~Rp 130).",
+     "potential": "Low",
+     "risk": "NO official website/X site found (lead only from third‑party wiki boltbook). No secondary market (according to secondary sources: internal escrow market 0 listing/0 sales). BaseURI owner‑settable (according to secondary sources). Full audit NOT performed: full source read FAILED — BscScan v2 'Missing/Invalid API Key', live‑browser BscScan blocked by Cloudflare (bot wall, 15:04-15:10 WIB), Sourcify file endpoint 404, selector scan failed on 3 public RPCs (IncompleteRead). Secondary inventory (boltbook, NOT self‑verified): owner powers only setBaseURI/transferOwnership/withdraw; withdraw only moves mint proceeds; no holder‑drain/blacklist/holder‑burn.",
+     "verdict": "WATCH",
+     "details": "KIJIN is a free‑mint NFT on BSC that can only be claimed by wallets holding an Agent ID: free mint 1× per wallet while the free block of 5,000 is still available, then paid 0.0003 BNB (max 20 per wallet). No official website or X account found; no secondary market. Full audit has not been performed.",
+     "status": "WATCH",
+     "source": "['https://boltbook.fun/alphapedia/kijin?lang=en', 'https://bscscan.com/address/[alamat wallet]']"
+    },
+    "zh": {
+     "type": "Free mint NFT (Agent ID-gated)",
+     "cost": "免费 + gas ~134.043 gas (~0,0000107 BNB, ~Rp 130)。",
+     "potential": "低",
+     "risk": "未发现官方网站/X站点（线索仅来自第三方 wiki boltbook）。无二级市场（根据二级来源：内部托管市场 0 上架/0 销售）。BaseURI 可由所有者设置（根据二级来源）。完整审计尚未进行：完整源码读取失败 — BscScan v2 'Missing/Invalid API Key'，实时浏览器 BscScan 被 Cloudflare 阻止（机器人墙，15:04-15:10 WIB），Sourcify 文件端点 404，选择器扫描在 3 个公共 RPC 上失败（IncompleteRead）。二级库存（boltbook，未自行验证）：所有者权限仅限 setBaseURI/transferOwnership/withdraw；withdraw 仅转移铸造收益；无持有者抽干/黑名单/持有者销毁。",
+     "verdict": "观察",
+     "details": "KIJIN 是 BSC 上的免费铸造 NFT，仅限持有 Agent ID 的钱包领取：在免费区块 5,000 仍可用时每钱包免费铸造 1 次，随后付费 0.0003 BNB（每钱包最多 20 次）。未发现官方站点或 X 账号；无二级市场。完整审计尚未进行。",
+     "status": "观察",
+     "source": "['https://boltbook.fun/alphapedia/kijin?lang=en', 'https://bscscan.com/address/[alamat wallet]']"
+    }
+   }
   },
   {
    "id": "hot-mic",
@@ -1130,7 +1680,29 @@
    "portal": "https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']",
+   "i18n": {
+    "en": {
+     "type": "Free mint / Paid mint (NFT)",
+     "cost": "Not known yet",
+     "potential": "Low",
+     "risk": "Cannot be assessed without official contract/website",
+     "verdict": "WATCH",
+     "details": "Hot Mic NFT collection; mint recorded 18 November 2026 in NFT calendar. Chain, price, and official website not verified yet.",
+     "status": "Watch",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    },
+    "zh": {
+     "type": "Free mint / Paid mint (NFT)",
+     "cost": "未知",
+     "potential": "低",
+     "risk": "无法评估，因缺乏官方合约/网站",
+     "verdict": "观察",
+     "details": "Hot Mic NFT 系列；铸造记录于 2026 年 11 月 18 日的 NFT 日历。链、价格和官方站点尚未验证。",
+     "status": "观察",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    }
+   }
   },
   {
    "id": "hoodnutts",
@@ -1146,7 +1718,29 @@
    "portal": "https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']",
+   "i18n": {
+    "en": {
+     "type": "Free mint / Paid mint (NFT)",
+     "cost": "Belum diketahui",
+     "potential": "Low",
+     "risk": "Tidak bisa dinilai tanpa kontrak/situs resmi",
+     "verdict": "WATCH",
+     "details": "Koleksi NFT Hoodnutts; mint tercatat 18 November 2026 di kalender NFT. Chain, harga, dan situs resmi belum terverifikasi.",
+     "status": "Watch",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    },
+    "zh": {
+     "type": "Free mint / Paid mint (NFT)",
+     "cost": "Belum diketahui",
+     "potential": "低",
+     "risk": "Tidak bisa dinilai tanpa kontrak/situs resmi",
+     "verdict": "观察",
+     "details": "Koleksi NFT Hoodnutts; mint tercatat 18 November 2026 di kalender NFT. Chain, harga, dan situs resmi belum terverifikasi.",
+     "status": "Watch",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    }
+   }
   },
   {
    "id": "hoodogden",
@@ -1162,7 +1756,29 @@
    "portal": "https://ogden.blog/",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://ogden.blog/']"
+   "source": "['https://ogden.blog/']",
+   "i18n": {
+    "en": {
+     "type": "Free mint (NFT)",
+     "cost": "Gratis + gas ETH Robinhood Chain (harga belum diumumkan resmi)",
+     "potential": "Low",
+     "risk": "Low-Medium (belum ada tanggal/kontrak; situs ada)",
+     "verdict": "WATCH",
+     "details": "HoodOgden adalah koleksi 555 hooded pixel-art NFT di Robinhood Chain (termasuk 5 Mythic 1/1), free mint; tanggal mint belum diumumkan.",
+     "status": "Watch",
+     "source": "['https://ogden.blog/']"
+    },
+    "zh": {
+     "type": "Free mint (NFT)",
+     "cost": "Gratis + gas ETH Robinhood Chain (harga belum diumumkan resmi)",
+     "potential": "低",
+     "risk": "低至中等 (belum ada tanggal/kontrak; situs ada)",
+     "verdict": "观察",
+     "details": "HoodOgden adalah koleksi 555 hooded pixel-art NFT di Robinhood Chain (termasuk 5 Mythic 1/1), free mint; tanggal mint belum diumumkan.",
+     "status": "Watch",
+     "source": "['https://ogden.blog/']"
+    }
+   }
   },
   {
    "id": "gobzhood",
@@ -1178,7 +1794,29 @@
    "portal": "https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']"
+   "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']",
+   "i18n": {
+    "en": {
+     "type": "Free mint (NFT)",
+     "cost": "Free (gas only)",
+     "potential": "Low",
+     "risk": "Cannot be audited/executed without contract.",
+     "verdict": "WATCH",
+     "details": "Gobzhood NFT collection on Robinhood Chain, free mint (gas only). Project details, mint date, and contract not available from source.",
+     "status": "Watch",
+     "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']"
+    },
+    "zh": {
+     "type": "Free mint (NFT)",
+     "cost": "Free (仅 gas)",
+     "potential": "低",
+     "risk": "没有合约无法审计/执行。",
+     "verdict": "观察",
+     "details": "Gobzhood NFT 系列在 Robinhood Chain 上，免费铸造（仅 gas）。项目详情、铸造日期和合约未从来源获取。",
+     "status": "Watch",
+     "source": "['https://www.kucoin.com/news/community/ETH/6af6dc1e40903b0007add8aa']"
+    }
+   }
   },
   {
    "id": "echoverse",
@@ -1194,7 +1832,29 @@
    "portal": "https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']",
+   "i18n": {
+    "en": {
+     "type": "Free mint / Paid mint (NFT)",
+     "cost": "Not known yet",
+     "potential": "Low",
+     "risk": "Cannot be assessed without contract/official site",
+     "verdict": "WATCH",
+     "details": "EchoVerse NFT collection; mint recorded on 18 November 2026 in NFT calendar. Chain, price, and official site not verified.",
+     "status": "Watch",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    },
+    "zh": {
+     "type": "Free mint / Paid mint (NFT)",
+     "cost": "尚未得知",
+     "potential": "低",
+     "risk": "没有合约/官方站点无法评估",
+     "verdict": "观察",
+     "details": "EchoVerse NFT 系列；铸造记录在 2026年11月18日 的 NFT 日历中。链、价格和官方站点未验证。",
+     "status": "Watch",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    }
+   }
   },
   {
    "id": "eta",
@@ -1214,15 +1874,24 @@
    "i18n": {
     "en": {
      "type": "Free Mint",
-     "cost": "Free (gas Robinhood only)",
+     "cost": "Free (Robinhood gas only)",
      "potential": "Medium (free mint Robinhood 5.000 supply)",
-     "risk": "Medium (tanpa kontrak/situs = tanpa audit)",
+     "risk": "Medium (no contract/site = no audit)",
      "verdict": "WATCH",
-     "details": "ETA is an NFT free mint collection 5.000 supply on Robinhood Chain, mint 20 November 2026. The contract and official website have not been verified.",
+     "details": "ETA is an NFT collection free mint 5,000 supply on Robinhood Chain, minting on 20 November 2026. The contract and official website have not been verified.",
      "status": "Watch",
      "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4']"
     },
-    "zh": {}
+    "zh": {
+     "type": "Free Mint",
+     "cost": "免费（仅 Robinhood gas）",
+     "potential": "中等 (free mint Robinhood 5.000 supply)",
+     "risk": "中等 (tanpa kontrak/situs = tanpa audit)",
+     "verdict": "观察",
+     "details": "ETA 是在 Robinhood 链上的 NFT 免费铸造系列，供应 5,000，铸造日期为 2026 年 11 月 20 日。合约和官方网站尚未验证。",
+     "status": "Watch",
+     "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4']"
+    }
    }
   },
   {
@@ -1239,7 +1908,29 @@
    "portal": "https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']",
+   "i18n": {
+    "en": {
+     "type": "Free mint / Paid mint (NFT)",
+     "cost": "Not known",
+     "potential": "Low",
+     "risk": "Cannot be assessed without official contract/site",
+     "verdict": "WATCH",
+     "details": "DripDragons NFT collection; mint recorded 18 November 2026 in the NFT calendar. Chain, price, and official site not verified.",
+     "status": "Watch",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    },
+    "zh": {
+     "type": "Free mint / Paid mint (NFT)",
+     "cost": "未知",
+     "potential": "低",
+     "risk": "无法在没有官方合约/网站的情况下评估",
+     "verdict": "观察",
+     "details": "DripDragons NFT 系列；铸造记录于 2026年11月18日 于 NFT 日历。链、价格和官方站点尚未验证。",
+     "status": "Watch",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    }
+   }
   },
   {
    "id": "dime-ghosts",
@@ -1255,7 +1946,29 @@
    "portal": "https://dime-ghosts-site.pages.dev",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://dime-ghosts-site.pages.dev', 'https://www.[wallet].bh/en-BH/square/profile/square-creator-a4c8ed3e80fa1']"
+   "source": "['https://dime-ghosts-site.pages.dev', 'https://www.[wallet].bh/en-BH/square/profile/square-creator-a4c8ed3e80fa1']",
+   "i18n": {
+    "en": {
+     "type": "Paid mint (NFT)",
+     "cost": "0,000142 BNB (~$0,10) + gas",
+     "potential": "Low-Medium (floor $0.50 claimed but market not open; unproven)",
+     "risk": "Medium (site inaccessible; no contract; paid mint)",
+     "verdict": "WATCH",
+     "details": "Dime Ghosts is a paid mint NFT on BSC priced at 0.000142 BNB (about $0.10), supply 4,000, max 10 per wallet; 56 of 4,000 have been minted at the time of record. The official marketplace opens automatically when 150 are minted, with a claimed floor of $0.50 that has not been proven. The site is inaccessible and the contract has not been found.",
+     "status": "Watch",
+     "source": "['https://dime-ghosts-site.pages.dev', 'https://www.[wallet].bh/en-BH/square/profile/square-creator-a4c8ed3e80fa1']"
+    },
+    "zh": {
+     "type": "Paid mint (NFT)",
+     "cost": "0,000142 BNB (~$0,10) + gas",
+     "potential": "低至中等 (声称 floor $0.50，但市场尚未开启；未证实)",
+     "risk": "中等 (站点无法访问；无合约；付费铸造)",
+     "verdict": "观察",
+     "details": "Dime Ghosts 是在 BSC 上的付费铸造 NFT，价格为 0.000142 BNB（约 $0.10），供应量 4,000，单钱包最多 10 个；记录时已有 4,000 中的 56 已铸造。官方市场在铸造 150 个后自动开启，声称 floor $0.50，但尚未证实。站点无法访问，合约尚未找到。",
+     "status": "Watch",
+     "source": "['https://dime-ghosts-site.pages.dev', 'https://www.[wallet].bh/en-BH/square/profile/square-creator-a4c8ed3e80fa1']"
+    }
+   }
   },
   {
    "id": "debugz",
@@ -1271,7 +1984,29 @@
    "portal": "https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4",
    "found": "2026-11-18",
    "status": "Watch — cek live run 15:43 WIB 19 Nov (browser.open, crawl 08:44 UTC / 15:44 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka. Genesis Bugz dijadwalkan Rabu 2 PM ET (= Kam 02:00 WIB) — kini ~13 jam 45 mnt lewat",
-   "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']"
+   "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']",
+   "i18n": {
+    "en": {
+     "type": "Free Mint",
+     "cost": "Free (only ETH gas)",
+     "potential": "Medium (free mint ETH 5,600 supply, platform Unvault verified as marketplace; but without contract/definite date per mint page)",
+     "risk": "Medium (no contract = no audit; source only aggregator)",
+     "verdict": "WATCH",
+     "details": "DeBugz is a free mint of 5,600 NFTs on Ethereum via the Unvault platform, scheduled for 17 November 2026 at 19:00 UTC. As of the check on 19 November, the mint page was still marked soon and mint had not opened; the launch was delayed due to DDoS with no new date. The contract address has not been published.",
+     "status": "Watch — check live run 15:43 WIB 19 Nov (browser.open, crawl 08:44 UTC / 15:44 WIB): unvault.com/bugz STILL \"Soonererer\", mint NOT opened. Genesis Bugz scheduled Wednesday 2 PM ET (= Wed 02:00 WIB) — now ~13 hours 45 minutes passed",
+     "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']"
+    },
+    "zh": {
+     "type": "Free Mint",
+     "cost": "免费（仅 ETH 燃气）",
+     "potential": "中等（免费铸造 ETH 5,600 供应，平台 Unvault 已验证为市场；但没有合约/每个铸造页面的确定日期）",
+     "risk": "中等（无合约 = 无审计；来源仅为聚合器）",
+     "verdict": "观察",
+     "details": "DeBugz 是通过 Unvault 平台在以太坊上免费铸造 5,600 个 NFT，计划于 2026 年 11 月 17 日 19:00 UTC。经 11 月 19 日检查，铸造页面仍显示 soon，铸造尚未开启；发布因 DDoS 被推迟，暂无新日期。合约地址尚未公布。",
+     "status": "观察 — 检查实时运行 15:43 WIB 11 月 19 日（browser.open，爬取 08:44 UTC / 15:44 WIB）：unvault.com/bugz 仍为 “Soonererer”，铸造尚未开启。Genesis Bugz 原定于星期三美国东部时间下午 2 点（= 星期三 02:00 WIB）——现在已过去约 13 小时 45 分钟",
+     "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']"
+    }
+   }
   },
   {
    "id": "clown-on-solana",
@@ -1287,7 +2022,29 @@
    "portal": "https://Typefully.com/1CryptoMama/solanas-clown-community-and-nft-mint-ihBmzYZ",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://Typefully.com/1CryptoMama/solanas-clown-community-and-nft-mint-ihBmzYZ']"
+   "source": "['https://Typefully.com/1CryptoMama/solanas-clown-community-and-nft-mint-ihBmzYZ']",
+   "i18n": {
+    "en": {
+     "type": "Airdrop + NFT mint",
+     "cost": "Unknown",
+     "potential": "Low",
+     "risk": "Medium (no mint date/contract)",
+     "verdict": "WATCH",
+     "details": "Clown on Solana is a community with an airdrop of the $CLOWN token and an upcoming NFT mint. The airdrop form has closed; the mint date and contract are not yet available.",
+     "status": "Watch",
+     "source": "['https://Typefully.com/1CryptoMama/solanas-clown-community-and-nft-mint-ihBmzYZ']"
+    },
+    "zh": {
+     "type": "Airdrop + NFT mint",
+     "cost": "未知",
+     "potential": "低",
+     "risk": "中等（暂无铸造日期/合约）",
+     "verdict": "观察",
+     "details": "Clown on Solana 是一个拥有 $CLOWN 代币空投和即将到来的 NFT 铸造的社区。空投表单已关闭；铸造日期和合约尚未公布。",
+     "status": "观察",
+     "source": "['https://Typefully.com/1CryptoMama/solanas-clown-community-and-nft-mint-ihBmzYZ']"
+    }
+   }
   },
   {
    "id": "cache-protocol",
@@ -1303,7 +2060,29 @@
    "portal": "https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']",
+   "i18n": {
+    "en": {
+     "type": "Free mint (NFT)",
+     "cost": "Free (gas saja)",
+     "potential": "Low",
+     "risk": "Without contract cannot be audited/executed.",
+     "verdict": "WATCH",
+     "details": "Cache Protocol NFT collection on Robinhood Chain, free mint (gas only). Project details, mint date, and contract not available from source.",
+     "status": "Watch",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    },
+    "zh": {
+     "type": "Free mint (NFT)",
+     "cost": "Free (gas saja)",
+     "potential": "低",
+     "risk": "没有合约无法审计/执行。",
+     "verdict": "观察",
+     "details": "Cache Protocol NFT 系列在 Robinhood Chain 上，免费铸造（仅 gas）。项目详情、铸造日期和合约信息未从来源获取。",
+     "status": "Watch",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    }
+   }
   },
   {
    "id": "blockheadsrh",
@@ -1319,7 +2098,29 @@
    "portal": "https://www.kucoin.com/news/community/NFT/6aedce24abae5e0007c53604",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://www.kucoin.com/news/community/NFT/6aedce24abae5e0007c53604']"
+   "source": "['https://www.kucoin.com/news/community/NFT/6aedce24abae5e0007c53604']",
+   "i18n": {
+    "en": {
+     "type": "Free mint (NFT)",
+     "cost": "Free (gas saja)",
+     "potential": "Low",
+     "risk": "Without contract cannot be audited/executed.",
+     "verdict": "WATCH",
+     "details": "BlockheadsRH NFT collection on Robinhood Chain, free mint (gas only). Project details, mint date, and contract not available from source.",
+     "status": "Watch",
+     "source": "['https://www.kucoin.com/news/community/NFT/6aedce24abae5e0007c53604']"
+    },
+    "zh": {
+     "type": "Free mint (NFT)",
+     "cost": "Free (gas saja)",
+     "potential": "低",
+     "risk": "没有合约无法审计/执行。",
+     "verdict": "观察",
+     "details": "BlockheadsRH NFT 系列在 Robinhood Chain 上，免费铸造（仅 gas）。项目详情、铸造日期和合约信息未从来源获取。",
+     "status": "Watch",
+     "source": "['https://www.kucoin.com/news/community/NFT/6aedce24abae5e0007c53604']"
+    }
+   }
   },
   {
    "id": "bugz",
@@ -1335,7 +2136,29 @@
    "portal": "https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4",
    "found": "2026-11-18",
    "status": "Watch — cek live run 15:43 WIB 19 Nov (browser.open, crawl 08:44 UTC / 15:44 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka. Genesis Bugz dijadwalkan Rabu 2 PM ET (= Kam 02:00 WIB) — kini ~13 jam 45 mnt lewat",
-   "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']"
+   "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']",
+   "i18n": {
+    "en": {
+     "type": "Free Mint",
+     "cost": "Free (only ETH gas)",
+     "potential": "Medium (free mint ETH, Genesis Bugs = priority access to the next Unvault drop)",
+     "risk": "Medium (no contract = no audit; supply difference 5,000 vs 5,600)",
+     "verdict": "WATCH",
+     "details": "BUGZ (Genesis Bugs) is a free mint of 5,600 NFTs on Ethereum via the Unvault platform, scheduled for 18 November 2026 at 19:00 UTC. As of the check on 19 November, the mint page was still marked as soon and mint had not opened; the launch was delayed due to a DDoS attack with no new date. Holders of Genesis Bugs receive priority access to the next Unvault drop. The contract address has not been published.",
+     "status": "Watch — check live run 15:43 WIB 19 Nov (browser.open, crawl 08:44 UTC / 15:44 WIB): unvault.com/bugz STILL \"Soonererer\", mint NOT opened. Genesis Bugz scheduled Wednesday 2 PM ET (= Wed 02:00 WIB) — now ~13 hours 45 minutes past",
+     "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']"
+    },
+    "zh": {
+     "type": "Free Mint",
+     "cost": "免费（仅 ETH 燃气）",
+     "potential": "中等（免费 mint ETH，Genesis Bugs = 优先访问下一个 Unvault 空投）",
+     "risk": "中等（无合约 = 无审计；供应差异 5,000 对 5,600）",
+     "verdict": "观察",
+     "details": "BUGZ（Genesis Bugs）是在以太坊上通过 Unvault 平台进行的 5,600 个 NFT 的免费 mint，计划于 2026 年 11 月 18 日 19:00 UTC。经 11 月 19 日检查，mint 页面仍显示 soon，且 mint 尚未开启；发布因 DDoS 攻击被推迟，暂无新日期。Genesis Bugs 持有者获得下一个 Unvault 空投的优先访问权。合约地址尚未公布。",
+     "status": "观察 — 检查实时运行 11 月 19 日 15:43 WIB（browser.open，爬取 08:44 UTC / 15:44 WIB）：unvault.com/bugz 仍为 “Soonererer”，mint 尚未开启。Genesis Bugz 原定于星期三美国东部时间下午 2 点（= 星期三 02:00 WIB）——现在已过去约 13 小时 45 分钟",
+     "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']"
+    }
+   }
   },
   {
    "id": "z30index",
@@ -1351,7 +2174,27 @@
    "portal": "",
    "found": "2026-11-17",
    "status": "WATCH — belum ada testnet/WL; pantau saat interface mint/redeem dibuka (30 Nov 2026)",
-   "source": "Substack 13 Nov 2026 (9 Early Alpha Projects on Zero)"
+   "source": "Substack 13 Nov 2026 (9 Early Alpha Projects on Zero)",
+   "i18n": {
+    "en": {
+     "cost": "No cost info yet",
+     "potential": "Medium — RWA/institutional, but no testnet/WL/participation announcement yet",
+     "risk": "Not fully verified (1 article source); no date/testnet currently",
+     "verdict": "WATCH",
+     "details": "z30index is a US stock index protocol on Zero: 30 stocks are combined into 1 token, with mint, redeem, rebalance, and 24/7 trading using ZK proofs. Launch coincides with the Zero mainnet on 30 November 2026, integrated with Open ATLAS. No testnet, whitelist, or participation announcement yet.",
+     "status": "WATCH — no testnet/WL yet; monitor when the mint/redeem interface opens (30 Nov 2026)",
+     "source": "Substack 13 Nov 2026 (9 Early Alpha Projects on Zero)"
+    },
+    "zh": {
+     "cost": "暂无费用信息",
+     "potential": "中等 — RWA/机构，但尚无 testnet/WL/参与公告",
+     "risk": "未完全验证（1 篇文章来源）；目前无日期/testnet",
+     "verdict": "观察",
+     "details": "z30index 是 Zero 上的美国股票指数协议：30 只股票合成 1 个代币，具备 mint、redeem、rebalance 和使用 ZK proof 的全天候交易。将在 2026 年 11 月 30 日 Zero 主网发布时上线，已集成 Open ATLAS。目前尚无 testnet、白名单或参与公告。",
+     "status": "观察 — 尚无 testnet/白名单；在 mint/redeem 界面开启时关注（2026 年 11 月 30 日）",
+     "source": "Substack 13 Nov 2026 (9 Early Alpha Projects on Zero)"
+    }
+   }
   },
   {
    "id": "zoi-network",
@@ -1367,7 +2210,29 @@
    "portal": "https://airdropalert.com/airdrops/zoi-network/",
    "found": "2026-11-17",
    "status": "BUTUH KAMU",
-   "source": "['https://airdropalert.com/airdrops/zoi-network/', 'https://zoi.network/en/invite/X55HAG', 'https://x.com/zoi_network']"
+   "source": "['https://airdropalert.com/airdrops/zoi-network/', 'https://zoi.network/en/invite/X55HAG', 'https://x.com/zoi_network']",
+   "i18n": {
+    "en": {
+     "type": "Points / App mining",
+     "cost": "Gratis (tanpa deposit/beli); butuh verifikasi ID/KYC di aplikasi + ketuk manual tiap 4 jam",
+     "potential": "Low-Medium: gratis dan mudah, tapi tanpa TGE/tanggal dan butuh ketuk manual tiap 4 jam + verifikasi ID — hanya bila user mau jalankan sendiri dari HP",
+     "risk": "Medium-Low: tanpa TGE/listing/tanggal distribusi (whitepaper janji migrasi 1:1 ke mainnet, tanggal TBA); butuh KYC/ID; reward hanya poin aplikasi sampai TGE diumumkan",
+     "verdict": "WATCH",
+     "details": "Zoi Network adalah jaringan L1 dengan aplikasi mobile (iOS/Android) untuk mining poin ZOI: verifikasi ID, lalu tap Sync tiap 4 jam (10 ZOI per Sync, maksimal 60 ZOI per hari) dengan streak harian dan multiplier hingga 1,7x. Belum ada TGE atau tanggal distribusi; butuh KYC/ID dan ketuk manual dari HP.",
+     "status": "NEEDS YOU",
+     "source": "['https://airdropalert.com/airdrops/zoi-network/', 'https://zoi.network/en/invite/X55HAG', 'https://x.com/zoi_network']"
+    },
+    "zh": {
+     "type": "Points / App mining",
+     "cost": "Gratis (tanpa deposit/beli); butuh verifikasi ID/KYC di aplikasi + ketuk manual tiap 4 jam",
+     "potential": "低至中等: gratis dan mudah, tapi tanpa TGE/tanggal dan butuh ketuk manual tiap 4 jam + verifikasi ID — hanya bila user mau jalankan sendiri dari HP",
+     "risk": "中低: tanpa TGE/listing/tanggal distribusi (whitepaper janji migrasi 1:1 ke mainnet, tanggal TBA); butuh KYC/ID; reward hanya poin aplikasi sampai TGE diumumkan",
+     "verdict": "观察",
+     "details": "Zoi Network adalah jaringan L1 dengan aplikasi mobile (iOS/Android) untuk mining poin ZOI: verifikasi ID, lalu tap Sync tiap 4 jam (10 ZOI per Sync, maksimal 60 ZOI per hari) dengan streak harian dan multiplier hingga 1,7x. Belum ada TGE atau tanggal distribusi; butuh KYC/ID dan ketuk manual dari HP。",
+     "status": "需要你",
+     "source": "['https://airdropalert.com/airdrops/zoi-network/', 'https://zoi.network/en/invite/X55HAG', 'https://x.com/zoi_network']"
+    }
+   }
   },
   {
    "id": "synklings",
@@ -1383,7 +2248,29 @@
    "portal": "https://boltbook.fun/alphapedia/synklings",
    "found": "2026-11-17",
    "status": "Pending Approval",
-   "source": "https://boltbook.fun/alphapedia/synklings?lang=en"
+   "source": "https://boltbook.fun/alphapedia/synklings?lang=en",
+   "i18n": {
+    "en": {
+     "type": "Free Mint",
+     "cost": "Gratis (mint ke-1, gas ~0,0000087 BNB); mint lanjutan 0,0005 BNB",
+     "potential": "Medium — free lane lebar 1.695, simulasi lolos, pace lambat (tidak buru-buru); tapi tanpa pasar sekunder",
+     "risk": "Medium — audit CAUTION 60/100 (skor mentah 77; cap: renderer mutable & tidak terverifikasi — owner bisa ganti art kapan saja; owner live bisa tutup free lane/ubah harga; tim anonim; tanpa refund; tanpa pasar sekunder).",
+     "verdict": "CAUTION",
+     "details": "Synklings adalah koleksi NFT 10.000 di BSC dengan art 100% on-chain; mint pertama gratis (hanya gas), mint lanjutan 0,0005 BNB. Kontrak terverifikasi Sourcify (exact match). Audit: CAUTION 60/100 — renderer mutable dan tidak terverifikasi, owner bisa menutup free lane atau mengubah harga, tim anonim, tanpa pasar sekunder. Mint butuh Agent ID. Status saat audit 17 November: 7.314 dari 10.000 sudah termint, free lane tersisa 1.695.",
+     "status": "Waiting for approval",
+     "source": "https://boltbook.fun/alphapedia/synklings?lang=en"
+    },
+    "zh": {
+     "type": "Free Mint",
+     "cost": "Gratis (mint ke-1, gas ~0,0000087 BNB); mint lanjutan 0,0005 BNB",
+     "potential": "中等 — free lane lebar 1.695, simulasi lolos, pace lambat (tidak buru-buru); tapi tanpa pasar sekunder",
+     "risk": "中等 — audit CAUTION 60/100 (skor mentah 77; cap: renderer mutable & tidak terverifikasi — owner bisa ganti art kapan saja; owner live bisa tutup free lane/ubah harga; tim anonim; tanpa refund; tanpa pasar sekunder).",
+     "verdict": "谨慎",
+     "details": "Synklings adalah koleksi NFT 10.000 di BSC dengan art 100% on-chain; mint pertama gratis (hanya gas), mint lanjutan 0,0005 BNB. Kontrak terverifikasi Sourcify (exact match). Audit: CAUTION 60/100 — renderer mutable dan tidak terverifikasi, owner bisa menutup free lane atau mengubah harga, tim anonim, tanpa pasar sekunder. Mint butuh Agent ID. Status saat audit 17 November: 7.314 dari 10.000 sudah termint, free lane tersisa 1.695。",
+     "status": "等待批准",
+     "source": "https://boltbook.fun/alphapedia/synklings?lang=en"
+    }
+   }
   },
   {
    "id": "nilly-fun",
@@ -1399,7 +2286,27 @@
    "portal": "https://testnet.nilly.fun",
    "found": "2026-11-17",
    "status": "Dikerjakan — RUN PERTAMA BERHASIL 17 Nov 2026 18:10 WIB: launch koin Jennaira (JENNA) [alamat wallet] (tx 0x6fc3f784...95386); buy QUIET 0,001 ETH (tx 0x8e0955de...decb); sell separuh QUIET (tx 0xf4642d88...b4e6). Poin d",
-   "source": "User kirim link via chat Asisten Onchain + X [akun] status 2122369773388308815 (16 Nov 23:42 WIB: testnet is open)"
+   "source": "User kirim link via chat Asisten Onchain + X [akun] status 2122369773388308815 (16 Nov 23:42 WIB: testnet is open)",
+   "i18n": {
+    "en": {
+     "cost": "Free — testnet token from faucet, no real funds",
+     "potential": "Medium — speculative points for early access mainnet + NFT whitelist; no tokenomics/distribution yet, no airdrop promise",
+     "risk": "Low (testnet, no real funds). Note: top leaderboard wallets are manually reviewed, farming (multiple wallets/wash trading/recycled ETH) removed from list — work reasonably with 1 wallet only.",
+     "verdict": "CAUTION",
+     "details": "Nilly Fun is a memecoin launchpad on Zero (upcoming mainnet); testnet runs on Base Sepolia. Users earn points from launch, buy, sell, and daily trading; points grant early access to mainnet and priority whitelist for Nilly NFT. Points are not tokens and no airdrop or payout is promised. The testnet is free using faucet tokens.",
+     "status": "In progress — FIRST RUN SUCCESSFUL 17 Nov 2026 18:10 WIB: launch Jennaira coin (JENNA) [alamat wallet] (tx 0x6fc3f784...95386); buy QUIET 0.001 ETH (tx 0x8e0955de...decb); sell half QUIET (tx 0xf4642d88...b4e6). Points d",
+     "source": "User sent link via Onchain Assistant chat + X [akun] status 2122369773388308815 (16 Nov 23:42 WIB: testnet is open)"
+    },
+    "zh": {
+     "cost": "免费 — 来自水龙头的测试网代币，无真实资金",
+     "potential": "中等 — 投机积分用于提前访问主网 + NFT 白名单；尚无代币经济学/分配，无空投承诺",
+     "risk": "低 (测试网，无真实资金)。备注：排行榜前列钱包手动审查， farming（多个钱包/洗盘交易/循环ETH）已从名单中移除 — 合理操作仅使用1个钱包。",
+     "verdict": "谨慎",
+     "details": "Nilly Fun 是 Zero 上的 meme 币启动平台（即将上线主网）；测试网运行在 Base Sepolia。用户通过启动、买入、卖出和每日交易获得积分；积分提供提前访问主网的权限以及 Nilly NFT 的优先白名单。积分不是代币，且不承诺空投或支付。测试网免费使用水龙头代币。",
+     "status": "进行中 — 首次运行成功 2026年11月17日 18:10 WIB：启动 Jennaira 代币 (JENNA) [alamat wallet] (tx 0x6fc3f784...95386)；购买 QUIET 0.001 ETH (tx 0x8e0955de...decb)；卖出一半 QUIET (tx 0xf4642d88...b4e6)。积分 d",
+     "source": "用户通过 Onchain 助手聊天 + X [akun] 发送链接 状态 2122369773388308815 (2023年11月16日 23:42 WIB：测试网已开放)"
+    }
+   }
   },
   {
    "id": "mintworldgame",
@@ -1415,7 +2322,29 @@
    "portal": "https://mintworldgame.com",
    "found": "2026-11-17",
    "status": "WATCH — tanpa contract address, belum bisa diaudit; cek ulang bila kontrak muncul",
-   "source": "https://mintworldgame.com ; https://app.valist.io/mintworld/mintworld"
+   "source": "https://mintworldgame.com ; https://app.valist.io/mintworld/mintworld",
+   "i18n": {
+    "en": {
+     "type": "Daily Free Mint",
+     "cost": "Free (gas only); 1 free NFT per 24 hours",
+     "potential": "Low-Medium — live, free, daily; but small/niche game, $MWG value unclear",
+     "risk": "Medium — no verified contract, not audited yet; do not mint before contract is found + audited GO/CAUTION",
+     "verdict": "WATCH",
+     "details": "MintWorldGame is a Play & Earn game with dynamic NFTs on Polygon. Claim 1 random Monster NFT free per 24 hours (gas only); burn 10 normal NFTs into 1 $MWG (in‑game currency). Contract address not yet found — audit required before execution.",
+     "status": "WATCH — no contract address, cannot be audited yet; re‑check if contract appears",
+     "source": "https://mintworldgame.com ; https://app.valist.io/mintworld/mintworld"
+    },
+    "zh": {
+     "type": "每日免费铸造",
+     "cost": "免费（仅燃气费）；每24小时免费1个 NFT",
+     "potential": "低至中等 — 在线、免费、每日；但游戏小众，$MWG 价值尚不明确",
+     "risk": "中等 — 无已验证合约，尚未审计；在找到合约并审计之前不要铸造 GO/谨慎",
+     "verdict": "观察",
+     "details": "MintWorldGame 是在 Polygon 上的 Play & Earn 游戏，拥有动态 NFT。每24小时免费领取1个随机怪物 NFT（仅燃气费）；燃烧10个普通 NFT 可获得1个 $MWG（游戏内货币）。合约地址尚未找到 — 必须在执行前进行审计。",
+     "status": "观察 — 无合约地址，尚无法审计；若合约出现请重新检查",
+     "source": "https://mintworldgame.com ; https://app.valist.io/mintworld/mintworld"
+    }
+   }
   },
   {
    "id": "mendlingsnft",
@@ -1431,7 +2360,29 @@
    "portal": "",
    "found": "2026-11-17",
    "status": "WATCH — giveaway WL via post X saja; tugas X belum bisa dikerjakan (login X [akun] rate-limit); cek ulang bila situs/kontrak/tanggal muncul | UPDATE wl-scan 18 Nov 2026 ~13:55 WIB: detail giveaway terkonfirmasi (post [ak",
-   "source": "Pencarian X run hunter-day 10:00 WIB 17 Nov 2026"
+   "source": "Pencarian X run hunter-day 10:00 WIB 17 Nov 2026",
+   "i18n": {
+    "en": {
+     "type": "Whitelist giveaway (GTD)",
+     "cost": "Gratis (free mint, harga mint TBA)",
+     "potential": "Low",
+     "risk": "Medium: verification only one X post, without site/contract/date",
+     "verdict": "WATCH",
+     "details": "MendlingsNFT holds a whitelist giveaway GTD: follow two X accounts, repost pinned post, and write the EVM address in the comment. Supply 7,777 NFT, free mint, mint date not announced. No official site or contract can be verified — only X post.",
+     "status": "WATCH — giveaway WL via post X only; X task cannot be completed yet (login X [akun] rate-limit); recheck if site/contract/date appears | UPDATE wl-scan 18 Nov 2026 ~13:55 WIB: giveaway details confirmed (post [ak",
+     "source": "Pencarian X run hunter-day 10:00 WIB 17 Nov 2026"
+    },
+    "zh": {
+     "type": "Whitelist giveaway (GTD)",
+     "cost": "Gratis (free mint, harga mint TBA)",
+     "potential": "低",
+     "risk": "中等: 仅有一条 X 帖子验证，未提供网站/合约/日期",
+     "verdict": "观察",
+     "details": "MendlingsNFT 举办 whitelist giveaway GTD：关注两个 X 账户，转发置顶帖子，并在评论中写下 EVM 地址。供应 7,777 NFT，免费铸造，铸造日期未公布。没有官方站点或合约可供验证——仅有 X 帖子。",
+     "status": "观察 — giveaway WL via post X only; X task cannot be completed yet (login X [akun] rate-limit); recheck if site/contract/date appears | UPDATE wl-scan 18 Nov 2026 ~13:55 WIB: giveaway details confirmed (post [ak",
+     "source": "Pencarian X run hunter-day 10:00 WIB 17 Nov 2026"
+    }
+   }
   },
   {
    "id": "law-of-the-abyss",
@@ -1447,7 +2398,23 @@
    "portal": "https://lawoftheabyss.com",
    "found": "2026-11-17",
    "status": "Sudah join",
-   "source": "lawoftheabyss.com (cek live 17 Nov 01:58 WIB) + Solana Compass + Medium Tavern Meeting 107 Report (7 Nov 2026)"
+   "source": "lawoftheabyss.com (cek live 17 Nov 01:58 WIB) + Solana Compass + Medium Tavern Meeting 107 Report (7 Nov 2026)",
+   "i18n": {
+    "en": {
+     "type": "Whitelist",
+     "verdict": "WATCH",
+     "details": "Law of the Abyss is a game with free mint 3.300 Commander NFT on 30 November 2026. Whitelist already registered (105/105 points, all missions completed). Mint uses Solana wallet.",
+     "status": "Joined",
+     "source": "lawoftheabyss.com (check live 17 Nov 01:58 WIB) + Solana Compass + Medium Tavern Meeting 107 Report (7 Nov 2026)"
+    },
+    "zh": {
+     "type": "Whitelist",
+     "verdict": "观察",
+     "details": "Law of the Abyss 是一款在 2026 年 11 月 30 日免费铸造 3.300 Commander NFT 的游戏。白名单已登记（105/105 分，所有任务已完成）。铸造使用 Solana 钱包。",
+     "status": "已加入",
+     "source": "lawoftheabyss.com（检查实时 11 月 17 日 01:58 WIB）+ Solana Compass + Medium Tavern Meeting 107 报告（2026 年 11 月 7 日）"
+    }
+   }
   },
   {
    "id": "globe",
@@ -1463,7 +2430,27 @@
    "portal": "",
    "found": "2026-11-17",
    "status": "WATCH — belum ada akses; pantau saat buka bareng mainnet 30 Nov 2026",
-   "source": "Substack 13 Nov 2026 (9 Early Alpha Projects on Zero)"
+   "source": "Substack 13 Nov 2026 (9 Early Alpha Projects on Zero)",
+   "i18n": {
+    "en": {
+     "cost": "No cost information yet",
+     "potential": "Medium — social trading + ATLAS; no access/test yet",
+     "risk": "Not yet fully verified (1 article source)",
+     "verdict": "WATCH",
+     "details": "Globe is a social trading app on ATLAS (Zero): group trading, shared signals, copy trading, spot, perps, and stock exposure with cross-chain deposit. Stealth launch completed; opened together with mainnet. No access or participation program yet.",
+     "status": "WATCH — no access yet; monitor when it opens with mainnet 30 Nov 2026",
+     "source": "Substack 13 Nov 2026 (9 Early Alpha Projects on Zero)"
+    },
+    "zh": {
+     "cost": "暂无费用信息",
+     "potential": "中等 — 社交交易 + ATLAS；暂无访问/测试",
+     "risk": "未完全验证 (1 篇文章来源)",
+     "verdict": "观察",
+     "details": "Globe 是基于 ATLAS (Zero) 的社交交易应用：群组交易、共享信号、跟单交易、现货、永续合约以及通过跨链存款的股票敞口。隐蔽上线已完成；与主网同时开启。暂无访问或参与计划。",
+     "status": "观察 — 暂无访问；在 2026年11月30日 主网开启时关注",
+     "source": "Substack 13 Nov 2026 (9 Early Alpha Projects on Zero)"
+    }
+   }
   },
   {
    "id": "gte",
@@ -1479,7 +2466,27 @@
    "portal": "",
    "found": "2026-11-17",
    "status": "WATCH — pantau rilis produk + akses trading sekitar mainnet 30 Nov 2026",
-   "source": "Substack 13 Nov 2026 (9 Early Alpha Projects on Zero) + Typefully 17 Nov 2026"
+   "source": "Substack 13 Nov 2026 (9 Early Alpha Projects on Zero) + Typefully 17 Nov 2026",
+   "i18n": {
+    "en": {
+     "cost": "No cost info yet",
+     "potential": "Medium — strong infra/trading + large funding; no user participation program yet",
+     "risk": "Not fully verified",
+     "verdict": "WATCH",
+     "details": "GTE is an internet-native trading platform on Zero with a Treasury Layer for cross-chain deposit, redemption, and settlement. Funding is about $25 million and there is an official partnership with LayerZero; Open ATLAS integration is around mainnet. No user participation program yet.",
+     "status": "WATCH — monitor product release + trading access around mainnet 30 Nov 2026",
+     "source": "Substack 13 Nov 2026 (9 Early Alpha Projects on Zero) + Typefully 17 Nov 2026"
+    },
+    "zh": {
+     "cost": "暂无费用信息",
+     "potential": "中等 — 基础设施/交易强大 + 大额融资；暂无用户参与计划",
+     "risk": "未完全验证",
+     "verdict": "观察",
+     "details": "GTE 是 Zero 上的互联网原生交易平台，具备用于跨链存款、赎回和结算的 Treasury Layer。融资约 2500 万美元，并与 LayerZero 建立官方合作；Open ATLAS 集成约在主网阶段。暂无用户参与计划。",
+     "status": "观察 — 监控产品发布 + 交易访问约在 2026 年 11 月 30 日主网",
+     "source": "Substack 13 Nov 2026 (9 Early Alpha Projects on Zero) + Typefully 17 Nov 2026"
+    }
+   }
   },
   {
    "id": "embervale",
@@ -1495,7 +2502,29 @@
    "portal": "https://99airdrops.com/nft-airdrops",
    "found": "2026-11-17",
    "status": "WATCH — game belum rilis; cek ulang bila WL resmi + tanggal muncul",
-   "source": "https://99airdrops.com/nft-airdrops/"
+   "source": "https://99airdrops.com/nft-airdrops/",
+   "i18n": {
+    "en": {
+     "type": "Free NFT whitelist (game not released)",
+     "cost": "Free whitelist; no declared airdrop",
+     "potential": "Low",
+     "risk": "Low — without verified WL details",
+     "verdict": "CAUTION",
+     "details": "Embervale is a pixel farming game on the Robinhood Chain that has not been released. Free whitelist, no declared airdrop. Still speculative/early.",
+     "status": "WATCH — game belum rilis; cek ulang bila WL resmi + tanggal muncul",
+     "source": "https://99airdrops.com/nft-airdrops/"
+    },
+    "zh": {
+     "type": "免费 NFT 白名单（游戏尚未发布）",
+     "cost": "免费白名单；无声明的空投",
+     "potential": "低",
+     "risk": "低 — 无已验证的 WL 细节",
+     "verdict": "谨慎",
+     "details": "Embervale 是 Robinhood Chain 上的像素农场游戏，尚未发布。免费白名单，无声明的空投。仍属投机/早期。",
+     "status": "观察 — 游戏尚未发布；如 WL 正式出现请重新检查 + 出现日期",
+     "source": "https://99airdrops.com/nft-airdrops/"
+    }
+   }
   },
   {
    "id": "bitborn",
@@ -1511,7 +2540,29 @@
    "portal": "https://www.bitborn.io/",
    "found": "2026-11-17",
    "status": "WATCH — belum buka, tanpa tanggal; cek ulang bila mining dibuka",
-   "source": "Pencarian X run hunter-day 10:00 WIB 17 Nov 2026"
+   "source": "Pencarian X run hunter-day 10:00 WIB 17 Nov 2026",
+   "i18n": {
+    "en": {
+     "type": "Mining NFT (proof-of-work di perangkat)",
+     "cost": "Kunci sekali 0,0004 ETH per wallet; mining 30+ hari",
+     "potential": "Medium (watchlist) — only if already opened",
+     "risk": "Low-Medium: transparent mechanism, but not live yet and requires key fee 0,0004 ETH",
+     "verdict": "CAUTION",
+     "details": "BITBORN is an NFT that is 'mined' via proof-of-work on devices: 21,000 units (20,500 can be mined + 500 Genesis through Birth Points lottery). Mining requires a one-time key of 0,0004 ETH per wallet and 30+ days. At check, mining has not opened and no opening date. Contract ERC-721 + ERC-2981 with random seed drand.",
+     "status": "WATCH — not opened, no date; recheck if mining opens",
+     "source": "Search X run hunter-day 10:00 WIB 17 Nov 2026"
+    },
+    "zh": {
+     "type": "Mining NFT (proof-of-work di perangkat)",
+     "cost": "Kunci sekali 0,0004 ETH per wallet; mining 30+ hari",
+     "potential": "中等 (watchlist) — 仅在已开启时",
+     "risk": "低至中等: 机制透明，但尚未上线且需要钥匙费用 0,0004 ETH",
+     "verdict": "谨慎",
+     "details": "BITBORN 是通过设备上的工作量证明（proof-of-work）‘挖矿’的 NFT：共 21,000 枚（20,500 可挖矿 + 500 Genesis 通过 Birth Points 抽奖）。挖矿需要一次性钥匙费用 0,0004 ETH 每钱包，且需 30+ 天。检查时，挖矿尚未开启且无开启日期。合约为 ERC-721 + ERC-2981，使用随机种子 drand。",
+     "status": "观察 — 未开启，无日期；如挖矿开启请重新检查",
+     "source": "搜索 X run hunter-day 10:00 WIB 17 Nov 2026"
+    }
+   }
   },
   {
    "id": "optimum",
@@ -1527,7 +2578,27 @@
    "portal": "https://turbocards.getoptimum.xyz/optimum",
    "found": "2026-11-16",
    "status": "WATCH — proyek legit, mint TurboCards butuh one-time code (FCFS, langka); tanpa code tidak actionable; mint butuh connect wallet + gas ETH, butuh APPROVED bila code didapat",
-   "source": "99airdrops NFT page + panduan Optimum, run wl-hunter-scan-1h 01:50 WIB 16 Nov 2026"
+   "source": "99airdrops NFT page + panduan Optimum, run wl-hunter-scan-1h 01:50 WIB 16 Nov 2026",
+   "i18n": {
+    "en": {
+     "type": "Free mint NFT (code-gated)",
+     "potential": "Medium",
+     "risk": "Low-Medium",
+     "verdict": "WATCH",
+     "details": "Optimum is an Ethereum infrastructure project (mainnet October 2026) that releases TurboCards: 999 soulbound NFTs (cannot be sold/transferred), free mint only requires ETH gas, but needs a one-time rare code (first public drop on October 23 only 20 codes and sold out within minutes). No token or promised airdrop.",
+     "status": "WATCH — legit project, minting TurboCards requires a one-time code (FCFS, rare); without the code not actionable; mint requires connect wallet + ETH gas, needs APPROVED if code obtained",
+     "source": "99airdrops NFT page + panduan Optimum, run wl-hunter-scan-1h 01:50 WIB 16 Nov 2026"
+    },
+    "zh": {
+     "type": "Free mint NFT (code-gated)",
+     "potential": "中等",
+     "risk": "低至中等",
+     "verdict": "观察",
+     "details": "Optimum 是以太坊基础设施项目（主网2026年10月），发布 TurboCards：999 个 soulbound NFT（不可出售/转移），免费铸造仅需 ETH gas，但需要一次性稀有代码（首次公开空投2026年10月23日仅20个代码，几分钟内售罄）。没有代币或承诺的空投。",
+     "status": "观察 — 项目 legit，铸造 TurboCards 需要一次性代码（先到先得，稀有）；没有代码无法操作；铸造需要连接钱包 + ETH gas，若获得代码需 APPROVED",
+     "source": "99airdrops NFT page + panduan Optimum, run wl-hunter-scan-1h 01:50 WIB 16 Nov 2026"
+    }
+   }
   },
   {
    "id": "ninefold",
@@ -1543,7 +2614,21 @@
    "portal": "",
    "found": "2026-11-16",
    "status": "WATCH — allowlist terbuka (free signed message, tanpa bayar/tanpa tx mint), kontrak terverifikasi di Blockscout [alamat wallet] (NineFold NF, ERC721SeaDropCloneable); TAPI situs resmi + akun X tidak ditemukan di pencaria",
-   "source": ""
+   "source": "",
+   "i18n": {
+    "en": {
+     "type": "NFT allowlist (999 supply, mint via OpenSea)",
+     "verdict": "WATCH",
+     "details": "Ninefold is 999 on-chain artworks on Robinhood Chain; the image is drawn by the smart contract from the holder's wallet contents. Allowlist via free signed message; the same signature also enters the Curated Apes Collector Leaderboard. Mint via OpenSea after X announcement. Contract verified on Blockscout, but official website and X account not found.",
+     "status": "WATCH — allowlist open (free signed message, no payment/no mint tx), contract verified on Blockscout [wallet address] (NineFold NF, ERC721SeaDropCloneable); BUT official website + X account not found in search"
+    },
+    "zh": {
+     "type": "NFT allowlist (999 supply, mint via OpenSea)",
+     "verdict": "观察",
+     "details": "Ninefold 是 Robinhood Chain 上的 999 件链上艺术作品；图像由持有者钱包内容的智能合约绘制。通过免费签名信息获取 Allowlist；相同签名也可进入 Curated Apes Collector Leaderboard。X 公告后通过 OpenSea 铸造。合约在 Blockscout 上已验证，但未找到官方站点和 X 账号。",
+     "status": "观察 — Allowlist 开放（免费签名信息，无支付/无铸造交易），合约在 Blockscout [wallet address]（NineFold NF，ERC721SeaDropCloneable）已验证；但未在搜索中找到官方站点和 X 账号"
+    }
+   }
   },
   {
    "id": "kit",
@@ -1559,7 +2644,29 @@
    "portal": "https://kit.voyage",
    "found": "2026-11-16",
    "status": "In Progress",
-   "source": "['https://kit.voyage', 'https://kit.voyage/faq', 'https://x.com/kitthecalico']"
+   "source": "['https://kit.voyage', 'https://kit.voyage/faq', 'https://x.com/kitthecalico']",
+   "i18n": {
+    "en": {
+     "type": "Points / Quest",
+     "cost": "Free for points (connect X + quest). Presale apply but need deposit 0.05-0.5 BNB (claimed refundable) - not decided.",
+     "potential": "Medium (meme index BNB, community vote meme; 1,740 passengers and growing +108/day; presale opens this week)",
+     "risk": "Medium - new project ~3 weeks, no token yet; NO airdrop promise (the only route to $KIT is paid presale); presale deposit not verified externally; 2 epochs 3 days each from tweet [akun] NOT found on site (campaign presented as a single ongoing voyage).",
+     "verdict": "WATCH",
+     "details": "Kit ($KIT) is a meme index points campaign on BNB: connect X, create passport, then do daily quests (follow, repost, meme of the day, check‑in). Registration is closed with 0 points. Separate presale requires deposit 0.05-0.5 BNB and not decided; further quests require connect wallet via WalletConnect from phone.",
+     "status": "In Progress",
+     "source": "['https://kit.voyage', 'https://kit.voyage/faq', 'https://x.com/kitthecalico']"
+    },
+    "zh": {
+     "type": "积分 / 任务",
+     "cost": "免费获取积分（connect X + 任务）。预售需要存入 0.05-0.5 BNB（声称可退款）- 尚未决定。",
+     "potential": "中等（BNB meme 指数，社区投票 meme；1,740 名乘客并以每日 +108 增长；本周开启预售）",
+     "risk": "中等 - 项目新约 3 周，尚无代币；没有空投承诺（获取 $KIT 的唯一途径是付费预售）；预售存款未外部验证；来自推文 [akun] 的 2 个 epoch 每个 3 天 未在网站上找到（活动呈现为单一进行中的航程）。",
+     "verdict": "观察",
+     "details": "Kit ($KIT) 是在 BNB 上的 meme 指数积分活动：connect X，创建护照，然后完成每日任务（关注，转发，今日 meme，签到）。注册已结束，积分为 0。单独的预售需要存入 0.05-0.5 BNB，尚未决定；后续任务需要通过手机的 WalletConnect 连接钱包。",
+     "status": "进行中",
+     "source": "['https://kit.voyage', 'https://kit.voyage/faq', 'https://x.com/kitthecalico']"
+    }
+   }
   },
   {
    "id": "hoodhallz",
@@ -1575,7 +2682,21 @@
    "portal": "https://www.hoodhallz.com/mint/first-thousand/",
    "found": "2026-11-16",
    "status": "WATCH — allowlist via aplikasi (connect wallet + X, tim review, undangan), mint gratis (hanya gas), tanggal & kontrak TERPUBLIKASI BELUM ADA ('verified contract will be published here before the mint opens'). Hanya 1 sum",
-   "source": ""
+   "source": "",
+   "i18n": {
+    "en": {
+     "type": "NFT whitelist (2,000 Golden Leaf, free mint by invitation)",
+     "verdict": "WATCH",
+     "details": "HoodHallz is a Genesis NFT 2,000 Golden Leaf on Robinhood Chain; Golden Leaf holders receive a gold profile verification seal. Whitelist via app (connect wallet + X, participate in Sherwood, team reviews and selects wallets for invitation); 1 mint per invitation if claim opens. Launch coming soon, date and contract not published yet.",
+     "status": "WATCH — allowlist via app (connect wallet + X, team review, invitation), free mint (only gas), date & contract NOT PUBLISHED YET ('verified contract will be published here before the mint opens'). Only 1 sum"
+    },
+    "zh": {
+     "type": "NFT 白名单（2,000 Golden Leaf，邀请免费铸造）",
+     "verdict": "观察",
+     "details": "HoodHallz 是 Robinhood Chain 上的 Genesis NFT，数量 2,000 Golden Leaf；Golden Leaf 持有者获得金色个人资料验证印章。通过应用程序进行白名单（连接钱包 + X，参与 Sherwood，团队审查并选择钱包进行邀请）；每个邀请可铸造 1 个，如果开启认领。即将上线，日期和合约尚未公布。",
+     "status": "观察 — 通过应用程序的白名单（连接钱包 + X，团队审查，邀请），免费铸造（仅支付 gas），日期和合约尚未公布（“在铸造开启前，已验证的合约将在此发布”）。仅限 1 次"
+    }
+   }
   },
   {
    "id": "axis-robotics",
@@ -1591,7 +2712,29 @@
    "portal": "https://axisrobotics.ai/",
    "found": "2026-11-16",
    "status": "Pending Approval",
-   "source": "['https://axisrobotics.ai/', 'https://airdrop.axisrobotics.ai/', 'https://99airdrops.com/airdrops/axis-robotics/', 'https://blog.mexc.com/crypto-knowledge/axis-"
+   "source": "['https://axisrobotics.ai/', 'https://airdrop.axisrobotics.ai/', 'https://99airdrops.com/airdrops/axis-robotics/', 'https://blog.mexc.com/crypto-knowledge/axis-",
+   "i18n": {
+    "en": {
+     "type": "Points / Quest",
+     "cost": "Gratis (tanpa gas untuk latihan? signature tiap run di Base - gas kecil bila ada; belum terverifikasi)",
+     "potential": "Medium",
+     "risk": "Medium",
+     "verdict": "WATCH",
+     "details": "Axis Robotics holds Season 2: train robot in browser (trajectory teleoperation) for Axis Points towards airdrop 60 million AXIS post‑TGE. Not yet done — requires connect wallet and signature each run in Base.",
+     "status": "Pending Approval",
+     "source": "['https://axisrobotics.ai/', 'https://airdrop.axisrobotics.ai/', 'https://99airdrops.com/airdrops/axis-robotics/', 'https://blog.mexc.com/crypto-knowledge/axis-']"
+    },
+    "zh": {
+     "type": "Points / Quest",
+     "cost": "Gratis (tanpa gas untuk latihan? signature tiap run di Base - gas kecil bila ada; belum terverifikasi)",
+     "potential": "中等",
+     "risk": "中等",
+     "verdict": "观察",
+     "details": "Axis Robotics 举办 Season 2：在浏览器中训练机器人（轨迹遥操作），以获取 Axis Points，争取 TGE 后 6000 万 AXIS 空投。尚未完成——需要连接钱包并在 Base 每次运行进行签名。",
+     "status": "等待批准",
+     "source": "['https://axisrobotics.ai/', 'https://airdrop.axisrobotics.ai/', 'https://99airdrops.com/airdrops/axis-robotics/', 'https://blog.mexc.com/crypto-knowledge/axis-']"
+    }
+   }
   },
   {
    "id": "anthood",
@@ -1607,7 +2750,27 @@
    "portal": "https://spaces.deads.io/s/1AMPzQAzLJlpAV",
    "found": "2026-11-16",
    "status": "WATCH — free mint 1.111 animated PFP via GraveMint, WL + GTD only, tanpa public mint; tanggal mint BELUM diumumkan (diumumkan live di Spaces); WL lewat clipping competition (ikut serta = masuk WL), tanpa form pendaftaran",
-   "source": "Transkrip X Spaces KingAnt 10 Nov + 13 Nov 2026 (spaces.deads.io), run wl-hunter-scan-1h 02:50 WIB 16 Nov 2026"
+   "source": "Transkrip X Spaces KingAnt 10 Nov + 13 Nov 2026 (spaces.deads.io), run wl-hunter-scan-1h 02:50 WIB 16 Nov 2026",
+   "i18n": {
+    "en": {
+     "type": "Free mint NFT (WL + GTD only)",
+     "potential": "Medium",
+     "risk": "Medium",
+     "verdict": "WATCH",
+     "details": "AntHood is a free mint of 1,111 animated PFPs on Robinhood Chain via GraveMint, whitelist + GTD only, no public mint; the date was announced live on X Spaces. Whitelist through clipping competition (participate = get whitelist). Separate $5,000 giveaway requires a $100 wager and was not participated. No promised token.",
+     "status": "WATCH — free mint 1,111 animated PFP via GraveMint, WL + GTD only, without public mint; mint date NOT announced (announced live on Spaces); WL through clipping competition (participate = get WL), no registration form",
+     "source": "Transkrip X Spaces KingAnt 10 Nov + 13 Nov 2026 (spaces.deads.io), run wl-hunter-scan-1h 02:50 WIB 16 Nov 2026"
+    },
+    "zh": {
+     "type": "Free mint NFT (WL + GTD only)",
+     "potential": "中等",
+     "risk": "中等",
+     "verdict": "观察",
+     "details": "AntHood 是在 Robinhood Chain 通过 GraveMint 的免费铸造 1,111 个动画 PFP，仅限白名单 + GTD，无公开铸造；铸造日期在 X Spaces 现场公布。白名单通过剪辑比赛获取（参与 = 进入白名单）。另有 $5,000 赠品需下注 $100，且未参与。没有承诺的代币。",
+     "status": "观察 — 免费铸造 1,111 动画 PFP 通过 GraveMint，仅限 WL + GTD，无公开铸造；铸造日期尚未公布（在 Spaces 现场公布）；WL 通过剪辑比赛获取（参与 = 进入 WL），无注册表单",
+     "source": "Transkrip X Spaces KingAnt 10 Nov + 13 Nov 2026 (spaces.deads.io), run wl-hunter-scan-1h 02:50 WIB 16 Nov 2026"
+    }
+   }
   },
   {
    "id": "000-fun",
@@ -1623,7 +2786,21 @@
    "portal": "https://000.fun",
    "found": "2026-11-16",
    "status": "WATCH — dievaluasi wl-scan 09:50 WIB 16 Nov 2026: launchpad token di Zero, situs resmi 000.fun terverifikasi live (\"Coming soon\", 0 token launched, awaiting launch); X [akun]. Belum ada launch, testnet, maupun whitelist",
-   "source": ""
+   "source": "",
+   "i18n": {
+    "en": {
+     "type": "Token launchpad (not WL — no whitelist/testnet yet)",
+     "verdict": "CAUTION",
+     "details": "000.fun is a token launchpad on Zero ('From zero to FUN') with 3 items still sealed until launch. No launch, testnet, or whitelist yet; early access was announced via X.",
+     "status": "WATCH — evaluated wl-scan 09:50 WIB 16 Nov 2026: token launchpad on Zero, official site 000.fun verified live (\"Coming soon\", 0 token launched, awaiting launch); X [akun]. No launch, testnet, or whitelist yet"
+    },
+    "zh": {
+     "type": "Token launchpad（非 WL — 尚未有 whitelist/testnet）",
+     "verdict": "谨慎",
+     "details": "000.fun 是 Zero 上的 token launchpad（“From zero to FUN”），有 3 项在 launch 前仍保持封闭。尚未有 launch、testnet 或 whitelist；早期访问通过 X 公布。",
+     "status": "观察 — dievaluasi wl-scan 09:50 WIB 16 Nov 2026: launchpad token di Zero, situs resmi 000.fun terverifikasi live (\"Coming soon\", 0 token launched, awaiting launch); X [akun]. Belum ada launch, testnet, maupun whitelist"
+    }
+   }
   },
   {
    "id": "oro",
@@ -1639,7 +2816,29 @@
    "portal": "https://airdrop.askoro.ai",
    "found": "2026-11-15",
    "status": "Pending Approval",
-   "source": "['https://airdrop.askoro.ai', 'https://app.askoro.ai', 'https://airdropalert.com/airdrops/askoro-ai/']"
+   "source": "['https://airdrop.askoro.ai', 'https://app.askoro.ai', 'https://airdropalert.com/airdrops/askoro-ai/']",
+   "i18n": {
+    "en": {
+     "type": "Points / Quest",
+     "cost": "Free (learning campaigns). Paid DEX/Vaults activities - skipped.",
+     "potential": "Medium (AI command center DeFi, $4 million funding, confirmed airdrop)",
+     "risk": "Medium - tokenomics & ORE conversion not announced; NO third‑party audit published; US/Canada restricted (Indonesia not listed)",
+     "verdict": "WATCH",
+     "details": "ORO (Askoro) is an AI command center DeFi with free learning campaigns: create account, connect wallet, complete modules and quizzes to earn ORE Points. Paid DEX/Vaults activities are skipped. Airdrop confirmed, but tokenomics and ORE conversion not announced; no third‑party audit.",
+     "status": "Waiting for approval",
+     "source": "['https://airdrop.askoro.ai', 'https://app.askoro.ai', 'https://airdropalert.com/airdrops/askoro-ai/']"
+    },
+    "zh": {
+     "type": "Points / Quest",
+     "cost": "免费（学习活动）。付费的 DEX/Vaults 活动 - 已跳过。",
+     "potential": "中等 (AI 指挥中心 DeFi，$4 百万资金，已确认空投)",
+     "risk": "中等 - tokenomics 与 ORE 转换尚未公布；没有发布第三方审计；美国/加拿大受限（未列出印度尼西亚）",
+     "verdict": "观察",
+     "details": "ORO (Askoro) 是一个 AI 指挥中心 DeFi，提供免费学习活动：创建账户，连接钱包，完成模块和测验以获取 ORE Points。付费的 DEX/Vaults 活动已跳过。空投已确认，但 tokenomics 与 ORE 转换尚未公布；没有第三方审计。",
+     "status": "等待批准",
+     "source": "['https://airdrop.askoro.ai', 'https://app.askoro.ai', 'https://airdropalert.com/airdrops/askoro-ai/']"
+    }
+   }
   },
   {
    "id": "gyndore",
@@ -1655,7 +2854,29 @@
    "portal": "https://app.gyndore.com",
    "found": "2026-11-15",
    "status": "Pending Approval",
-   "source": "['https://app.gyndore.com', 'https://freecoins24.io/airdrops/gyndore-airdrop/', 'https://www.airdrophunt.net/airdrops/gyndore-airdrop-1ssl']"
+   "source": "['https://app.gyndore.com', 'https://freecoins24.io/airdrops/gyndore-airdrop/', 'https://www.airdrophunt.net/airdrops/gyndore-airdrop-1ssl']",
+   "i18n": {
+    "en": {
+     "type": "Points / Quest",
+     "cost": "Free to claim social chips; ecosystem chips may require holding assets (real funds). Small Base gas if there is an on-chain claim.",
+     "potential": "Medium (Bitcoin liquidity hub on Base, focusing on cbBTC; $GYND fee token + bGYND incentive)",
+     "risk": "Medium - allocation/tokenomics not announced; team/funding not verified; some chips require holding assets",
+     "verdict": "WATCH",
+     "details": "Gyndore is a Bitcoin liquidity hub on Base (focused on cbBTC) with DropWave: connect Base and X wallets, claim Chips (Social/General/Ecosystem) to become GynPoints towards the $GYND token leaderboard. Some chips require Base activity or holding listed assets. Allocation and tokenomics have not been announced. Not yet implemented.",
+     "status": "Pending Approval",
+     "source": "['https://app.gyndore.com', 'https://freecoins24.io/airdrops/gyndore-airdrop/', 'https://www.airdrophunt.net/airdrops/gyndore-airdrop-1ssl']"
+    },
+    "zh": {
+     "type": "Points / Quest",
+     "cost": "免费领取社交芯片；生态系统芯片可能需要持有资产（真实资金）。如果有链上领取，则 Base 的 Gas 费用很小。",
+     "potential": "中等（Base 上的比特币流动性中心，专注于 cbBTC；$GYND 费用代币 + bGYND 激励）",
+     "risk": "中等 - 分配/代币经济学尚未公布；团队/资金未验证；部分芯片需要持有资产",
+     "verdict": "观察",
+     "details": "Gyndore 是 Base 上的比特币流动性中心（专注于 cbBTC），配合 DropWave：连接 Base 和 X 钱包，领取芯片（社交/通用/生态系统），转化为 GynPoints 进入 $GYND 代币排行榜。部分芯片需要 Base 活动或持有列出的资产。分配和代币经济学尚未公布。尚未实施。",
+     "status": "等待批准",
+     "source": "['https://app.gyndore.com', 'https://freecoins24.io/airdrops/gyndore-airdrop/', 'https://www.airdrophunt.net/airdrops/gyndore-airdrop-1ssl']"
+    }
+   }
   },
   {
    "id": "zerovault",
@@ -1671,7 +2892,27 @@
    "portal": "—",
    "found": "2026-11-14",
    "status": "WATCH — belum terverifikasi (tidak ada website/sumber resmi)",
-   "source": "Substack listicle 13 Nov 2026 ([akun])"
+   "source": "Substack listicle 13 Nov 2026 ([akun])",
+   "i18n": {
+    "en": {
+     "type": "Waitlist / Points",
+     "potential": "Not yet assessed",
+     "risk": "Not yet assessed",
+     "verdict": "WATCH",
+     "details": "ZeroVault is reported to open a waitlist with tasks and invites for points, with a testnet arriving soon. The only source is a Substack listicle; no official website or second independent source was found — do not sign up via the listicle link without verifying the official domain.",
+     "status": "WATCH — not verified (no official website/source)",
+     "source": "Substack listicle 13 Nov 2026 ([akun])"
+    },
+    "zh": {
+     "type": "Waitlist / Points",
+     "potential": "未评估",
+     "risk": "未评估",
+     "verdict": "观察",
+     "details": "据报道，ZeroVault 正在开放等待名单，提供任务和邀请以获取积分，测试网即将上线。唯一的来源是 Substack 列表文章；未找到官方网页或第二独立来源——请勿在未验证官方域名的情况下通过列表链接注册。",
+     "status": "观察 — 未验证（无官方网页/来源）",
+     "source": "Substack listicle 13 Nov 2026 ([akun])"
+    }
+   }
   },
   {
    "id": "xyper-market",
@@ -1687,7 +2928,29 @@
    "portal": "https://airdrops.io/xyper/",
    "found": "2026-11-14",
    "status": "In Progress",
-   "source": "['https://airdrops.io/xyper/', 'https://freecoins24.io/airdrops/xyper/', 'https://www.droply.digital/project/xyper-market']"
+   "source": "['https://airdrops.io/xyper/', 'https://freecoins24.io/airdrops/xyper/', 'https://www.droply.digital/project/xyper-market']",
+   "i18n": {
+    "en": {
+     "type": "Points / Quest",
+     "cost": "Gratis (tanpa deposit); klaim reward on-chain mungkin butuh gas (belum dicek)",
+     "potential": "Medium (bayaran kampanye nyata hari ini + XYPER kemudian; tanpa ambang follower)",
+     "risk": "Low (tanpa deposit); nilai XYPER belum pasti",
+     "verdict": "WATCH",
+     "details": "Xyper Market is a creator campaign marketplace: follow X, subscribe email, then choose a funded campaign brief, post original content on X, and submit the link before the deadline; claim reward if the submission is accepted. No deposit and no follower threshold; the value of the XYPER token is not certain.",
+     "status": "In Progress",
+     "source": "['https://airdrops.io/xyper/', 'https://freecoins24.io/airdrops/xyper/', 'https://www.droply.digital/project/xyper-market']"
+    },
+    "zh": {
+     "type": "Points / Quest",
+     "cost": "Gratis (tanpa deposit); klaim reward on-chain mungkin butuh gas (belum dicek)",
+     "potential": "中等 (bayaran kampanye nyata hari ini + XYPER kemudian; tanpa ambang follower)",
+     "risk": "低 (tanpa deposit); nilai XYPER belum pasti",
+     "verdict": "观察",
+     "details": "Xyper Market 是一个创作者活动市场：关注 X，订阅邮件，然后选择有资金的活动简报，在 X 上发布原创内容，并在截止日期前提交链接；如果提交被接受则领取奖励。无需存款，也没有粉丝门槛；XYPER 代币的价值尚不确定。",
+     "status": "In Progress",
+     "source": "['https://airdrops.io/xyper/', 'https://freecoins24.io/airdrops/xyper/', 'https://www.droply.digital/project/xyper-market']"
+    }
+   }
   },
   {
    "id": "vibevibe",
@@ -1703,7 +2966,27 @@
    "portal": "https://testnet.vibevibe.fun",
    "found": "2026-11-14",
    "status": "Ditolak — user reject 15 Nov ~00:20 WIB (ribet: faucet butuh Google sign-in + Cloudflare, connect wallet ribet)",
-   "source": "vibevibe.fun (dibuka langsung 14 Nov 23:41 WIB) + 99airdrops (4 Okt 2026) + Bitrue (~12 Nov 2026)"
+   "source": "vibevibe.fun (dibuka langsung 14 Nov 23:41 WIB) + 99airdrops (4 Okt 2026) + Bitrue (~12 Nov 2026)",
+   "i18n": {
+    "en": {
+     "type": "Testnet / Points (watch)",
+     "potential": "Low-Medium",
+     "risk": "Low",
+     "verdict": "CAUTION",
+     "details": "VIBEVIBE is a testnet on Robinhood Chain Testnet with 166,064 launches recorded. Flow: connect wallet, add testnet network (chain ID 46630), claim faucet (0.01 test ETH + 5 stock tokens per 24h per address), then trade/launch. Faucet requires Cloudflare verification and Google account connection. $SPARK token is not required.",
+     "status": "Ditolak — user reject 15 Nov ~00:20 WIB (ribet: faucet butuh Google sign-in + Cloudflare, connect wallet ribet)",
+     "source": "vibevibe.fun (dibuka langsung 14 Nov 23:41 WIB) + 99airdrops (4 Okt 2026) + Bitrue (~12 Nov 2026)"
+    },
+    "zh": {
+     "type": "Testnet / Points (watch)",
+     "potential": "低至中等",
+     "risk": "低",
+     "verdict": "谨慎",
+     "details": "VIBEVIBE 是 Robinhood Chain Testnet 上的测试网，已记录 166,064 次启动。流程：连接钱包，添加测试网网络（链 ID 46630），领取水龙头（每地址每 24 小时 0.01 测试 ETH + 5 股份代币），然后交易/启动。水龙头需要 Cloudflare 验证和 Google 账户连接。无需 $SPARK 代币。",
+     "status": "Ditolak — user reject 15 Nov ~00:20 WIB (ribet: faucet butuh Google sign-in + Cloudflare, connect wallet ribet)",
+     "source": "vibevibe.fun (dibuka langsung 14 Nov 23:41 WIB) + 99airdrops (4 Okt 2026) + Bitrue (~12 Nov 2026)"
+    }
+   }
   },
   {
    "id": "tzero",
@@ -1719,7 +3002,27 @@
    "portal": "https://testnet.tzero.fun/points",
    "found": "2026-11-14",
    "status": "Dikerjakan — RUN PERTAMA BERHASIL 17 Nov 2026 18:10 WIB: buy 0,01 ETH misi CHOVY (GenG chovy) [alamat wallet] (tx 0x1607ea93...a53), progress 94,37% saat beli. Fuel 10 PENDING sampai hold 60 mnt (~19:05 WIB) — JANGAN jua",
-   "source": "Substack listicle 13 Nov 2026 + video promo Facebook/Instagram 10 Nov 2026"
+   "source": "Substack listicle 13 Nov 2026 + video promo Facebook/Instagram 10 Nov 2026",
+   "i18n": {
+    "en": {
+     "type": "Testnet / Points",
+     "potential": "Medium",
+     "risk": "Not yet assessed",
+     "verdict": "WATCH",
+     "details": "Tzero (T0.fun) is the first launchpad on Zero with a fair launch without presale; the $T0 token enters the public airdrop contract at launch. Testnet Season 0 is live. The testnet chain and faucet have not been checked — verify first before proceeding.",
+     "status": "In progress — FIRST RUN SUCCESSFUL 17 Nov 2026 18:10 WIB: buy 0.01 ETH mission CHOVY (GenG chovy) [alamat wallet] (tx 0x1607ea93...a53), progress 94.37% at purchase. Fuel 10 PENDING until hold 60 min (~19:05 WIB) — DO NOT",
+     "source": "Substack listicle 13 Nov 2026 + video promo Facebook/Instagram 10 Nov 2026"
+    },
+    "zh": {
+     "type": "Testnet / Points",
+     "potential": "中等",
+     "risk": "未评估",
+     "verdict": "观察",
+     "details": "Tzero (T0.fun) 是 Zero 上的首个无预售的公平启动平台；$T0 代币在启动时进入公共空投合约。Testnet Season 0 已上线。测试网链和水龙头尚未检查 — 请先验证后再操作。",
+     "status": "进行中 — 首次运行成功 2026年11月17日 18:10 WIB：购买 0.01 ETH 任务 CHOVY (GenG chovy) [alamat wallet] (tx 0x1607ea93...a53)，购买时进度 94.37%。Fuel 10 待定，持有 60 分钟后 (~19:05 WIB) — 切勿",
+     "source": "Substack listicle 13 Nov 2026 + video promo Facebook/Instagram 10 Nov 2026"
+    }
+   }
   },
   {
    "id": "termix",
@@ -1735,7 +3038,29 @@
    "portal": "https://airdrops.io/termix/",
    "found": "2026-11-14",
    "status": "In Progress",
-   "source": "['https://airdrops.io/termix/', 'https://99airdrops.com/airdrops/termix/', 'https://www.agent.family']"
+   "source": "['https://airdrops.io/termix/', 'https://99airdrops.com/airdrops/termix/', 'https://www.agent.family']",
+   "i18n": {
+    "en": {
+     "type": "Points / Quest",
+     "cost": "Free (Kaito campaign, X only, no deposit). TP route requires a few cents of BNB gas + connect wallet — not yet done.",
+     "potential": "Medium (creator allocation confirmed 0.30%, but supply & TGE not announced; only 450 ranked creators)",
+     "risk": "Low (free, X only); TMT not yet available — value uncertain",
+     "verdict": "WATCH",
+     "details": "TermiX is a Kaito Katalyst creator campaign: connect X on the Kaito campaign page and submit up to 10 original posts per epoch (top 6 counted). Epoch 3 opens on 24 October 2026, winners announced on 23 November 2026. The first tweet has been posted; submission to Kaito is still pending. The TP points route (1,400 TP one-time) requires connect wallet and BNB gas.",
+     "status": "In Progress",
+     "source": "['https://airdrops.io/termix/', 'https://99airdrops.com/airdrops/termix/', 'https://www.agent.family']"
+    },
+    "zh": {
+     "type": "Points / Quest",
+     "cost": "免费（Kaito 活动，仅 X，无存款）。TP 路线需要少量 BNB 燃料 + connect wallet — 尚未完成。",
+     "potential": "中等（创作者分配已确认 0.30%，但供应和 TGE 尚未公布；仅 450 名创作者排名）",
+     "risk": "低（免费，仅 X）；TMT 尚未出现 — 价值不确定",
+     "verdict": "观察",
+     "details": "TermiX 是 Kaito Katalyst 创作者活动：在 Kaito 活动页面 connect X 并提交每个 epoch 最多 10 篇原创帖子（计入前 6 名）。第 3 轮于 2026 年 10 月 24 日开启，获胜者于 2026 年 11 月 23 日公布。第一条推文已发布；向 Kaito 的提交仍在等待。TP points 路线（一次性 1,400 TP）需要 connect wallet 和 BNB 燃料。",
+     "status": "进行中",
+     "source": "['https://airdrops.io/termix/', 'https://99airdrops.com/airdrops/termix/', 'https://www.agent.family']"
+    }
+   }
   },
   {
    "id": "tastyco",
@@ -1751,7 +3076,29 @@
    "portal": "https://airdropalert.com/airdrops/tastyco/",
    "found": "2026-11-14",
    "status": "BUTUH KAMU",
-   "source": "['https://airdropalert.com/airdrops/tastyco/', 'https://99airdrops.com/airdrops/tastyco/', 'https://airdropbuzz.com/airdrop/tastyco-airdrop-tasty-points-guide']"
+   "source": "['https://airdropalert.com/airdrops/tastyco/', 'https://99airdrops.com/airdrops/tastyco/', 'https://airdropbuzz.com/airdrop/tastyco-airdrop-tasty-points-guide']",
+   "i18n": {
+    "en": {
+     "type": "Points / Quest",
+     "cost": "Free (social quest, no deposit; BNB gas for connect/sign not yet checked)",
+     "potential": "Low-Medium (allocation 5% confirmed but without guaranteed conversion/TGE; TGE already near)",
+     "risk": "Low (free); tokenomics preliminary, may change",
+     "verdict": "WATCH",
+     "details": "TastyCo is a project with social quests on app.tastyco.io: connect an EVM wallet (BNB) and link X, then complete native quests (connect Telegram, join Discord, follow X and Instagram, weekly quiz, streak, referral). A native profile is required for eligibility. Allocation 5% confirmed but without guaranteed conversion or TGE.",
+     "status": "BUTUH KAMU",
+     "source": "['https://airdropalert.com/airdrops/tastyco/', 'https://99airdrops.com/airdrops/tastyco/', 'https://airdropbuzz.com/airdrop/tastyco-airdrop-tasty-points-guide']"
+    },
+    "zh": {
+     "type": "Points / Quest",
+     "cost": "免费（社交任务，无存款；BNB 燃料用于 connect/sign 尚未检查）",
+     "potential": "低至中等（分配 5% 已确认但没有保证的转换/TGE；TGE 已接近）",
+     "risk": "低（免费）；代币经济学为初步阶段，可能会改变",
+     "verdict": "观察",
+     "details": "TastyCo 是在 app.tastyco.io 上提供社交任务的项目：connect 一个 EVM 钱包（BNB）并链接 X，然后完成原生任务（connect Telegram，加入 Discord，关注 X 和 Instagram，周度测验，连胜，推荐）。原生资料是资格的必需条件。分配 5% 已确认但没有保证的转换或 TGE。",
+     "status": "需要你",
+     "source": "['https://airdropalert.com/airdrops/tastyco/', 'https://99airdrops.com/airdrops/tastyco/', 'https://airdropbuzz.com/airdrop/tastyco-airdrop-tasty-points-guide']"
+    }
+   }
   },
   {
    "id": "ryfinite",
@@ -1767,7 +3114,29 @@
    "portal": "https://ryfinite.com",
    "found": "2026-11-14",
    "status": "In Progress",
-   "source": "['https://ryfinite.com', 'https://99airdrops.com/airdrops/ryfinite/', 'https://airdropalert.com/airdrops/ryfinite/']"
+   "source": "['https://ryfinite.com', 'https://99airdrops.com/airdrops/ryfinite/', 'https://airdropalert.com/airdrops/ryfinite/']",
+   "i18n": {
+    "en": {
+     "type": "Points / Quest",
+     "cost": "Free (free route, without Passport). Paid Passport — skipped.",
+     "potential": "Low-Medium (TGE Q1 2027, 'nothing is guaranteed', pool 67.5 million+ still available)",
+     "risk": "Low (free); team NOT named (anonymous) — legitimacy weakness",
+     "verdict": "WATCH",
+     "details": "Ryfinite is a project with a daily check‑in system for Gems (5‑day streak recorded on 19 November, 133 Gems). TGE Q1 2027 with a pool of 67.5 million+ still available, but no guarantee. Free route without Passport; paid Passport skipped. Team is unnamed (anonymous). X account and wallet not linked; email verification code for the second account never arrived.",
+     "status": "In Progress",
+     "source": "['https://ryfinite.com','https://99airdrops.com/airdrops/ryfinite/','https://airdropalert.com/airdrops/ryfinite/']"
+    },
+    "zh": {
+     "type": "Points / Quest",
+     "cost": "免费（免费路线，无需 Passport）。付费 Passport — 跳过。",
+     "potential": "低至中等（TGE Q1 2027，'nothing is guaranteed'，池 67.5 百万+ 仍可用）",
+     "risk": "低（免费）；团队未命名（匿名）——合法性弱点",
+     "verdict": "观察",
+     "details": "Ryfinite 是一个每日签到系统获取 Gems 的项目（5 天连签记录于 11 月 19 日，133 Gems）。TGE Q1 2027，池子 67.5 百万+ 仍可用，但没有保证。免费路线无需 Passport；付费 Passport 被跳过。团队未命名（匿名）。X 账户和钱包未关联；第二个账户的邮箱验证码从未收到。",
+     "status": "进行中",
+     "source": "['https://ryfinite.com','https://99airdrops.com/airdrops/ryfinite/','https://airdropalert.com/airdrops/ryfinite/']"
+    }
+   }
   },
   {
    "id": "plunderport",
@@ -1783,7 +3152,27 @@
    "portal": "https://plunderport.fun",
    "found": "2026-11-14",
    "status": "Ditolak — user reject 15 Nov ~00:21 WIB (ribet: harus daftar sendiri via HP — WalletConnect QR + SIWE + sign-in X + follow)",
-   "source": "plunderport.fun (dibuka langsung 14 Nov 23:41 WIB) + artikel komunitas KuCoin"
+   "source": "plunderport.fun (dibuka langsung 14 Nov 23:41 WIB) + artikel komunitas KuCoin",
+   "i18n": {
+    "en": {
+     "type": "Early Access / Points",
+     "potential": "Medium",
+     "risk": "Low-Medium (token PP belum launch; waspada token palsu)",
+     "verdict": "CAUTION",
+     "details": "PlunderPort is early access with prize pool $10,000 and 8,623 captains recorded: prove wallet (one free SIWE signature), verify X, follow official account, then Captain Pass with referral and tasks. XP: +100 join, +20 per verified referral, +50 per task. Wallet only via WalletConnect; multi-wallet prohibited (one registration per person).",
+     "status": "Rejected — user reject 15 Nov ~00:21 WIB (complicated: must register oneself via phone — WalletConnect QR + SIWE + sign-in X + follow)",
+     "source": "plunderport.fun (dibuka langsung 14 Nov 23:41 WIB) + artikel komunitas KuCoin"
+    },
+    "zh": {
+     "type": "Early Access / Points",
+     "potential": "中等",
+     "risk": "低至中等 (token PP belum launch; waspada token palsu)",
+     "verdict": "谨慎",
+     "details": "PlunderPort 是 early access，奖池 $10,000，记录了 8,623 名 captains：prove wallet（一次免费 SIWE 签名），验证 X，关注官方账号，然后通过 referral 和任务获取 Captain Pass。XP：+100 加入，+20 每个已验证的 referral，+50 每个任务。钱包仅通过 WalletConnect；禁止多钱包（每人一次注册）。",
+     "status": "已拒绝 — user reject 15 Nov ~00:21 WIB（繁琐：必须通过手机自行注册 — WalletConnect QR + SIWE + sign-in X + follow）",
+     "source": "plunderport.fun (dibuka langsung 14 Nov 23:41 WIB) + artikel komunitas KuCoin"
+    }
+   }
   },
   {
    "id": "mawborn",
@@ -1799,7 +3188,21 @@
    "portal": "",
    "found": "2026-11-14",
    "status": "KNOWN — user tidak pegang NFT partner Robinhood Chain, tidak eligible",
-   "source": ""
+   "source": "",
+   "i18n": {
+    "en": {
+     "type": "Whitelist",
+     "verdict": "WATCH",
+     "details": "MAWBORN is a whitelist NFT on Robinhood Chain that requires a partner NFT to be eligible; user does not hold the partner NFT so not eligible.",
+     "status": "KNOWN — user does not hold the partner NFT on Robinhood Chain, not eligible"
+    },
+    "zh": {
+     "type": "Whitelist",
+     "verdict": "观察",
+     "details": "MAWBORN 是 Robinhood Chain 上的白名单 NFT，需要合作 NFT 才能符合资格；用户未持有该合作 NFT，故不符合资格。",
+     "status": "KNOWN — 用户未持有 Robinhood Chain 的合作 NFT，未符合资格"
+    }
+   }
   },
   {
    "id": "kobu",
@@ -1815,7 +3218,27 @@
    "portal": "https://kobu.wtf/whitelist.html",
    "found": "2026-11-14",
    "status": "SUDAH JOIN — aplikasi whitelist TERKIRIM 18 Nov 2026 ~00:57 WIB (tercatat di whitelist-joined.json; status 'already pending' terkonfirmasi saat verifikasi ulang). Menunggu review manual tim; spot TIDAK dijamin. Mint grat",
-   "source": "Log run wl-scan 14–15 Nov 2026 + laporan Telegram message_id 1656; dicatat run wl-hunter-scan-1h 02:50 WIB 16 Nov 2026"
+   "source": "Log run wl-scan 14–15 Nov 2026 + laporan Telegram message_id 1656; dicatat run wl-hunter-scan-1h 02:50 WIB 16 Nov 2026",
+   "i18n": {
+    "en": {
+     "type": "Whitelist / NFT (free mint)",
+     "potential": "Medium",
+     "risk": "Low",
+     "verdict": "WATCH",
+     "details": "KOBU is a free mint of 4,949 NFTs on Base via OpenSea (date TBA); the site states no wallet connection, no signature, no payment, one application per handle X. Whitelist application has been submitted and is awaiting manual review; spot is not guaranteed. Only the website itself as source — verification of two sources has not passed.",
+     "status": "Joined — whitelist application SENT 18 Nov 2026 ~00:57 WIB (recorded in whitelist-joined.json; status 'already pending' confirmed during re‑verification). Waiting for manual review by the team; spot NOT guaranteed. Mint free",
+     "source": "Log run wl-scan 14–15 Nov 2026 + Telegram message_id 1656 report; recorded run wl-hunter-scan-1h 02:50 WIB 16 Nov 2026"
+    },
+    "zh": {
+     "type": "Whitelist / NFT (free mint)",
+     "potential": "中等",
+     "risk": "低",
+     "verdict": "观察",
+     "details": "KOBU 是在 Base 上通过 OpenSea 免费铸造的 4,949 个 NFT（日期待定）；网站声明无需连接钱包、无需签名、无需付款，每个 X 句柄仅限一次申请。白名单申请已提交，正在等待人工审核；名额不保证。仅以官方网站为来源——两项来源的验证未通过。",
+     "status": "已加入 — 白名单申请已发送 18 Nov 2026 ~00:57 WIB（记录在 whitelist-joined.json；状态“already pending”在重新验证时得到确认）。等待团队的人工审核；名额不保证。免费铸造",
+     "source": "日志运行 wl-scan 14–15 Nov 2026 + Telegram 消息 ID 1656 报告；记录运行 wl-hunter-scan-1h 02:50 WIB 16 Nov 2026"
+    }
+   }
   },
   {
    "id": "elyon-chain",
@@ -1831,7 +3254,29 @@
    "portal": "https://airdrop.elyon.network",
    "found": "2026-11-14",
    "status": "Ditolak — user reject 14 Nov ~23:40 WIB",
-   "source": "Bitrue guide (update 13 Nov 2026) + portal resmi airdrop.elyon.network"
+   "source": "Bitrue guide (update 13 Nov 2026) + portal resmi airdrop.elyon.network",
+   "i18n": {
+    "en": {
+     "type": "Testnet / Points",
+     "cost": "Free — testnet token from faucet, no real funds",
+     "potential": "Medium — speculative points, no tokenomics/distribution",
+     "risk": "Low (testnet, no real funds)",
+     "verdict": "CAUTION",
+     "details": "ELYON Chain holds Incentivized Testnet Season 1: connect wallet (50 points), daily test ELN faucet (20 points), send 1 test ELN (15 points), delegate (150 points), mint quest badge (75 points), daily tweet (30 points), X/Telegram link (25 points), plus 10% referral. Token not confirmed and points do not guarantee allocation; connecting wallet and signature require explicit approval.",
+     "status": "Rejected — user reject 14 Nov ~23:40 WIB",
+     "source": "Bitrue guide (update 13 Nov 2026) + portal resmi airdrop.elyon.network"
+    },
+    "zh": {
+     "type": "Testnet / Points",
+     "cost": "免费 — 来自水龙头的测试网代币，无真实资金",
+     "potential": "中等 — 投机性积分，暂无代币经济学/分配",
+     "risk": "低（测试网，无真实资金）",
+     "verdict": "观察",
+     "details": "ELYON Chain 举办 Incentivized Testnet Season 1：连接钱包（50 积分），每日测试 ELN 水龙头（20 积分），发送 1 个测试 ELN（15 积分），委托（150 积分），铸造任务徽章（75 积分），每日推文（30 积分），X/Telegram 链接（25 积分），加 10% 推荐奖励。代币尚未确认，积分不保证分配；连接钱包和签名需要明确授权。",
+     "status": "已拒绝 — 用户在 14 Nov ~23:40 WIB 拒绝",
+     "source": "Bitrue guide (update 13 Nov 2026) + portal resmi airdrop.elyon.network"
+    }
+   }
   },
   {
    "id": "asentum",
@@ -1847,7 +3292,29 @@
    "portal": "https://airdrop.asentum.com",
    "found": "2026-11-14",
    "status": "Ditolak — user reject 14 Nov ~23:40 WIB",
-   "source": "AirdropVillage + portal resmi airdrop.asentum.com"
+   "source": "AirdropVillage + portal resmi airdrop.asentum.com",
+   "i18n": {
+    "en": {
+     "type": "Testnet / XP Points",
+     "cost": "Free — testnet token from faucet, no real funds",
+     "potential": "Low-Medium — speculative XP, no token yet",
+     "risk": "Low (testnet, no real funds)",
+     "verdict": "CAUTION",
+     "details": "Asentum runs an incentivized testnet and XP campaign: testnet transactions, ecosystem quests, referrals, daily/streak activities, validator, and bug reports. ASE testnet faucet is free. No confirmation of XP conversion to token or distribution yet; connecting wallet and signature requires explicit approval.",
+     "status": "Rejected — user reject 14 Nov ~23:40 WIB",
+     "source": "AirdropVillage + portal resmi airdrop.asentum.com"
+    },
+    "zh": {
+     "type": "Testnet / XP Points",
+     "cost": "免费 — 来自水龙头的测试网代币，无真实资金",
+     "potential": "低至中等 — 投机性 XP，尚无代币",
+     "risk": "低 (测试网，无真实资金)",
+     "verdict": "谨慎",
+     "details": "Asentum 举办激励测试网和 XP 活动：测试网交易、生态任务、推荐、每日/连击活动、验证者以及漏洞报告。ASE 测试网水龙头免费。尚未确认 XP 转换为代币或分发；连接钱包和签名需要明确批准。",
+     "status": "已拒绝 — 用户在 11月14日 ~23:40 WIB 拒绝",
+     "source": "AirdropVillage + portal resmi airdrop.asentum.com"
+    }
+   }
   },
   {
    "id": "allscale",
@@ -1863,7 +3330,29 @@
    "portal": "https://allscale.io",
    "found": "2026-11-14",
    "status": "In Progress",
-   "source": "['https://allscale.io', 'https://app.allscale.io']"
+   "source": "['https://allscale.io', 'https://app.allscale.io']",
+   "i18n": {
+    "en": {
+     "type": "Points",
+     "cost": "Gratis, tanpa deposit",
+     "potential": "Low-Medium",
+     "risk": "Low",
+     "verdict": "WATCH",
+     "details": "AllScale adalah proyek dengan sistem poin ASP: daftar email (+100 ASP), check-in harian dengan streak 7 hari (+300 ASP bila 7/7), dan sign-in aplikasi mobile (+800 ASP, butuh HP, berakhir 31 Desember 2026). Check-in harian tercatat tidak menambah poin di luar streak. Login tersimpan tidak ditemukan sehingga check-in harian sempat gagal.",
+     "status": "In Progress",
+     "source": "['https://allscale.io', 'https://app.allscale.io']"
+    },
+    "zh": {
+     "type": "Points",
+     "cost": "Gratis, tanpa deposit",
+     "potential": "低至中等",
+     "risk": "低",
+     "verdict": "观察",
+     "details": "AllScale 是一个使用 ASP 积分系统的项目：注册邮箱 (+100 ASP)，每日签到并保持 7 天连签 (+300 ASP 若 7/7)，以及移动应用签到 (+800 ASP，需要手机，截止至 2026 年 12 月 31 日)。每日签到记录在连签之外不增加积分。未找到保存的登录信息，导致每日签到曾出现失败。",
+     "status": "In Progress",
+     "source": "['https://allscale.io', 'https://app.allscale.io']"
+    }
+   }
   },
   {
    "id": "agentic-gangster",
@@ -1879,7 +3368,21 @@
    "portal": "",
    "found": "2026-11-14",
    "status": "KNOWN — audit 10 Nov CAUTION 60/100, free pool 111/111 HABIS",
-   "source": ""
+   "source": "",
+   "i18n": {
+    "en": {
+     "type": "Free mint NFT",
+     "verdict": "WATCH",
+     "details": "Agentic Gangster is a free mint NFT on BSC. Audit 10 November: CAUTION 60/100; free pool 111/111 is already exhausted.",
+     "status": "KNOWN — audit 10 Nov CAUTION 60/100, free pool 111/111 EXHAUSTED"
+    },
+    "zh": {
+     "type": "Free mint NFT",
+     "verdict": "观察",
+     "details": "Agentic Gangster 是 BSC 上的免费铸造 NFT。审计 10 November: 谨慎 60/100；免费池 111/111 已经用完。",
+     "status": "已知 — 审计 10 Nov 谨慎 60/100，免费池 111/111 已用完"
+    }
+   }
   },
   {
    "id": "walletconnect-ai-agents",
@@ -1895,7 +3398,23 @@
    "portal": "https://walletconnect.com/connectivity/ai-agents",
    "found": "2026-11-13",
    "status": "Sudah join",
-   "source": "Link user via Telegram 13 Nov 01:49 WIB (X [akun])"
+   "source": "Link user via Telegram 13 Nov 01:49 WIB (X [akun])",
+   "i18n": {
+    "en": {
+     "type": "Whitelist",
+     "verdict": "WATCH",
+     "details": "WalletConnect AI Agents opens early access for AI agents; registration has been completed and confirmation 'You are on the list'. Notification is sent via email when early access opens. No reference number or ID.",
+     "status": "Joined",
+     "source": "Link user via Telegram 13 Nov 01:49 WIB (X [akun])"
+    },
+    "zh": {
+     "type": "Whitelist",
+     "verdict": "观察",
+     "details": "WalletConnect AI Agents 开放 AI 代理的抢先访问；注册已完成并收到确认“您已在名单上”。早期访问开启时通过电子邮件发送通知。没有参考编号或 ID。",
+     "status": "已加入",
+     "source": "通过 Telegram 链接用户 13 Nov 01:49 WIB (X [akun])"
+    }
+   }
   },
   {
    "id": "tokenchasers",
@@ -1911,7 +3430,23 @@
    "portal": "https://tokenchasers.com/",
    "found": "2026-11-13",
    "status": "Sudah join",
-   "source": "Lead baru dari pencarian web run hunter 11:00 WIB 13 Nov 2026"
+   "source": "Lead baru dari pencarian web run hunter 11:00 WIB 13 Nov 2026",
+   "i18n": {
+    "en": {
+     "type": "Whitelist",
+     "verdict": "WATCH",
+     "details": "TOKENCHASERS is a whitelist NFT free mint (+ gas) on Ethereum via OpenSea, 1,000 NFT with a 24-hour mint window for selected wallets; mint date still TBA. Registration is saved without connecting wallet, signature, or payment. If registrants exceed slots, only wallets with verified follow are entered in the draw.",
+     "status": "Joined",
+     "source": "New lead from web search run hunter 11:00 WIB 13 Nov 2026"
+    },
+    "zh": {
+     "type": "Whitelist",
+     "verdict": "观察",
+     "details": "TOKENCHASERS 是在 Ethereum 通过 OpenSea 的免费铸造（+ gas）白名单 NFT，1,000 个 NFT，提供 24 小时铸造窗口给选定钱包；铸造日期仍待定。注册已保存，无需连接钱包、签名或付款。如果报名人数超过名额，仅已验证关注的钱包会进入抽签。",
+     "status": "已加入",
+     "source": "来自网络搜索 run hunter 的新线索 11:00 WIB 2026年11月13日"
+    }
+   }
   },
   {
    "id": "pixelateids",
@@ -1927,7 +3462,23 @@
    "portal": "https://pixelateids.com",
    "found": "2026-11-12",
    "status": "Sudah join",
-   "source": "[akun]"
+   "source": "[akun]",
+   "i18n": {
+    "en": {
+     "type": "Whitelist",
+     "verdict": "WATCH",
+     "details": "Pixelateids is a whitelist NFT on Ethereum; the form has been submitted and status 'You're on the list. See you at the mint.' X follow completed. Allowlist still open, without new mint date.",
+     "status": "Joined",
+     "source": "[akun]"
+    },
+    "zh": {
+     "type": "Whitelist",
+     "verdict": "观察",
+     "details": "Pixelateids 是在 Ethereum 的白名单 NFT；表单已提交，状态为 “You're on the list. See you at the mint.” X 关注已完成。Allowlist 仍然开放，暂无新的铸造日期。",
+     "status": "已加入",
+     "source": "[akun]"
+    }
+   }
   },
   {
    "id": "shades",
@@ -1959,7 +3510,23 @@
    "portal": "https://dawgzrh.com",
    "found": "2026-11-08",
    "status": "Sudah join",
-   "source": "[akun]"
+   "source": "[akun]",
+   "i18n": {
+    "en": {
+     "type": "Whitelist",
+     "verdict": "WATCH",
+     "details": "Dawgz is a whitelist NFT 4,000 supply on Robinhood Chain, WL-only, 1 per wallet; mint still TBA. Registration has been confirmed 'You're on the list'.",
+     "status": "Joined",
+     "source": "[akun]"
+    },
+    "zh": {
+     "type": "Whitelist",
+     "verdict": "观察",
+     "details": "Dawgz 是 Robinhood Chain 上的 whitelist NFT，供应量 4,000，仅限白名单，每钱包 1 个；mint 仍待公布。注册已确认 'You're on the list'。",
+     "status": "已加入",
+     "source": "[akun]"
+    }
+   }
   },
   {
    "id": "ascii-env",
