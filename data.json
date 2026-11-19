@@ -2,13 +2,13 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-19 15:14 WIB",
+  "data_snapshot_at": "2026-11-19 15:44 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
-   "total": 73,
-   "early": 8,
+   "total": 77,
+   "early": 11,
    "freemint": 31,
-   "airdrop": 17,
+   "airdrop": 18,
    "whitelist": 17
   },
   "withdrawals": 0,
@@ -896,6 +896,22 @@
    "source": "['https://airdrops.io/xyper/', 'https://freecoins24.io/airdrops/xyper/', 'https://www.droply.digital/project/xyper-market']"
   },
   {
+   "id": "vibevibe",
+   "project": "VIBEVIBE",
+   "chain": "Robinhood Chain Testnet",
+   "category": "early",
+   "type": "Testnet / Points (watch)",
+   "cost": "",
+   "potential": "Rendah–Sedang",
+   "risk": "Rendah",
+   "verdict": "DITOLAK — user reject 15 Nov ~00:20 WIB (dulu GO/APPROVED 14 Nov 23:44; ribet: faucet butuh Google sign-in + Cloudflare)",
+   "details": "Testnet LIVE di testnet.vibevibe.fun (166.064 launches). Modal Connect wallet hanya: Rabby Wallet + Browser Wallet (MetaMask kemungkinan via Browser Wallet, belum terverifikasi). Docs: connect wallet → tambah jaringan Robinhood Chain Testnet (chain ID 46630) → faucet → trade/launch. Faucet di faucet.testnet.chain.robinhood.com: 0,01 test ETH + 5 token saham (TSLA/AMZN/PLTR/NFLX/AMD) per 24 jam per alamat; syarat: alamat wallet/ENS + verifikasi Cloudflare + connect akun Google. $SPARK tidak dibutuhkan. Multi-wallet: identitas = alamat wallet, tiap wallet bisa connect/trade sendiri; TAPI fake volume/self-trading/circular/sybil dilarang, referral palsu/self-referral bisa direview — jangan ulang",
+   "portal": "vibevibe.fun / testnet.vibevibe.fun",
+   "found": "2026-11-14",
+   "status": "Ditolak — user reject 15 Nov ~00:20 WIB (ribet: faucet butuh Google sign-in + Cloudflare, connect wallet ribet)",
+   "source": "vibevibe.fun (dibuka langsung 14 Nov 23:41 WIB) + 99airdrops (4 Okt 2026) + Bitrue (~12 Nov 2026)"
+  },
+  {
    "id": "termix-kaito-katalyst",
    "project": "TermiX (Kaito Katalyst)",
    "chain": "BNB Chain",
@@ -960,6 +976,22 @@
    "source": "['https://ryfinite.com', 'https://99airdrops.com/airdrops/ryfinite/', 'https://airdropalert.com/airdrops/ryfinite/']"
   },
   {
+   "id": "plunderport",
+   "project": "PlunderPort",
+   "chain": "Zero Chain (LayerZero L1)",
+   "category": "airdrop",
+   "type": "Early Access / Points",
+   "cost": "",
+   "potential": "Sedang",
+   "risk": "Rendah-Sedang (token PP belum launch; waspada token palsu)",
+   "verdict": "DITOLAK — user reject 15 Nov ~00:21 WIB (dulu GO/APPROVED 14 Nov 23:44; ribet: daftar sendiri via HP — WalletConnect QR + SIWE + sign-in X + follow)",
+   "details": "Early access LIVE di plunderport.fun (8.623 captains, prize pool $10.000). 4 langkah: (1) Prove wallet — satu signature SIWE gratis (bukan transaksi, tidak bisa pindahkan aset); (2) Verify X — sign-in resmi X, read-only profil publik; (3) Follow [akun] di X manual; (4) Captain Pass — referral link + tasks. XP: +100 join, +20/referral terverifikasi, +50/tugas. Wallet HANYA WalletConnect (mobile & QR). MULTI-WALLET DILARANG: Terms §2 (31 Okt 2026) One registration per person; tiap wallet dan tiap akun X hanya boleh terikat ke satu registrasi; entri palsu/lebih dari satu per orang akan dihapus dan tidak menang. Jadi HANYA 1 wallet — user harus pilih satu.",
+   "portal": "plunderport.fun",
+   "found": "2026-11-14",
+   "status": "Ditolak — user reject 15 Nov ~00:21 WIB (ribet: harus daftar sendiri via HP — WalletConnect QR + SIWE + sign-in X + follow)",
+   "source": "plunderport.fun (dibuka langsung 14 Nov 23:41 WIB) + artikel komunitas KuCoin"
+  },
+  {
    "id": "mawborn",
    "project": "MAWBORN",
    "chain": "Robinhood Chain",
@@ -990,6 +1022,38 @@
    "found": "2026-11-14",
    "status": "SUDAH JOIN — aplikasi whitelist TERKIRIM 18 Nov 2026 ~00:57 WIB (tercatat di whitelist-joined.json; status 'already pending' terkonfirmasi saat verifikasi ulang). Menunggu review manual tim; spot TIDAK dijamin. Mint grat",
    "source": "Log run wl-scan 14–15 Nov 2026 + laporan Telegram message_id 1656; dicatat run wl-hunter-scan-1h 02:50 WIB 16 Nov 2026"
+  },
+  {
+   "id": "elyon-chain",
+   "project": "ELYON Chain",
+   "chain": "ELYON Testnet",
+   "category": "early",
+   "type": "Testnet / Points",
+   "cost": "Gratis — token testnet dari faucet, tanpa dana asli",
+   "potential": "Sedang — poin spekulatif, belum ada tokenomics/distribusi",
+   "risk": "Rendah (testnet, tanpa dana asli)",
+   "verdict": "GO (untuk ikut, dengan catatan) — proyek testnet resmi, tanpa biaya; TAPI token belum dikonfirmasi, poin tidak menjamin alokasi, dan connect wallet + signature butuh APPROVED eksplisit. Chain custom (bukan chain [alat]/[wallet]) — langkah connect kemungkinan butuh user di browser.",
+   "details": "Incentivized Testnet Season 1: connect wallet 50 poin, faucet test ELN 20 poin/hari, kirim 1 test ELN 15 poin/hari, delegate 10 test ELN 150 poin, mint quest badge 75 poin, tweet harian 30 poin, link X 25 poin, link Telegram 25 poin (total sekali jalan ~390 poin + harian). Misi partner ChainGPT (5 tugas + bonus finisher 30 poin) adalah event terbatas 2 hari — kemungkinan sudah berakhir, cek dashboard dulu. Referral: 10% poin referral.",
+   "portal": "airdrop.elyon.network",
+   "found": "2026-11-14",
+   "status": "Ditolak — user reject 14 Nov ~23:40 WIB",
+   "source": "Bitrue guide (update 13 Nov 2026) + portal resmi airdrop.elyon.network"
+  },
+  {
+   "id": "asentum",
+   "project": "Asentum",
+   "chain": "Asentum Testnet",
+   "category": "early",
+   "type": "Testnet / XP Points",
+   "cost": "Gratis — token testnet dari faucet, tanpa dana asli",
+   "potential": "Rendah–Sedang — XP spekulatif, belum ada token",
+   "risk": "Rendah (testnet, tanpa dana asli)",
+   "verdict": "GO (untuk ikut, dengan catatan) — portal resmi terverifikasi; TAPI belum ada konfirmasi konversi XP ke token / distribusi, dan connect wallet + signature butuh APPROVED eksplisit. Chain custom — langkah connect kemungkinan butuh user di browser.",
+   "details": "Incentivised testnet & XP campaign: transaksi testnet, quest ekosistem, referral, aktivitas harian/streak, validator, bug report. Faucet testnet ASE gratis. Anti-bot measures aktif (ribuan akun dihapus, ~3,7 jt XP dicabut).",
+   "portal": "airdrop.asentum.com",
+   "found": "2026-11-14",
+   "status": "Ditolak — user reject 14 Nov ~23:40 WIB",
+   "source": "AirdropVillage + portal resmi airdrop.asentum.com"
   },
   {
    "id": "allscale",
