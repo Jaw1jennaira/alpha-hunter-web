@@ -587,6 +587,7 @@
   .sheet-input-prefix{ font-size:14px; font-weight:700; color:#64748b; flex:none; }
   .sheet-input{ width:100%; min-width:0; padding:12px 2px; border:0; outline:0; background:transparent; font-size:14px; font-weight:600; color:#0f172a; }
   .sheet-input::placeholder{ color:#94a3b8; font-weight:500; }
+  .sheet-label{ display:block; margin:14px 0 0; font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:#94a3b8; text-align:left; }
   .sheet-save-btn{ width:100%; margin-top:14px; padding:12px; border:0; border-radius:14px; background:linear-gradient(90deg,#00D4FF,#0095FF); color:#082f49; font-size:14px; font-weight:800; cursor:pointer; -webkit-tap-highlight-color:transparent; }
   .sheet-save-btn:active{ transform:scale(.98); }
   /* ===== Onboarding username, overlay penuh, tidak bisa ditutup/dilewati ===== */
@@ -626,6 +627,8 @@
   }
   .onboarding-btn:active{ transform:scale(.98); }
   .onboarding-note{ margin:12px 0 0; font-size:11px; line-height:1.5; color:#94a3b8; }
+  .onboarding-link{ display:block; width:100%; margin:10px 0 0; padding:4px 0; background:none; border:0; color:#0284c7; font-size:12px; font-weight:700; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+  .onboarding-btn-ghost{ background:#fff; border:1.5px solid #dbe3ec; color:#334155; box-shadow:none; }
   /* Dua pilihan cara masuk di onboarding */
   .onboarding-choices{ display:flex; flex-direction:column; gap:10px; margin-top:22px; text-align:left; }
   .onboarding-choice{
@@ -824,6 +827,7 @@
 
         <!-- WIRING 2 (lapisan sync): catatan mode lokal, diisi AH.notes -->
         <p data-ah-note="local-only" class="text-[11px] text-slate-400 leading-relaxed px-1"></p>
+        <p data-ah-note="sync-on" class="text-[11px] text-slate-400 leading-relaxed px-1"></p>
       </div>
 
       <!-- TAB: PROFIL (data pengguna, kosong sampai pengguna terhubung / beraktivitas) -->
@@ -952,6 +956,7 @@
         <p id="taskCountText" class="text-xs text-slate-400"></p>
         <!-- WIRING 2 (lapisan sync): catatan mode lokal, diisi AH.notes -->
         <p data-ah-note="local-only" class="text-[11px] text-slate-500 leading-relaxed"></p>
+        <p data-ah-note="sync-on" class="text-[11px] text-slate-500 leading-relaxed"></p>
         <div id="tasksContainer" class="space-y-3"></div>
       </div>
 
@@ -1090,6 +1095,7 @@
 
           <!-- WIRING 2 (lapisan sync): catatan mode lokal, diisi AH.notes -->
           <p data-ah-note="local-only" class="text-[11px] text-slate-400 leading-relaxed px-1"></p>
+          <p data-ah-note="sync-on" class="text-[11px] text-slate-400 leading-relaxed px-1"></p>
         </div>
       </div>
 
@@ -1155,7 +1161,24 @@
           <label class="onboarding-label" for="usernameInput" data-i18n="onbUserLabel">Username</label>
           <input type="text" id="usernameInput" class="onboarding-input" placeholder="Example: hunter123" data-i18n-ph="onbUserPh" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="30">
           <p class="onboarding-error" id="usernameError" data-i18n="onbErr">Username cannot be empty, fill it in first.</p>
-          <button type="button" class="onboarding-btn" data-action="save-username" data-i18n="onbSave">Save &amp; Start</button>
+          <!-- PIN: hanya dipakai bila backend akun aktif. Bila backend belum
+               aktif, blok ini tetap tersembunyi dan alur lama (username saja)
+               yang jalan. PIN tidak pernah disimpan di perangkat ini. -->
+          <div id="pinBlock" class="hidden">
+            <label class="onboarding-label" for="pinInput" data-i18n="pinLabel">PIN (6 digits or more)</label>
+            <input type="password" id="pinInput" class="onboarding-input" placeholder="••••••" inputmode="numeric" autocomplete="new-password" maxlength="12">
+            <div id="pinConfirmWrap">
+              <label class="onboarding-label" for="pinConfirmInput" data-i18n="pinConfirmLabel">Confirm PIN</label>
+              <input type="password" id="pinConfirmInput" class="onboarding-input" placeholder="••••••" inputmode="numeric" autocomplete="new-password" maxlength="12">
+            </div>
+            <p class="onboarding-error" id="pinError"></p>
+            <p class="onboarding-note" data-i18n="pinHint">Numbers only, at least 6 digits. This PIN is your backup login if you lose access to Seed Vault.</p>
+          </div>
+          <button type="button" class="onboarding-btn" id="onbAuthBtn" data-action="auth-submit" data-i18n="onbSave">Save &amp; Start</button>
+          <button type="button" class="onboarding-link hidden" id="onbAuthToggle" data-action="auth-toggle-mode"></button>
+          <button type="button" class="onboarding-link hidden" id="onbForgotPin" data-action="auth-forgot-pin" data-i18n="pinForgot">Forgot PIN?</button>
+          <p class="onboarding-note hidden" id="forgotPinNote" data-i18n="pinForgotNote">Your PIN cannot be recovered from this app, for your security. Sign in with Seed Vault (if your wallet is connected), then create a new PIN from Profile. If you cannot sign in with Seed Vault either, contact the admin.</p>
+          <button type="button" class="onboarding-btn onboarding-btn-ghost hidden" id="onbLocalBtn" data-action="auth-continue-local" data-i18n="pinContinueLocal">Continue locally for now</button>
         </div>
         <p class="onboarding-note" data-i18n="onbNote">This username appears in the header and in your Account Information.</p>
       </div>
@@ -2067,6 +2090,15 @@ en: {
   onbTitle:'Welcome to Agent Jennai', onbSub:'Choose how to sign in to start exploring the app. Only this once, after that you will not be asked again.',
   onbUserT:'Use a Username', onbUserD:'Enter a username manually, you choose it yourself.', onbSeedT:'Seed Vault Seeker', onbSeedD:'Connect Seed Vault, your username is filled in automatically from your .skr name.',
   onbUserLabel:'Username', onbUserPh:'Example: hunter123', onbErr:'Username cannot be empty, fill it in first.', onbSave:'Save & Start', onbNote:'This username appears in the header and in your Account Information.',
+  pinLabel:'PIN (6 digits or more)', pinPh:'Enter your 6-digit PIN', pinConfirmLabel:'Confirm PIN', pinConfirmPh:'Type the same PIN again', pinHint:'Numbers only, at least 6 digits. This PIN is your backup login if you lose access to Seed Vault.',
+  pinErrShort:'PIN must be at least 6 digits (numbers only).', pinErrMismatch:'PIN confirmation does not match. Type the same PIN twice.', pinErrWrong:'Wrong PIN. Check it and try again.', pinErrUserNotFound:'No account with this username yet. Create an account first.', pinErrTaken:'This username is already taken. Pick another one or sign in.', pinErrNet:'Could not reach the server. Check your connection and try again, or continue locally for now.',
+  pinLoginBtn:'Sign In', pinRegisterBtn:'Create Account & Start', pinToRegister:'No account yet? Create one', pinToLogin:'Already have an account? Sign in', pinForgot:'Forgot PIN?',
+  pinForgotNote:'Your PIN cannot be recovered from this app, for your security. Sign in with Seed Vault (if your wallet is connected), then create a new PIN from Profile. If you cannot sign in with Seed Vault either, contact the admin.',
+  pinBackupTitle:'Create a backup PIN', pinBackupSub:'Seed Vault is your main login. This backup PIN lets you sign in again if your phone is lost or you get logged out.', pinBackupLater:'Later', pinBackupDone:'Backup PIN created. You can sign in with your username and PIN from now on.', pinBackupSkipT:'No backup PIN yet. You can create one anytime from Profile.',
+  pinChangeTitle:'Change PIN', pinOldLabel:'Current PIN', pinOldPh:'Enter your current PIN', pinNewLabel:'New PIN', pinChangeBtn:'Save New PIN', pinChangeDone:'PIN changed.', pinChangeRowBtn:'Change PIN', pinCreateRowBtn:'Create PIN',
+  pinCreateTitle:'Create a backup PIN', pinCreateBtn:'Save PIN', pinSetDone:'Backup PIN created.', pinRowL:'PIN', pinSet:'Set', pinNotSet:'Not set yet',
+  pinContinueLocal:'Continue locally for now', pinLocalT:'Continuing locally. Your account will sync once the server is reachable.', pinNeedLogin:'Sign in first to manage your PIN.',
+  pinLinkSolT:'Seed Vault connected. Your wallet is now linked to this account.', pinLinkSolBtn:'Connect via Seed Vault', pinLinkSolNote:'Connect your Seeker Seed Vault to link this wallet to your account.',
   svBusy1:'Connecting to Seed Vault, approve the connection request in your Seed Vault…', svBusy2:'Wallet connected ({v}). Looking for the .skr name of this wallet…',
   svNoSkr:'Your Solana wallet is connected, but no .skr name was found for this wallet, so the username cannot be filled in automatically. Please enter a username manually below.',
   svFail:'Seed Vault did not connect, the connection failed or is not supported in this environment. No problem, you can continue with a manual username below.',
@@ -2174,6 +2206,15 @@ id: {
   onbTitle:'Selamat datang di Agent Jennai', onbSub:'Pilih cara masuk untuk mulai menjelajah aplikasi. Cukup sekali ini saja, setelah itu kamu tidak akan diminta lagi.',
   onbUserT:'Pakai Username', onbUserD:'Isi username manual, bebas kamu tentukan sendiri.', onbSeedT:'Seed Vault Seeker', onbSeedD:'Hubungkan Seed Vault, username otomatis terisi nama .skr kamu.',
   onbUserLabel:'Username', onbUserPh:'Contoh: hunter123', onbErr:'Username tidak boleh kosong, isi dulu ya.', onbSave:'Simpan & Mulai', onbNote:'Username ini tampil di header dan di Informasi Akun kamu.',
+  pinLabel:'PIN (minimal 6 digit)', pinPh:'Masukkan PIN 6 digit', pinConfirmLabel:'Konfirmasi PIN', pinConfirmPh:'Ketik PIN yang sama lagi', pinHint:'Angka saja, minimal 6 digit. PIN ini cadangan login bila kamu kehilangan akses ke Seed Vault.',
+  pinErrShort:'PIN minimal 6 digit angka.', pinErrMismatch:'Konfirmasi PIN tidak cocok. Ketik PIN yang sama dua kali.', pinErrWrong:'PIN salah. Periksa lagi lalu coba sekali lagi.', pinErrUserNotFound:'Belum ada akun dengan username ini. Buat akun dulu.', pinErrTaken:'Username ini sudah dipakai. Pilih username lain atau masuk.', pinErrNet:'Server tidak terjangkau. Periksa koneksi lalu coba lagi, atau lanjut lokal dulu.',
+  pinLoginBtn:'Masuk', pinRegisterBtn:'Buat Akun & Mulai', pinToRegister:'Belum punya akun? Buat akun', pinToLogin:'Sudah punya akun? Masuk', pinForgot:'Lupa PIN?',
+  pinForgotNote:'PIN kamu tidak bisa dipulihkan dari aplikasi ini, demi keamanan. Masuk lewat Seed Vault (bila wallet kamu terhubung), lalu buat PIN baru dari Profil. Bila Seed Vault juga tidak bisa dipakai, hubungi admin.',
+  pinBackupTitle:'Buat PIN cadangan', pinBackupSub:'Seed Vault adalah login utama kamu. PIN cadangan ini membuat kamu tetap bisa masuk bila HP rusak atau ke-logout.', pinBackupLater:'Nanti saja', pinBackupDone:'PIN cadangan dibuat. Mulai sekarang kamu bisa masuk dengan username dan PIN.', pinBackupSkipT:'PIN cadangan belum dibuat. Kamu bisa membuatnya kapan saja dari Profil.',
+  pinChangeTitle:'Ubah PIN', pinOldLabel:'PIN lama', pinOldPh:'Masukkan PIN lama kamu', pinNewLabel:'PIN baru', pinChangeBtn:'Simpan PIN Baru', pinChangeDone:'PIN berhasil diubah.', pinChangeRowBtn:'Ubah PIN', pinCreateRowBtn:'Buat PIN',
+  pinCreateTitle:'Buat PIN cadangan', pinCreateBtn:'Simpan PIN', pinSetDone:'PIN cadangan dibuat.', pinRowL:'PIN', pinSet:'Sudah diatur', pinNotSet:'Belum diatur',
+  pinContinueLocal:'Lanjut lokal dulu', pinLocalT:'Lanjut secara lokal. Akun kamu akan tersinkron begitu server terjangkau.', pinNeedLogin:'Masuk dulu untuk mengatur PIN.',
+  pinLinkSolT:'Seed Vault terhubung. Wallet kamu kini tertaut ke akun ini.', pinLinkSolBtn:'Hubungkan via Seed Vault', pinLinkSolNote:'Hubungkan Seed Vault Seeker untuk menautkan wallet ini ke akun kamu.',
   svBusy1:'Menghubungkan ke Seed Vault, setujui permintaan koneksi di Seed Vault kamu…', svBusy2:'Wallet terhubung ({v}). Mencari nama .skr milik wallet ini…',
   svNoSkr:'Wallet Solana kamu sudah terhubung, tapi tidak ditemukan nama .skr untuk wallet ini, jadi username tidak bisa terisi otomatis. Isi username manual di bawah ya.',
   svFail:'Seed Vault tidak terhubung, koneksi gagal atau belum didukung di lingkungan ini. Tidak apa-apa, kamu tetap bisa lanjut dengan username manual di bawah.',
@@ -2281,6 +2322,15 @@ zh: {
   onbTitle:'欢迎来到 Agent Jennai', onbSub:'选择登录方式，开始探索应用。只需这一次，之后不会再要求。',
   onbUserT:'使用用户名', onbUserD:'手动填写用户名，由你自己决定。', onbSeedT:'Seed Vault Seeker', onbSeedD:'连接 Seed Vault，用户名会自动填写你的 .skr 名称。',
   onbUserLabel:'用户名', onbUserPh:'例如：hunter123', onbErr:'用户名不能为空，请先填写。', onbSave:'保存并开始', onbNote:'此用户名会显示在顶部和你的账户信息中。',
+  pinLabel:'PIN（至少6位数字）', pinPh:'输入6位PIN', pinConfirmLabel:'确认PIN', pinConfirmPh:'再次输入相同的PIN', pinHint:'仅限数字，至少6位。如果无法使用 Seed Vault，此PIN可作为备用登录方式。',
+  pinErrShort:'PIN 至少为6位数字。', pinErrMismatch:'两次输入的PIN不一致，请重新输入相同的PIN。', pinErrWrong:'PIN错误，请检查后重试。', pinErrUserNotFound:'还没有使用此用户名的账户，请先创建账户。', pinErrTaken:'此用户名已被使用，请换一个或直接登录。', pinErrNet:'无法连接服务器，请检查网络后重试，或先继续使用本地模式。',
+  pinLoginBtn:'登录', pinRegisterBtn:'创建账户并开始', pinToRegister:'还没有账户？创建账户', pinToLogin:'已有账户？登录', pinForgot:'忘记PIN？',
+  pinForgotNote:'出于安全考虑，无法在此应用中找回PIN。请使用 Seed Vault 登录（如果你的钱包已连接），然后在个人资料中创建新PIN。如果也无法使用 Seed Vault 登录，请联系管理员。',
+  pinBackupTitle:'创建备用PIN', pinBackupSub:'Seed Vault 是你的主要登录方式。如果手机丢失或退出登录，此备用PIN可让你再次登录。', pinBackupLater:'稍后', pinBackupDone:'备用PIN已创建，从现在起你可以使用用户名和PIN登录。', pinBackupSkipT:'尚未创建备用PIN，你可以随时在个人资料中创建。',
+  pinChangeTitle:'更改PIN', pinOldLabel:'当前PIN', pinOldPh:'输入当前PIN', pinNewLabel:'新PIN', pinChangeBtn:'保存新PIN', pinChangeDone:'PIN已更改。', pinChangeRowBtn:'更改PIN', pinCreateRowBtn:'创建PIN',
+  pinCreateTitle:'创建备用PIN', pinCreateBtn:'保存PIN', pinSetDone:'备用PIN已创建。', pinRowL:'PIN', pinSet:'已设置', pinNotSet:'尚未设置',
+  pinContinueLocal:'先继续使用本地模式', pinLocalT:'正在使用本地模式，服务器可达后账户将自动同步。', pinNeedLogin:'请先登录以管理PIN。',
+  pinLinkSolT:'Seed Vault 已连接，你的钱包现已关联到此账户。', pinLinkSolBtn:'通过 Seed Vault 连接', pinLinkSolNote:'连接 Seeker Seed Vault，将此钱包关联到你的账户。',
   svBusy1:'正在连接 Seed Vault，请在你的 Seed Vault 中批准连接请求…', svBusy2:'钱包已连接 ({v})。正在查找此钱包的 .skr 名称…',
   svNoSkr:'你的 Solana 钱包已连接，但未找到此钱包的 .skr 名称，因此无法自动填写用户名。请在下方手动填写用户名。',
   svFail:'Seed Vault 未连接，连接失败或此环境不支持。没关系，你可以在下方使用手动用户名继续。',
@@ -3238,13 +3288,33 @@ function accountTwitterRow(){
     '<span class="acct-row-value' + (has ? '' : ' empty') + '">' + esc(has ? ('@' + raw) : t('notConnected')) + '</span>' +
     '</div><button type="button" class="acct-action-btn edit" data-action="edit-twitter">' + btnLabel + '</button></div>';
 }
+/* Baris PIN: tidak pernah menampilkan PIN, hanya status "Sudah diatur /
+   Belum diatur" + tombol Ubah / Buat. Baris ini hanya tampil bila backend
+   akun aktif dan user sudah login (username terisi); tanpa backend, PIN
+   tidak ada artinya dan baris disembunyikan. */
+function accountPinRow(){
+  var loggedIn = !!String(state.username || '').trim();
+  var backendOn = false;
+  try { backendOn = !!(window.AH && AH.auth && AH.auth.enabled()); } catch (e) {}
+  if (!backendOn || !loggedIn) return '';
+  var has = false;
+  try { has = !!(window.AH && AH.store && AH.store.data.hasPin); } catch (e) {}
+  var btn = has
+    ? '<button type="button" class="acct-action-btn edit" data-action="open-pin" data-mode="change">' + t('pinChangeRowBtn') + '</button>'
+    : '<button type="button" class="acct-action-btn connect" data-action="open-pin" data-mode="create">' + t('pinCreateRowBtn') + '</button>';
+  return '<div class="acct-row"><div class="acct-row-main">' +
+    '<span class="acct-row-label">' + esc(t('pinRowL')) + '</span>' +
+    '<span class="acct-row-value' + (has ? '' : ' empty') + '">' + esc(has ? t('pinSet') : t('pinNotSet')) + '</span>' +
+    '</div><div style="display:flex;align-items:center;gap:6px;flex:none">' + btn + '</div></div>';
+}
 function renderAccountInfo(){
   var body = document.getElementById('accountInfoBody');
   if (!body) return;
   body.innerHTML =
     accountRow(t('usernameL'), state.username, t('notSet'), '') +
     accountSolRow() +
-    accountTwitterRow();
+    accountTwitterRow() +
+    accountPinRow();
 }
 function renderHalo(){
   var el = document.getElementById('haloUsername');
@@ -3270,6 +3340,23 @@ function saveUsername(){
     if (inp){ inp.classList.add('error'); inp.focus(); }
     return;
   }
+  if (err) err.classList.remove('show');
+  if (inp) inp.classList.remove('error');
+  /* Backend akun aktif: username saja belum cukup, lanjut ke langkah buat
+     PIN (mode daftar). Tanpa backend, langsung selesai seperti dulu. */
+  if (authEnabled()){
+    onbAuthMode = 'register';
+    renderOnbAuthMode();
+    var pin = document.getElementById('pinInput');
+    if (pin) pin.focus();
+    return;
+  }
+  finishUsernameLocal(val);
+}
+/* Penyelesaian lokal (tanpa backend): username tersimpan di perangkat,
+   layar Welcome tertutup. Dipakai juga sebagai jalan keluar bila server
+   tidak terjangkau saat daftar/masuk. */
+function finishUsernameLocal(val){
   state.username = val;
   /* WIRING 6 (lapisan sync): simpan identitas ke AH.store lalu picu atribusi
      referral — kode ?ref= terkirim ke backend bila sudah terkonfigurasi,
@@ -3285,17 +3372,270 @@ function saveUsername(){
     }
   } catch (e) {}
   logActivity('user', tf('logUser', { v: val }));
-  if (err) err.classList.remove('show');
-  if (inp) inp.classList.remove('error');
+  clearPinInputs();
   renderHalo();
   renderAccountInfo();
   renderReferral();
   updateOnboardingVisibility();
   showToast(tf('userSavedT', { v: val }));
 }
+/* ===== Akun + PIN (backend akun; tanpa backend semua fungsi ini no-op) === */
+var onbAuthMode = 'register'; /* 'register' | 'login' di form manual onboarding */
+var pinSheetMode = 'create';  /* 'create' | 'change' | 'backup' di sheet PIN Profil */
+function authEnabled(){
+  try { return !!(window.AH && AH.auth && AH.auth.enabled()); } catch (e) { return false; }
+}
+function hasSessionToken(){
+  try { return !!(window.AH && AH.auth && AH.auth.getToken()); } catch (e) { return false; }
+}
+function pinOk(pin){ return /^\d{6,}$/.test(String(pin || '')); }
+function clearPinInputs(){
+  ['pinInput', 'pinConfirmInput', 'pinNewInput', 'pinNewConfirmInput', 'pinOldInput'].forEach(function (id){
+    var el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+}
+function showPinError(msg){
+  var e = document.getElementById('pinError');
+  if (!e) return;
+  e.textContent = msg || '';
+  e.classList.toggle('show', !!msg);
+}
+function setAuthBusy(busy){
+  var b = document.getElementById('onbAuthBtn');
+  if (b) b.disabled = busy;
+  var tg = document.getElementById('onbAuthToggle');
+  if (tg) tg.disabled = busy;
+}
+/* Atur tampilan form manual sesuai mode + status backend. Dipanggil dari
+   renderAll (setelah applyLanguage) supaya label tombol selalu benar di
+   semua bahasa, dan dari showManualUsernameForm / toggle mode. */
+function renderOnbAuthMode(){
+  var on = authEnabled();
+  var pinBlock = document.getElementById('pinBlock');
+  if (pinBlock) pinBlock.classList.toggle('hidden', !on);
+  var cw = document.getElementById('pinConfirmWrap');
+  if (cw) cw.classList.toggle('hidden', !(on && onbAuthMode === 'register'));
+  var btn = document.getElementById('onbAuthBtn');
+  if (btn) btn.textContent = !on ? t('onbSave') : (onbAuthMode === 'register' ? t('pinRegisterBtn') : t('pinLoginBtn'));
+  var tg = document.getElementById('onbAuthToggle');
+  if (tg){
+    tg.classList.toggle('hidden', !on);
+    if (on) tg.textContent = onbAuthMode === 'register' ? t('pinToLogin') : t('pinToRegister');
+  }
+  var fg = document.getElementById('onbForgotPin');
+  if (fg) fg.classList.toggle('hidden', !(on && onbAuthMode === 'login'));
+  var fn = document.getElementById('forgotPinNote');
+  if (fn) fn.classList.add('hidden');
+  var lb = document.getElementById('onbLocalBtn');
+  if (lb) lb.classList.add('hidden');
+}
+function toggleOnbAuthMode(){
+  onbAuthMode = onbAuthMode === 'register' ? 'login' : 'register';
+  showPinError('');
+  renderOnbAuthMode();
+  var pin = document.getElementById('pinInput');
+  if (pin) pin.focus();
+}
+function toggleForgotPin(){
+  var fn = document.getElementById('forgotPinNote');
+  if (fn) fn.classList.toggle('hidden');
+}
+/* Tombol utama form manual: daftar (username + PIN + konfirmasi) atau masuk
+   (username + PIN). Tanpa backend, kembali ke alur lokal lama. */
+function submitOnboardingAuth(){
+  var inp = document.getElementById('usernameInput');
+  var err = document.getElementById('usernameError');
+  var val = inp ? inp.value.trim() : '';
+  if (!val){
+    if (err) err.classList.add('show');
+    if (inp){ inp.classList.add('error'); inp.focus(); }
+    return;
+  }
+  if (!authEnabled()){ saveUsername(); return; }
+  var pinEl = document.getElementById('pinInput');
+  var pin = pinEl ? pinEl.value : '';
+  if (!pinOk(pin)){
+    showPinError(t('pinErrShort'));
+    if (pinEl) pinEl.focus();
+    return;
+  }
+  if (onbAuthMode === 'register'){
+    var cEl = document.getElementById('pinConfirmInput');
+    var conf = cEl ? cEl.value : '';
+    if (conf !== pin){
+      showPinError(t('pinErrMismatch'));
+      if (cEl) cEl.focus();
+      return;
+    }
+    setAuthBusy(true);
+    AH.auth.register(val, pin).then(function (out){
+      setAuthBusy(false);
+      var res = out.res || {};
+      if (res.ok){
+        showPinError('');
+        if (!String(state.username || '').trim()) state.username = val;
+        /* Bila wallet sudah terhubung sebelum daftar, tautkan ke akun baru. */
+        if (state.solAddress){ try { AH.auth.linkSeedVault(state.solAddress); } catch (e) {} }
+        try { if (window.AH && AH.referral) AH.referral.onRegistered(); } catch (e) {}
+        logActivity('user', tf('logUser', { v: val }));
+        clearPinInputs();
+        renderHalo();
+        renderAccountInfo();
+        renderReferral();
+        updateOnboardingVisibility();
+        showToast(tf('userSavedT', { v: val }));
+        return;
+      }
+      var msg = String(res.error || '');
+      if (res.status === 409 || /taken|exists|already/i.test(msg)) showPinError(t('pinErrTaken'));
+      else if (res.status === 0){ showPinError(t('pinErrNet')); var lb = document.getElementById('onbLocalBtn'); if (lb) lb.classList.remove('hidden'); }
+      else showPinError(msg || t('pinErrNet'));
+    });
+    return;
+  }
+  setAuthBusy(true);
+  AH.auth.login(val, pin).then(function (out){
+    setAuthBusy(false);
+    var res = out.res || {};
+    if (res.ok){
+      showPinError('');
+      if (!String(state.username || '').trim()) state.username = val;
+      clearPinInputs();
+      renderHalo();
+      renderAccountInfo();
+      renderReferral();
+      updateOnboardingVisibility();
+      showToast(tf('welcomeT', { v: state.username || val }));
+      return;
+    }
+    if (res.status === 401) showPinError(t('pinErrWrong'));
+    else if (res.status === 404) showPinError(t('pinErrUserNotFound'));
+    else if (res.status === 0){ showPinError(t('pinErrNet')); var lb2 = document.getElementById('onbLocalBtn'); if (lb2) lb2.classList.remove('hidden'); }
+    else showPinError(String(res.error || '') || t('pinErrNet'));
+  });
+}
+/* Lanjut lokal bila server tidak terjangkau saat daftar/masuk: username
+   tersimpan di perangkat, akun akan tersinkron begitu server terjangkau. */
+function continueLocalAuth(){
+  var inp = document.getElementById('usernameInput');
+  var val = inp ? inp.value.trim() : '';
+  if (!val) return;
+  finishUsernameLocal(val);
+  showToast(t('pinLocalT'));
+}
+/* Sheet PIN dari Profil: 'backup' (Seed Vault, tanpa PIN lama), 'create'
+   (buat PIN cadangan), 'change' (PIN lama + baru + konfirmasi). */
+function openPinSheet(mode){
+  pinSheetMode = (mode === 'change') ? 'change' : (mode === 'backup' ? 'backup' : 'create');
+  if (!authEnabled()){ showToast(t('pinErrNet')); return; }
+  if (!String(state.username || '').trim()){ showToast(t('pinNeedLogin')); return; }
+  var isChange = pinSheetMode === 'change';
+  var isBackup = pinSheetMode === 'backup';
+  var title = isChange ? t('pinChangeTitle') : t('pinCreateTitle');
+  var sub = isBackup ? '<p class="text-xs text-slate-400 text-center mt-1 leading-relaxed">' + esc(t('pinBackupSub')) + '</p>' : '';
+  var oldRow = isChange
+    ? '<label class="sheet-label" for="pinOldInput">' + esc(t('pinOldLabel')) + '</label>' +
+      '<div class="sheet-input-wrap"><input type="password" id="pinOldInput" class="sheet-input" placeholder="' + esc(t('pinOldPh')) + '" inputmode="numeric" autocomplete="current-password" maxlength="12"></div>'
+    : '';
+  openSheet(
+    '<h3 class="text-base font-extrabold text-white text-center">' + esc(title) + '</h3>' + sub +
+    oldRow +
+    '<label class="sheet-label" for="pinNewInput">' + esc(isChange ? t('pinNewLabel') : t('pinLabel')) + '</label>' +
+    '<div class="sheet-input-wrap"><input type="password" id="pinNewInput" class="sheet-input" placeholder="••••••" inputmode="numeric" autocomplete="new-password" maxlength="12"></div>' +
+    '<label class="sheet-label" for="pinNewConfirmInput">' + esc(t('pinConfirmLabel')) + '</label>' +
+    '<div class="sheet-input-wrap"><input type="password" id="pinNewConfirmInput" class="sheet-input" placeholder="••••••" inputmode="numeric" autocomplete="new-password" maxlength="12"></div>' +
+    '<p id="pinSheetError" class="text-xs font-semibold mt-2" style="color:#f87171"></p>' +
+    '<button type="button" class="sheet-save-btn" data-action="pin-submit" data-mode="' + pinSheetMode + '">' + esc(isChange ? t('pinChangeBtn') : t('pinCreateBtn')) + '</button>' +
+    (isBackup ? '<button type="button" class="sheet-save-btn" style="background:transparent;border:1px solid rgba(255,255,255,.25);color:#e2e8f0;margin-top:8px" data-action="pin-backup-later">' + esc(t('pinBackupLater')) + '</button>' : '')
+  );
+  /* Pengingat buat PIN cadangan tampil sekali: dibuka = sudah diingatkan.
+     Tombol "Buat PIN cadangan" di Profil tetap tersedia kapan saja. */
+  if (isBackup){
+    try { if (window.AH && AH.store){ AH.store.data.pinReminderShown = true; AH.store.saveSoon(); } } catch (e) {}
+  }
+  var inp = document.getElementById(isChange ? 'pinOldInput' : 'pinNewInput');
+  if (inp) inp.focus();
+}
+function submitPinSheet(mode){
+  var m = mode || pinSheetMode || 'create';
+  var isChange = m === 'change';
+  var errEl = document.getElementById('pinSheetError');
+  var setErr = function (msg){ if (errEl) errEl.textContent = msg || ''; };
+  var oldPin = '';
+  if (isChange){
+    var oldEl = document.getElementById('pinOldInput');
+    oldPin = oldEl ? oldEl.value : '';
+    if (!pinOk(oldPin)){ setErr(t('pinErrShort')); if (oldEl) oldEl.focus(); return; }
+  }
+  var newEl = document.getElementById('pinNewInput');
+  var newPin = newEl ? newEl.value : '';
+  if (!pinOk(newPin)){ setErr(t('pinErrShort')); if (newEl) newEl.focus(); return; }
+  var cEl = document.getElementById('pinNewConfirmInput');
+  var conf = cEl ? cEl.value : '';
+  if (conf !== newPin){ setErr(t('pinErrMismatch')); if (cEl) cEl.focus(); return; }
+  AH.auth.setPin(newPin, isChange ? oldPin : null).then(function (res){
+    if (res.ok){
+      clearPinInputs();
+      closeSheet();
+      renderAccountInfo();
+      showToast(t(isChange ? 'pinChangeDone' : 'pinSetDone'));
+      return;
+    }
+    if (res.status === 401) setErr(t('pinErrWrong'));
+    else if (res.status === 0) setErr(t('pinErrNet'));
+    else setErr(String(res.error || '') || t('pinErrNet'));
+  });
+}
+/* Hubungkan Seed Vault dari Profil (tombol Hubungkan di Informasi Akun):
+   konek sungguhan lewat MWA, lalu tautkan alamat ke akun bila sudah login
+   dengan token sesi. Tanpa token, alamat tetap tersimpan lokal. */
+function linkSeedVaultFromProfile(){
+  attemptSolanaConnect()
+    .then(function (address){
+      state.solAddress = address;
+      state.isSeeker = true;
+      try {
+        if (window.AH && AH.store){
+          AH.store.data.solAddress = state.solAddress;
+          AH.store.data.isSeeker = true;
+          AH.store.saveSoon();
+        }
+      } catch (e) {}
+      logActivity('wallet', tf('logSol', { v: shortAddress(address) }));
+      renderAccountInfo();
+      return resolveSkrName(address);
+    })
+    .then(function (skr){
+      if (skr && !String(state.username || '').trim()){
+        state.username = skr;
+        try {
+          if (window.AH && AH.store){ AH.store.data.username = skr; AH.store.saveSoon(); }
+        } catch (e) {}
+        logActivity('user', tf('logSkr', { v: skr }));
+      }
+      if (authEnabled() && hasSessionToken()){
+        return AH.auth.linkSeedVault(state.solAddress).then(function (){ return skr; });
+      }
+      return skr;
+    })
+    .then(function (){
+      closeSheet();
+      renderHalo();
+      renderAccountInfo();
+      renderReferral();
+      updateOnboardingVisibility();
+      if (authEnabled()){ try { AH.auth.syncUser(); } catch (e) {} }
+      showToast(t('pinLinkSolT'));
+    })
+    .catch(function (){
+      showToast(t('svFail'));
+    });
+}
 function showManualUsernameForm(){
   var form = document.getElementById('manualUsernameForm');
   if (form) form.classList.remove('hidden');
+  renderOnbAuthMode();
 }
 
 /* ===== Onboarding jalur 2: Seed Vault Seeker (Mobile Wallet Adapter) =====
@@ -3370,6 +3710,20 @@ function connectSeedVaultOnboarding(){
         renderReferral();
         updateOnboardingVisibility();
         showToast(tf('welcomeT', { v: skr }));
+        /* Backend akun aktif: daftarkan / kenali wallet ini di backend.
+           Bila akun belum punya PIN, tawarkan buat PIN cadangan (sekali);
+           Seed Vault tetap jadi kredensial utama, PIN hanya cadangan. */
+        if (authEnabled()){
+          AH.auth.seedVault(state.solAddress, skr).then(function (out){
+            var res = out.res || {};
+            if (!res.ok) return; /* lanjut lokal: sudah login via Seed Vault */
+            var reminded = false;
+            try { reminded = !!(window.AH && AH.store && AH.store.data.pinReminderShown); } catch (e) {}
+            if (out.needsPin && !reminded) openPinSheet('backup');
+            renderAccountInfo();
+            renderReferral();
+          });
+        }
       } else {
         setSeedVaultStatus('error', t('svNoSkr'));
         showManualUsernameForm();
@@ -3679,6 +4033,7 @@ function saveTwitter(){
   renderAccountInfo();
   closeSheet();
   showToast(tf('xSavedT', { v: val }));
+  try { if (window.AH && AH.auth) AH.auth.syncUser(); } catch (e) {}
 }
 /* ===== SOL Address manual (bottom sheet, pola sama seperti handle X) =====
    Jalur untuk pengguna yang bukan pemilik Seeker: alamat diketik/ditempel
@@ -3714,6 +4069,7 @@ function saveSolAddress(){
   renderAccountInfo();
   closeSheet();
   showToast(tf('solSavedT', { v: shortAddress(val) }));
+  try { if (window.AH && AH.auth) AH.auth.syncUser(); } catch (e) {}
 }
 function toggleAccountInfo(){
   var wrap = document.getElementById('accountInfo');
@@ -4103,7 +4459,9 @@ function openConnectSolana(){
     '<h3 class="text-base font-extrabold text-white text-center">' + t('solSheetTitle') + '</h3>' +
     '<p class="text-xs text-slate-400 text-center mt-1 leading-relaxed">' + t('solSheetSub') + '</p>' +
     sheetKv([[t('rowPath'), t('solPathV')],[t('rowShared'), t('solSharedV')],[t('rowNever'), t('solNeverV')]]) +
-    '<p class="text-[11px] text-slate-500 leading-relaxed">' + t('solSheetNote') + '</p>'
+    '<p class="text-[11px] text-slate-500 leading-relaxed">' + t('solSheetNote') + '</p>' +
+    '<button type="button" class="sheet-save-btn" data-action="link-seed-vault">' + t('pinLinkSolBtn') + '</button>' +
+    '<p class="text-[11px] text-slate-500 leading-relaxed mt-2">' + t('pinLinkSolNote') + '</p>'
   );
 }
 function openConnectEvm(){
@@ -4189,6 +4547,9 @@ function renderAktivitas(){
   renderActTabs();
   renderActivityLog();
   renderWithdrawals();
+  /* Teks catatan sinkronisasi (Mode lokal / Terhubung) ditentukan dari
+     status backend nyata, bukan teks statis (lihat AH.notes). */
+  try { if (window.AH && AH.notes) AH.notes.applyLocalOnlyNotes(); } catch (e) {}
 }
 
 /* --- Riwayat Penarikan (pengajuan penarikan Task Reward) ---
@@ -4499,7 +4860,7 @@ function openInfoPage(page){
 function closeInfoPage(){ showView(state.lastTab || 'profil'); }
 
 function renderAll(){
-  applyLanguage(); renderPills(); renderFeed(); renderNotif(); renderAbout(); renderTasks(); renderProfil(); renderAktivitas(); renderTaskReward(); renderAccountInfo(); renderHalo(); renderReferral(); updateOnboardingVisibility(); renderPushStatus();
+  applyLanguage(); renderPills(); renderFeed(); renderNotif(); renderAbout(); renderTasks(); renderProfil(); renderAktivitas(); renderTaskReward(); renderAccountInfo(); renderHalo(); renderReferral(); updateOnboardingVisibility(); renderPushStatus(); renderOnbAuthMode();
 }
 
 /* ===== Pengikatan event =====
@@ -4555,6 +4916,14 @@ document.addEventListener('click', function(e){
   else if (action === 'copy-account') copyAccountInfo(el.getAttribute('data-field'));
   else if (action === 'copy-tx') copyTxHash(el);
   else if (action === 'save-username') saveUsername();
+  else if (action === 'auth-submit') submitOnboardingAuth();
+  else if (action === 'auth-toggle-mode') toggleOnbAuthMode();
+  else if (action === 'auth-forgot-pin') toggleForgotPin();
+  else if (action === 'auth-continue-local') continueLocalAuth();
+  else if (action === 'open-pin') openPinSheet(el.getAttribute('data-mode') || 'create');
+  else if (action === 'pin-submit') submitPinSheet(el.getAttribute('data-mode') || 'create');
+  else if (action === 'pin-backup-later') { closeSheet(); showToast(window.t('pinBackupSkipT')); }
+  else if (action === 'link-seed-vault') linkSeedVaultFromProfile();
   else if (action === 'choose-username') showManualUsernameForm();
   else if (action === 'connect-seed-vault') connectSeedVaultOnboarding();
   else if (action === 'edit-twitter') openEditTwitter();
@@ -4581,6 +4950,8 @@ document.addEventListener('keydown', function(e){
   var t = e.target;
   if (t && t.id === 'twitterInput'){ e.preventDefault(); saveTwitter(); }
   if (t && t.id === 'solAddressInput'){ e.preventDefault(); saveSolAddress(); }
+  if (t && (t.id === 'pinInput' || t.id === 'pinConfirmInput')){ e.preventDefault(); submitOnboardingAuth(); }
+  if (t && (t.id === 'pinOldInput' || t.id === 'pinNewInput' || t.id === 'pinNewConfirmInput')){ e.preventDefault(); submitPinSheet(pinSheetMode); }
 });
 /* Escape menutup laci detail project bila sedang terbuka (jalur "kembali"
    selain tombol Kembali, tombol ×, dan ketuk veil gelap). */
@@ -4670,21 +5041,30 @@ setInterval(fetchRate, 5 * 60 * 1000);
        custom domain DITUNDA — bila nanti dipilih, ubah HANYA konstanta ini. */
     REFERRAL_BASE_URL: 'https://jaw1jennaira.github.io/alpha-hunter-web/',
 
-    /* Base URL backend publik. AWALNYA KOSONG = backend belum dikonfigurasi
-       = mode local-only. ISI hanya bila subagent backend sudah mengumumkan
-       base URL + path endpoint publiknya. Selama kosong: tidak ada POST,
-       tidak ada GET status, tidak ada data user keluar dari perangkat. */
-    BACKEND_API_BASE: '',
+    /* Base URL backend publik. Backend akun (Replit "Agent Jennai Push",
+       diperluas jadi backend akun) LIVE di URL ini sejak 19 Nov 2026:
+       endpoint auth + sinkronisasi user di API_PATHS di bawah. Selama
+       backend tidak terjangkau, aplikasi tetap jalan dari sesi lokal
+       (ah-state-v1) dan tidak pernah mengunci user keluar. */
+    BACKEND_API_BASE: 'https://barren-scholarly-characters.replit.app',
 
-    /* Path endpoint backend — PLACEHOLDER, BUKAN endpoint nyata. Jangan
-       aktifkan BACKEND_API_BASE sebelum path-path ini dicocokkan dengan
-       API publik yang dibangun subagent backend. Bila backend memakai path
-       lain, ubah HANYA objek ini. */
+    /* Path endpoint backend. Path auth + userSync + checkUsername adalah
+       kontrak dengan subagent backend (server push yang diperluas).
+       Path lama (submitTask, submitWithdrawal, registerReferral,
+       userStatus) TIDAK diubah. */
     API_PATHS: {
       submitTask: '/api/submissions',
       submitWithdrawal: '/api/withdrawals',
       registerReferral: '/api/referrals/register',
-      userStatus: '/api/user/status'
+      userStatus: '/api/user/status',
+      authRegister: '/api/auth/register',
+      authLogin: '/api/auth/login',
+      authSeedVault: '/api/auth/seed-vault',
+      authSetPin: '/api/auth/set-pin',
+      authLinkSeedVault: '/api/auth/link-seed-vault',
+      authMe: '/api/auth/me',
+      userSync: '/api/user/sync',
+      checkUsername: '/api/auth/check-username'
     },
 
     STATE_KEY: 'ah-state-v1',       // satu kunci persistensi state user
@@ -4747,7 +5127,11 @@ setInterval(fetchRate, 5 * 60 * 1000);
       outbox: [],           // payload sync yang gagal terkirim (dikirim ulang nanti)
       proofStorageLimited: false,
       feedSource: 'snapshot', // 'live' | 'cache' | 'snapshot'
-      feedFetchedAt: ''
+      feedFetchedAt: '',
+      hasPin: false,        // akun punya PIN cadangan (BOOLEAN saja; PIN tidak pernah disimpan di sini)
+      pinReminderShown: false, // pengingat buat PIN cadangan sudah pernah ditampilkan sekali
+      lastSyncAt: '',       // ISO waktu sinkronisasi user terakhir yang berhasil
+      lastSyncError: ''     // pesan error sinkronisasi terakhir (untuk teks status jujur)
     };
   }
 
@@ -4810,7 +5194,9 @@ setInterval(fetchRate, 5 * 60 * 1000);
               referrerCode: this.data.referrerCode,
               referralRegisteredSent: this.data.referralRegisteredSent,
               referralRegisteredConfirmed: this.data.referralRegisteredConfirmed,
-              outbox: [], proofStorageLimited: true, feedSource: this.data.feedSource, feedFetchedAt: this.data.feedFetchedAt
+              outbox: [], proofStorageLimited: true, feedSource: this.data.feedSource, feedFetchedAt: this.data.feedFetchedAt,
+              hasPin: this.data.hasPin, pinReminderShown: this.data.pinReminderShown,
+              lastSyncAt: this.data.lastSyncAt, lastSyncError: this.data.lastSyncError
             };
             window.localStorage.setItem(AH_CONFIG.STATE_KEY, JSON.stringify(minimal));
             this.data.proofStorageLimited = true;
@@ -4877,9 +5263,11 @@ setInterval(fetchRate, 5 * 60 * 1000);
     post: function (path, body) {
       if (!this.enabled()) return Promise.resolve({ ok: false, skipped: true, reason: 'backend-not-configured' });
       var url = this.base() + path;
+      var headers = { 'Content-Type': 'application/json' };
+      try { var tk = (typeof AHAuth !== 'undefined' && AHAuth.getToken) ? AHAuth.getToken() : ''; if (tk) headers['Authorization'] = 'Bearer ' + tk; } catch (e) {}
       return fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headers,
         body: JSON.stringify(body)
       }).then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
@@ -4891,7 +5279,9 @@ setInterval(fetchRate, 5 * 60 * 1000);
     get: function (path) {
       if (!this.enabled()) return Promise.resolve({ ok: false, skipped: true, reason: 'backend-not-configured' });
       var url = this.base() + path;
-      return fetch(url, { method: 'GET' })
+      var headers = {};
+      try { var tk2 = (typeof AHAuth !== 'undefined' && AHAuth.getToken) ? AHAuth.getToken() : ''; if (tk2) headers['Authorization'] = 'Bearer ' + tk2; } catch (e) {}
+      return fetch(url, { method: 'GET', headers: headers })
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
         .then(function (json) { return { ok: true, data: json }; })
         .catch(function (err) { return { ok: false, error: String(err && err.message || err) }; });
@@ -4909,6 +5299,7 @@ setInterval(fetchRate, 5 * 60 * 1000);
       }).then(function (res) {
         if (res.ok) { sub.syncedAt = new Date().toISOString(); AHStore.saveSoon(); }
         else { self.queueOutbox('submission', sub); }
+        try { if (typeof AHAuth !== 'undefined') AHAuth.syncUser(); } catch (e) {}
         return res;
       });
     },
@@ -4923,6 +5314,7 @@ setInterval(fetchRate, 5 * 60 * 1000);
       }).then(function (res) {
         if (res.ok) { wd.syncedAt = new Date().toISOString(); AHStore.saveSoon(); }
         else { self.queueOutbox('withdrawal', wd); }
+        try { if (typeof AHAuth !== 'undefined') AHAuth.syncUser(); } catch (e) {}
         return res;
       });
     },
@@ -4997,8 +5389,16 @@ setInterval(fetchRate, 5 * 60 * 1000);
           job.tries++;
           var path = job.kind === 'submission' ? AH_CONFIG.API_PATHS.submitTask
                    : job.kind === 'withdrawal' ? AH_CONFIG.API_PATHS.submitWithdrawal
+                   : job.kind === 'user-sync' ? AH_CONFIG.API_PATHS.userSync
                    : AH_CONFIG.API_PATHS.registerReferral;
-          return self.post(path, job.payload).then(function (res) {
+          /* user-sync: payload dibangun ulang dari state terbaru saat
+             dikirim (bukan payload basi dari antrean), supaya data yang
+             sampai ke backend selalu yang terbaru. */
+          var payload = job.payload;
+          try {
+            if (job.kind === 'user-sync' && typeof AHAuth !== 'undefined' && AHAuth.userSyncPayload) payload = AHAuth.userSyncPayload();
+          } catch (e) {}
+          return self.post(path, payload).then(function (res) {
             if (res.ok) {
               AHStore.data.outbox = AHStore.data.outbox.filter(function (j) { return j !== job; });
               return n + 1;
@@ -5251,6 +5651,182 @@ setInterval(fetchRate, 5 * 60 * 1000);
     }
   };
 
+  /* ============================ AUTH (akun + PIN + sesi) ============== */
+  /* Token sesi BOLEH disimpan di localStorage (kunci 'ah-auth-token'),
+     itu token sesi, bukan PIN. PIN TIDAK PERNAH disimpan di localStorage
+     dalam bentuk apa pun, tidak pernah ditulis ke AHStore, tidak pernah
+     ditampilkan di layar setelah dibuat, dan tidak pernah dikirim kecuali
+     di body POST endpoint auth (register / login / set-pin). */
+  var AHAuth = {
+    TOKEN_KEY: 'ah-auth-token',
+
+    enabled: function () { return AHSync.enabled(); },
+    getToken: function () { try { return window.localStorage.getItem(this.TOKEN_KEY) || ''; } catch (e) { return ''; } },
+    setToken: function (tok) { try { if (tok) window.localStorage.setItem(this.TOKEN_KEY, tok); } catch (e) {} },
+    clearToken: function () { try { window.localStorage.removeItem(this.TOKEN_KEY); } catch (e) {} },
+
+    /* Panggilan auth mentah. Mengembalikan {ok, status, data} atau
+       {ok:false, status, error}. 401 di sini TIDAK menghapus token: 401
+       dari login / set-pin artinya kredensial (PIN) salah, bukan token
+       sesi yang tidak valid. Token hanya dihapus oleh me() bila sesi
+       memang tidak valid (lihat restoreSession). */
+    call: function (path, method, body, withAuth) {
+      var self = this;
+      if (!this.enabled()) return Promise.resolve({ ok: false, skipped: true, reason: 'backend-not-configured' });
+      var headers = { 'Content-Type': 'application/json' };
+      if (withAuth !== false) { var tk = this.getToken(); if (tk) headers['Authorization'] = 'Bearer ' + tk; }
+      return fetch(AHSync.base() + path, { method: method, headers: headers, body: body ? JSON.stringify(body) : undefined })
+        .then(function (r) {
+          return r.json().catch(function () { return {}; }).then(function (json) {
+            if (!r.ok) return { ok: false, status: r.status, data: json, error: (json && (json.error || json.message)) || ('HTTP ' + r.status) };
+            return { ok: true, status: r.status, data: json };
+          });
+        })
+        .catch(function (err) { return { ok: false, status: 0, error: String(err && err.message || err) }; });
+    },
+
+    /* Ambil token + objek user dari jawaban backend (bentuk jawaban bisa
+       {token, user:{...}} atau field user langsung di root). */
+    _absorb: function (res) {
+      if (!res || !res.ok || !res.data) return { token: '', user: null, needsPin: false };
+      var d = res.data;
+      var token = d.token || d.accessToken || d.sessionToken || '';
+      var user = isPlainObject(d.user) ? d.user : (d.username || d.solAddress ? d : null);
+      if (token) this.setToken(token);
+      if (user) this.applyServerUser(user);
+      var needsPin = !!(d.needsPin || (user && user.needsPin));
+      return { token: token, user: user, needsPin: needsPin };
+    },
+
+    register: function (username, pin) {
+      var self = this;
+      return this.call(AH_CONFIG.API_PATHS.authRegister, 'POST', { username: username, pin: pin }, false)
+        .then(function (res) { var out = self._absorb(res); out.res = res; return out; });
+    },
+    login: function (username, pin) {
+      var self = this;
+      return this.call(AH_CONFIG.API_PATHS.authLogin, 'POST', { username: username, pin: pin }, false)
+        .then(function (res) { var out = self._absorb(res); out.res = res; return out; });
+    },
+    /* Login / daftar via Seed Vault: kredensialnya adalah wallet itu
+       sendiri (PIN hanya cadangan, lihat needsPin). */
+    seedVault: function (solAddress, username) {
+      var self = this;
+      var body = { solAddress: solAddress };
+      if (username) body.username = username;
+      return this.call(AH_CONFIG.API_PATHS.authSeedVault, 'POST', body, false)
+        .then(function (res) { var out = self._absorb(res); out.res = res; return out; });
+    },
+    /* Buat PIN cadangan (body {pin}) atau ubah PIN (body {oldPin, newPin}).
+       PIN tidak pernah disimpan lokal; hanya boolean hasPin yang dicatat. */
+    setPin: function (pin, oldPin) {
+      var self = this;
+      var body = oldPin ? { oldPin: oldPin, newPin: pin } : { pin: pin };
+      return this.call(AH_CONFIG.API_PATHS.authSetPin, 'POST', body, true)
+        .then(function (res) {
+          if (res.ok) { AHStore.data.hasPin = true; AHStore.saveSoon(); }
+          return res;
+        });
+    },
+    linkSeedVault: function (solAddress) {
+      var self = this;
+      return this.call(AH_CONFIG.API_PATHS.authLinkSeedVault, 'POST', { solAddress: solAddress }, true)
+        .then(function (res) { if (res.ok) self._absorb(res); return res; });
+    },
+    me: function () { return this.call(AH_CONFIG.API_PATHS.authMe, 'GET', null, true); },
+    checkUsername: function (username) {
+      return AHSync.get(AH_CONFIG.API_PATHS.checkUsername + '?username=' + encodeURIComponent(username || ''));
+    },
+
+    /* Timpa state lokal dengan data user dari backend (sumber kebenaran
+       saat sesi backend valid), lalu simpan + cerminkan ke state aplikasi. */
+    applyServerUser: function (d) {
+      if (!isPlainObject(d)) return;
+      var s = AHStore.data;
+      if (typeof d.username === 'string' && d.username) s.username = d.username;
+      if (typeof d.solAddress === 'string') s.solAddress = d.solAddress;
+      if (typeof d.isSeeker === 'boolean') s.isSeeker = d.isSeeker;
+      if (typeof d.twitter === 'string') s.twitter = d.twitter;
+      if (typeof d.hasPin === 'boolean') s.hasPin = d.hasPin;
+      if (Array.isArray(d.submissions)) s.submissions = clone(d.submissions);
+      if (Array.isArray(d.withdrawals)) s.withdrawals = clone(d.withdrawals);
+      if (Array.isArray(d.referrals)) s.referrals = clone(d.referrals);
+      if (Array.isArray(d.activityLog)) s.activityLog = clone(d.activityLog);
+      if (Array.isArray(d.completedTasks)) s.completedTasks = clone(d.completedTasks);
+      if (Array.isArray(d.savedProjects)) s.savedProjects = clone(d.savedProjects);
+      if (Array.isArray(d.saved)) { // backend mengirim saved sebagai array id
+        s.savedProjects = clone(d.saved);
+        try { var map = {}; d.saved.forEach(function (id) { map[id] = true; }); if (window.state) window.state.saved = map; } catch (e) {}
+      }
+      pushToAppState();
+      AHStore.saveSoon();
+    },
+
+    /* Payload sinkronisasi user (dipakai syncUser + flushOutbox). */
+    userSyncPayload: function () {
+      var s = AHStore.data;
+      return {
+        username: s.username || '', solAddress: s.solAddress || '', isSeeker: !!s.isSeeker,
+        twitter: s.twitter || '', submissions: clone(s.submissions), withdrawals: clone(s.withdrawals),
+        referrals: clone(s.referrals), activityLog: clone(s.activityLog),
+        completedTasks: clone(s.completedTasks), savedProjects: clone(s.savedProjects),
+        hasPin: !!s.hasPin, updatedAt: new Date().toISOString()
+      };
+    },
+
+    /* Kirim data user terbaru ke backend. Gagal -> masuk outbox (dikirim
+       ulang oleh flushOutbox dengan payload yang dibangun ulang). Tanpa
+       token sesi: dilewati diam-diam (sesi lokal tetap jalan). */
+    syncUser: function () {
+      var self = this;
+      if (!this.enabled() || !this.getToken() || !AHStore.data.username) {
+        return Promise.resolve({ ok: false, skipped: true, reason: 'no-token-or-username' });
+      }
+      return this.call(AH_CONFIG.API_PATHS.userSync, 'POST', this.userSyncPayload(), true)
+        .then(function (res) {
+          if (res.ok) {
+            AHStore.data.lastSyncAt = new Date().toISOString();
+            AHStore.data.lastSyncError = '';
+          } else {
+            AHStore.data.lastSyncError = res.error || ('HTTP ' + (res.status || '?'));
+            AHSync.queueOutbox('user-sync', self.userSyncPayload());
+          }
+          AHStore.saveSoon();
+          AHNotes.applyLocalOnlyNotes();
+          return res;
+        });
+    },
+
+    /* Pulihkan sesi saat boot: token tersimpan -> GET /api/auth/me.
+       Berhasil: timpa state lokal + render ulang. 401: token dihapus.
+       Gagal jaringan / backend belum live: JANGAN kunci user keluar;
+       fallback ke sesi lokal (ah-state-v1); render ulang tetap jalan
+       supaya username lokal yang sudah pulih menutup layar Welcome. */
+    restoreSession: function () {
+      var self = this;
+      if (!this.enabled() || !this.getToken()) return Promise.resolve({ ok: false, skipped: true, reason: 'no-token' });
+      return this.me().then(function (res) {
+        if (res.ok) {
+          var d = res.data || {};
+          self.applyServerUser(isPlainObject(d.user) ? d.user : d);
+          AHStore.data.lastSyncAt = new Date().toISOString();
+          AHStore.data.lastSyncError = '';
+          AHStore.saveSoon();
+        } else if (res.status === 401) {
+          self.clearToken(); /* hanya di sini token dihapus: sesi memang tidak valid */
+          warn('token sesi tidak valid, dihapus; lanjut sesi lokal.');
+        } else {
+          AHStore.data.lastSyncError = res.error || ('HTTP ' + (res.status || '?'));
+          AHStore.saveSoon();
+          warn('restore sesi gagal, lanjut sesi lokal:', res.error || res.status);
+        }
+        try { if (typeof window.renderAll === 'function') window.renderAll(); else if (typeof window.updateOnboardingVisibility === 'function') window.updateOnboardingVisibility(); } catch (e) {}
+        AHNotes.applyLocalOnlyNotes();
+        return res;
+      });
+    }
+  };
+
   /* ============================ REFERRAL ================================ */
   var AHReferral = {
     /* Tangkap ?ref=<kode> saat aplikasi dibuka. Kode pertama yang valid
@@ -5297,6 +5873,22 @@ setInterval(fetchRate, 5 * 60 * 1000);
   var AHNotes = {
     LOCAL_ONLY: 'Mode lokal: kiriman tugas & pengajuan penarikan saat ini hanya tersimpan di perangkat ini dan belum diterima admin mana pun. Sinkronisasi backend belum diaktifkan.',
     SYNC_ON: 'Terhubung ke backend: kiriman & pengajuanmu diteruskan ke admin untuk ditinjau.',
+    SYNC_FAIL: 'Backend tidak terjangkau saat ini, data tersimpan di perangkat ini dan akan disinkronkan otomatis begitu backend bisa dijangkau.',
+    /* Teks catatan sinkronisasi berdasarkan status nyata: backend aktif
+       atau tidak, terakhir berhasil kapan, terakhir gagal kenapa. Dipakai
+       renderAktivitas (dan renderAll lewat sana) supaya teks yang tampil
+       selalu benar, bukan teks "Mode lokal" yang sudah kedaluwarsa. */
+    syncNoteText: function () {
+      if (!AHSync.enabled()) return this.LOCAL_ONLY;
+      var s = AHStore.data;
+      if (s.lastSyncError) return this.SYNC_FAIL;
+      if (s.lastSyncAt) {
+        var at = '';
+        try { at = new Date(s.lastSyncAt).toLocaleString('id-ID'); } catch (e) {}
+        return this.SYNC_ON + (at ? ' Terakhir tersinkron ' + at + '.' : '');
+      }
+      return this.SYNC_ON;
+    },
     /* WIRING 2: koordinator menambahkan elemen <p data-ah-note="local-only">
        di seksi Task to Earn, Aktivitas, dan Referral. Fungsi ini mengisi /
        menyembunyikannya sesuai status sync — tanpa mengubah layout lain. */
@@ -5309,7 +5901,7 @@ setInterval(fetchRate, 5 * 60 * 1000);
       }
       var nodes2 = document.querySelectorAll('[data-ah-note="sync-on"]');
       for (var j = 0; j < nodes2.length; j++) {
-        nodes2[j].textContent = on ? this.SYNC_ON : '';
+        nodes2[j].textContent = on ? this.syncNoteText() : '';
         nodes2[j].style.display = on ? '' : 'none';
       }
     }
@@ -5322,6 +5914,17 @@ setInterval(fetchRate, 5 * 60 * 1000);
       pullFromAppState();
       AHReferral.captureFromUrl();
       pushToAppState();
+      /* PERBAIKAN tetap-login (bug 19 Nov 2026): renderAll() pertama jalan
+         saat skrip utama dimuat, ketika state.username masih kosong
+         sehingga layar Welcome tampil. Di sinilah username pulih dari
+         localStorage ke state, lalu render ulang supaya layar Welcome langsung
+         tertutup bila username sudah ada, dan tetap tampil bila instal
+         baru (username kosong). Skrip ini jalan sebelum paint pertama,
+         jadi tidak ada kedipan layar Welcome. */
+      try {
+        if (typeof window.renderAll === 'function') window.renderAll();
+        else if (typeof window.updateOnboardingVisibility === 'function') window.updateOnboardingVisibility();
+      } catch (e) { warn('render ulang setelah pulih sesi gagal:', e); }
       AHNotes.applyLocalOnlyNotes();
       AHFeed.renderSourceNote();
 
@@ -5367,10 +5970,16 @@ setInterval(fetchRate, 5 * 60 * 1000);
       /* Feed live saat load (dijalankan dulu supaya satu kegagalan listener
          tidak pernah menghalangi fetch feed); refresh tombol via WIRING 4. */
       AHFeed.fetchLive();
-      if (AHSync.enabled()) {
-        AHSync.flushOutbox();
-        AHSync.fetchStatuses();
-      }
+      /* Pulihkan sesi backend (bila ada token tersimpan), lalu sinkronkan
+         outbox + status. Tanpa token, langsung ke outbox + status. */
+      var afterSession = function () {
+        if (AHSync.enabled()) {
+          AHSync.flushOutbox();
+          AHSync.fetchStatuses();
+        }
+      };
+      if (AHAuth.enabled() && AHAuth.getToken()) { AHAuth.restoreSession().then(afterSession, afterSession); }
+      else { afterSession(); }
 
       /* Simpan state saat halaman disembunyikan/ditutup (backup terakhir). */
       try {
@@ -5393,6 +6002,7 @@ setInterval(fetchRate, 5 * 60 * 1000);
     config: AH_CONFIG,
     store: AHStore,
     sync: AHSync,
+    auth: AHAuth,
     feed: AHFeed,
     referral: AHReferral,
     rewards: AHRewards,
