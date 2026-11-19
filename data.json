@@ -2,12 +2,12 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-19 15:44 WIB",
+  "data_snapshot_at": "2026-11-19 16:14 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
-   "total": 77,
+   "total": 78,
    "early": 11,
-   "freemint": 31,
+   "freemint": 32,
    "airdrop": 18,
    "whitelist": 17
   },
@@ -464,6 +464,22 @@
    "source": "['https://dime-ghosts-site.pages.dev', 'https://www.[wallet].bh/en-BH/square/profile/square-creator-a4c8ed3e80fa1']"
   },
   {
+   "id": "debugz-unvault-free-mint",
+   "project": "DEBUGZ ([akun]) — free mint",
+   "chain": "Ethereum",
+   "category": "freemint",
+   "type": "Free Mint",
+   "cost": "Gratis (gas ETH saja)",
+   "potential": "Sedang (free mint ETH 5.600 supply, platform Unvault terverifikasi sebagai marketplace; tapi tanpa kontrak/tanggal pasti per halaman mint)",
+   "risk": "Sedang (tanpa kontrak = tanpa audit; sumber hanya agregator)",
+   "verdict": "Watch — cek live run 15:43 WIB 19 Nov (browser.open, crawl 08:44 UTC / 15:44 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka. Genesis Bugz dijadwalkan Rabu 2 PM ET (= Kam 02:00 WIB) — kini ~13 jam 45 mnt lewat jadwal tanpa buka (DeBugz Selasa 2 PM ET juga lewat). Gazette 18 Nov: DeBugz ditunda karena DDoS, tanpa tanggal baru. Tanpa countdown, tanpa alamat kontrak di halaman (hanya \"uses the DeBugz contract\"). Fase publik 309 slot belum mulai.",
+   "details": "Free mint 5.600 NFT di Ethereum, mint 17 Nov 19:00 UTC (18 Nov 02:00 WIB) via unvault.com.",
+   "portal": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']",
+   "found": "2026-11-18",
+   "status": "Watch — cek live run 15:43 WIB 19 Nov (browser.open, crawl 08:44 UTC / 15:44 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka. Genesis Bugz dijadwalkan Rabu 2 PM ET (= Kam 02:00 WIB) — kini ~13 jam 45 mnt lewat",
+   "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']"
+  },
+  {
    "id": "clown-on-solana-clown",
    "project": "Clown on Solana ($CLOWN)",
    "chain": "Solana",
@@ -520,11 +536,11 @@
    "cost": "Gratis (gas ETH saja)",
    "potential": "Sedang (free mint ETH, Genesis Bugs = akses prioritas drop Unvault berikutnya)",
    "risk": "Sedang (tanpa kontrak = tanpa audit; selisih supply 5.000 vs 5.600)",
-   "verdict": "Watch — cek live run 13:43 WIB 19 Nov (browser.open, crawl 06:44 UTC / 13:44 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka. Genesis Bugz dijadwalkan Rabu 2 PM ET (= Kam 02:00 WIB) — kini ~11 jam 45 mnt lewat jadwal tanpa buka (DeBugz Selasa 2 PM ET juga lewat). Gazette 18 Nov: DeBugz ditunda karena DDoS, tanpa tanggal baru. Tanpa countdown, tanpa alamat kontrak di halaman (hanya \"uses the DeBugz contract\"). Fase publik 309 slot belum mulai.",
+   "verdict": "Watch — cek live run 15:43 WIB 19 Nov (browser.open, crawl 08:44 UTC / 15:44 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka. Genesis Bugz dijadwalkan Rabu 2 PM ET (= Kam 02:00 WIB) — kini ~13 jam 45 mnt lewat jadwal tanpa buka (DeBugz Selasa 2 PM ET juga lewat). Gazette 18 Nov: DeBugz ditunda karena DDoS, tanpa tanggal baru. Tanpa countdown, tanpa alamat kontrak di halaman (hanya \"uses the DeBugz contract\"). Fase publik 309 slot belum mulai.",
    "details": "Free mint 5.600 NFT di Ethereum, mint 18 Nov 19:00 UTC (19 Nov 02:00 WIB) via unvault.com.",
    "portal": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']",
    "found": "2026-11-18",
-   "status": "Watch — cek live run 13:43 WIB 19 Nov (browser.open, crawl 06:44 UTC / 13:44 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka. Genesis Bugz dijadwalkan Rabu 2 PM ET (= Kam 02:00 WIB) — kini ~11 jam 45 mnt lewat",
+   "status": "Watch — cek live run 15:43 WIB 19 Nov (browser.open, crawl 08:44 UTC / 15:44 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka. Genesis Bugz dijadwalkan Rabu 2 PM ET (= Kam 02:00 WIB) — kini ~13 jam 45 mnt lewat",
    "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']"
   },
   {
