@@ -2,7 +2,7 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-19 23:27 WIB",
+  "data_snapshot_at": "2026-11-19 23:29 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
    "total": 101,
@@ -30,7 +30,27 @@
    "portal": "https://t.me/iLoveDramaBot/ilovedramatv?startapp=r_jfb7gnsg2y",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "https://t.me/iLoveDramaBot/ilovedramatv?startapp=r_jfb7gnsg2y"
+   "source": "https://t.me/iLoveDramaBot/ilovedramatv?startapp=r_jfb7gnsg2y",
+   "i18n": {
+    "en": {
+     "type": "Airdrop",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "ilovedrama.tv holds a Big Invite Race with a prize pool $2,000 in $GRAM token: invite friends via your own link and climb the leaderboard. Prize $1,000 for 1st place and $500 for 2nd place.",
+     "status": "Waiting for approval",
+     "source": "https://t.me/iLoveDramaBot/ilovedramatv?startapp=r_jfb7gnsg2y"
+    },
+    "zh": {
+     "type": "Airdrop",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "ilovedrama.tv 举办 Big Invite Race，奖池 $2,000 以 $GRAM 代币计：通过自己的链接邀请朋友并登上排行榜。冠军奖励 $1,000，亚军奖励 $500。",
+     "status": "等待批准",
+     "source": "https://t.me/iLoveDramaBot/ilovedramatv?startapp=r_jfb7gnsg2y"
+    }
+   }
   },
   {
    "id": "zkverify",
@@ -46,7 +66,27 @@
    "portal": "https://points.zkverify.io/proofpoints2",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "https://points.zkverify.io/proofpoints2"
+   "source": "https://points.zkverify.io/proofpoints2",
+   "i18n": {
+    "en": {
+     "type": "Airdrop",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "ZkVerify is a proof verification network for zero-knowledge applications. The Proof Point period has ended; eligible participants can claim a thank-you token $VFY, with a claim window until 27 November.",
+     "status": "Waiting for approval",
+     "source": "https://points.zkverify.io/proofpoints2"
+    },
+    "zh": {
+     "type": "Airdrop",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "ZkVerify 是用于零知识应用的证明验证网络。Proof Point 期间已结束；符合条件的参与者可领取感谢代币 $VFY，领取窗口截至 11 月 27 日。",
+     "status": "等待批准",
+     "source": "https://points.zkverify.io/proofpoints2"
+    }
+   }
   },
   {
    "id": "zeroni",
@@ -62,7 +102,27 @@
    "portal": "https://zeroni.art/whitelist",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "[akun] (msg 129679)"
+   "source": "[akun] (msg 129679)",
+   "i18n": {
+    "en": {
+     "type": "Whitelist",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "CAUTION",
+     "details": "Zeroni NFT collection (LayerZero ecosystem), supply 3.333; price and mint date not announced yet. Waitlist registration opened.",
+     "status": "Waiting for approval",
+     "source": "[akun] (msg 129679)"
+    },
+    "zh": {
+     "type": "Whitelist",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "谨慎",
+     "details": "Zeroni NFT 系列（LayerZero 生态系统），供应 3.333；价格和铸造日期尚未公布。等待名单注册已开启。",
+     "status": "等待批准",
+     "source": "[akun] (msg 129679)"
+    }
+   }
   },
   {
    "id": "weird-cats",
@@ -78,7 +138,27 @@
    "portal": "https://weirdcats.xyz/weirdlist/final-rush",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "https://weirdcats.xyz/weirdlist/final-rush"
+   "source": "https://weirdcats.xyz/weirdlist/final-rush",
+   "i18n": {
+    "en": {
+     "type": "FCFS",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "Game merge-cats where players enter the list via ranking gameplay: 5 runs per day, best run counted. Ranks 1-100 receive GTD, ranks 101-600 receive FCFS spot. Final rush event lasts 2 days.",
+     "status": "Waiting for approval",
+     "source": "https://weirdcats.xyz/weirdlist/final-rush"
+    },
+    "zh": {
+     "type": "FCFS",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "Game merge-cats di mana pemain masuk daftar lewat permainan peringkat: 5 run per hari, run terbaik yang dihitung. Peringkat 1-100 mendapat GTD, peringkat 101-600 mendapat spot FCFS. Event final rush berlangsung 2 hari.",
+     "status": "等待批准",
+     "source": "https://weirdcats.xyz/weirdlist/final-rush"
+    }
+   }
   },
   {
    "id": "vitrum-falcons",
@@ -94,7 +174,29 @@
    "portal": "https://open-design.store/#waitlist",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "[akun] (msg 129685)"
+   "source": "[akun] (msg 129685)",
+   "i18n": {
+    "en": {
+     "type": "Free Mint",
+     "cost": "Gratis",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "Vitrum Falcons NFT collection, supply 5,000, free mint; mint date 18 November. Waitlist registration via official site by completing tasks and submitting EVM address.",
+     "status": "Waiting for approval",
+     "source": "[akun] (msg 129685)"
+    },
+    "zh": {
+     "type": "Free Mint",
+     "cost": "Gratis",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "Koleksi NFT Vitrum Falcons, supply 5.000, free mint; tanggal mint 18 November. Pendaftaran waitlist lewat situs resmi dengan menyelesaikan tugas dan submit alamat EVM.",
+     "status": "等待批准",
+     "source": "[akun] (msg 129685)"
+    }
+   }
   },
   {
    "id": "trippi",
@@ -110,7 +212,23 @@
    "portal": "https://nitter.cf/RTM_Community/status/2117324659339464760",
    "found": "2026-11-19",
    "status": "Watch — mint TBA, GTD via trippi.fun/#quest; belum ada kontrak/tanggal",
-   "source": "['https://nitter.cf/RTM_Community/status/2117324659339464760']"
+   "source": "['https://nitter.cf/RTM_Community/status/2117324659339464760']",
+   "i18n": {
+    "en": {
+     "type": "Free Mint (GTD early access)",
+     "verdict": "WATCH",
+     "details": "Trippi NFT collection on Robinhood Chain, supply 1,999, free mint; mint date not announced. Early (GTD) access via quest on official site.",
+     "status": "Watch — mint TBA, GTD via trippi.fun/#quest; belum ada kontrak/tanggal",
+     "source": "['https://nitter.cf/RTM_Community/status/2117324659339464760']"
+    },
+    "zh": {
+     "type": "Free Mint (GTD early access)",
+     "verdict": "观察",
+     "details": "Koleksi NFT Trippi di Robinhood Chain, supply 1.999, free mint; tanggal mint belum diumumkan. Akses early (GTD) lewat quest di situs resmi.",
+     "status": "Watch — mint TBA, GTD via trippi.fun/#quest; belum ada kontrak/tanggal",
+     "source": "['https://nitter.cf/RTM_Community/status/2117324659339464760']"
+    }
+   }
   },
   {
    "id": "the-notties",
@@ -126,7 +244,29 @@
    "portal": "https://whitelist.thenotties.xyz/",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "[akun] (msg 129751)"
+   "source": "[akun] (msg 129751)",
+   "i18n": {
+    "en": {
+     "type": "Free Mint",
+     "cost": "Free",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "The Notties NFT collection, supply 5,760, free mint; mint date not announced yet. Waitlist registration via official website by completing tasks and submitting EVM address.",
+     "status": "Waiting for approval",
+     "source": "[akun] (msg 129751)"
+    },
+    "zh": {
+     "type": "Free Mint",
+     "cost": "免费",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "The Notties NFT 系列，供应 5,760，免费铸造；铸造日期尚未公布。通过官方站点完成任务并提交 EVM 地址进行等候名单注册。",
+     "status": "等待批准",
+     "source": "[akun] (msg 129751)"
+    }
+   }
   },
   {
    "id": "superai",
@@ -142,7 +282,27 @@
    "portal": "https://t.me/SAIAirdropBot?start=ref_515933843",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "https://t.me/SAIAirdropBot?start=ref_515933843"
+   "source": "https://t.me/SAIAirdropBot?start=ref_515933843",
+   "i18n": {
+    "en": {
+     "type": "Airdrop",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "SuperAI (SAI) is an AI-based social media platform from NEXST. Airdrop $6 USDT via Telegram bot: join Telegram, follow X, complete tasks, and submit BSC address.",
+     "status": "Waiting for approval",
+     "source": "https://t.me/SAIAirdropBot?start=ref_515933843"
+    },
+    "zh": {
+     "type": "Airdrop",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "SuperAI (SAI) 是 NEXST 的基于 AI 的社交媒体平台。通过 Telegram 机器人空投 $6 USDT：加入 Telegram，关注 X，完成任务，并提交 BSC 地址。",
+     "status": "等待批准",
+     "source": "https://t.me/SAIAirdropBot?start=ref_515933843"
+    }
+   }
   },
   {
    "id": "recall",
@@ -158,7 +318,27 @@
    "portal": "https://app.recall.network/competitions⁠",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "https://app.recall.network/competitions⁠"
+   "source": "https://app.recall.network/competitions⁠",
+   "i18n": {
+    "en": {
+     "type": "Airdrop",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "Recall is an AI agent competition network. All Recall tokens are already unlocked and can be claimed through the official app.",
+     "status": "Waiting for approval",
+     "source": "https://app.recall.network/competitions⁠"
+    },
+    "zh": {
+     "type": "Airdrop",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "Recall 是 AI 代理竞争网络。所有 Recall 代币已解锁，可通过官方应用领取。",
+     "status": "等待批准",
+     "source": "https://app.recall.network/competitions⁠"
+    }
+   }
   },
   {
    "id": "pixelora",
@@ -174,7 +354,29 @@
    "portal": "https://pixelora.fun/whitelist",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "[akun] (msg 129612)"
+   "source": "[akun] (msg 129612)",
+   "i18n": {
+    "en": {
+     "type": "Free Mint",
+     "cost": "Free",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "Pixelora NFT collection, supply 2,222, free mint; mint date not announced. Waitlist registration via official website by completing tasks and submitting EVM address.",
+     "status": "Waiting for approval",
+     "source": "[akun] (msg 129612)"
+    },
+    "zh": {
+     "type": "Free Mint",
+     "cost": "免费",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "Pixelora NFT 系列，供应 2,222，免费铸造；铸造日期未公布。通过官方站点完成任务并提交 EVM 地址进行等待名单注册。",
+     "status": "等待批准",
+     "source": "[akun] (msg 129612)"
+    }
+   }
   },
   {
    "id": "pxio-miner",
@@ -190,7 +392,29 @@
    "portal": "https://pxio.fun/",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "[akun] (msg 129682)"
+   "source": "[akun] (msg 129682)",
+   "i18n": {
+    "en": {
+     "type": "Free Mint",
+     "cost": "Free",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "PXIO Miner is an NFT on BNB Smart Chain that can be minted for free (gas only) by wallets holding an Agent ID (.ai), up to 30 per wallet. NFT tier is revealed after mint (reveal).",
+     "status": "Waiting for approval",
+     "source": "[akun] (msg 129682)"
+    },
+    "zh": {
+     "type": "Free Mint",
+     "cost": "免费",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "PXIO Miner 是 BNB Smart Chain 上的 NFT，可由持有 Agent ID (.ai) 的钱包免费铸造（仅 gas），每个钱包最多 30 个。NFT 等级在铸造后揭示（reveal）。",
+     "status": "等待批准",
+     "source": "[akun] (msg 129682)"
+    }
+   }
   },
   {
    "id": "omnis",
@@ -206,7 +430,27 @@
    "portal": "https://omniszero.xyz/",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "[akun] (msg 129621)"
+   "source": "[akun] (msg 129621)",
+   "i18n": {
+    "en": {
+     "type": "Whitelist",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "CAUTION",
+     "details": "Omnis NFT collection (LayerZero ecosystem) on Scroll. Waitlist registration is open; details of supply, price, and mint date are not announced.",
+     "status": "Waiting for approval",
+     "source": "[akun] (msg 129621)"
+    },
+    "zh": {
+     "type": "Whitelist",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "谨慎",
+     "details": "Omnis NFT 系列（LayerZero 生态）在 Scroll 上。等待名单注册已开启；供应、价格和铸造日期的细节未公布。",
+     "status": "等待批准",
+     "source": "[akun] (msg 129621)"
+    }
+   }
   },
   {
    "id": "null",
@@ -254,7 +498,27 @@
    "portal": "https://mopes.art",
    "found": "2026-11-19",
    "status": "SUDAH JOIN",
-   "source": "whitelist-joined.json (join 19 Nov 21:56 WIB)"
+   "source": "whitelist-joined.json (join 19 Nov 21:56 WIB)",
+   "i18n": {
+    "en": {
+     "type": "Whitelist",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "CAUTION",
+     "details": "Mopes NFT collection (1,111 hand-drawn) on Robinhood Chain; free mint via OpenSea, mint date not announced yet. Whitelist registration is open.",
+     "status": "Joined",
+     "source": "whitelist-joined.json (join 19 Nov 21:56 WIB)"
+    },
+    "zh": {
+     "type": "Whitelist",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "谨慎",
+     "details": "Mopes NFT 系列（1,111 手绘）在 Robinhood Chain；通过 OpenSea 免费铸造，铸造日期尚未公布。白名单注册已开启。",
+     "status": "已加入",
+     "source": "whitelist-joined.json (join 19 Nov 21:56 WIB)"
+    }
+   }
   },
   {
    "id": "luxa-ecosystem",
@@ -286,7 +550,29 @@
    "portal": "https://lamoryant.com/apply",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "[akun] (msg 129717)"
+   "source": "[akun] (msg 129717)",
+   "i18n": {
+    "en": {
+     "type": "Free Mint",
+     "cost": "Free",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "Lamoryant Social NFT collection, supply 1.356, free mint; mint date not announced yet. Waitlist registration via official website by completing tasks and submitting EVM address.",
+     "status": "Waiting for approval",
+     "source": "[akun] (msg 129717)"
+    },
+    "zh": {
+     "type": "Free Mint",
+     "cost": "免费",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "Lamoryant Social NFT 系列，供应 1.356，免费铸造；铸造日期尚未公布。通过官方站点完成任务并提交 EVM 地址进行等候名单注册。",
+     "status": "等待批准",
+     "source": "[akun] (msg 129717)"
+    }
+   }
   },
   {
    "id": "kismo",
@@ -350,7 +636,27 @@
    "portal": "https://www.foome.foundation/#checker",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "https://www.foome.foundation/#checker"
+   "source": "https://www.foome.foundation/#checker",
+   "i18n": {
+    "en": {
+     "type": "Airdrop",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "FOOME is a project with a total supply of 1 billion tokens and a community pool of 200 million FOOME; allocation based on activity on Robinhood Chain. Airdrop checker is already live and free NFT mint is planned. The team is unknown — verify official details before connecting wallet.",
+     "status": "Waiting for approval",
+     "source": "https://www.foome.foundation/#checker"
+    },
+    "zh": {
+     "type": "Airdrop",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "FOOME 是一个总供应量为 10 亿代币、社区池为 2 亿 FOOME 的项目；分配基于 Robinhood Chain 上的活动。空投检查器已上线，计划免费 NFT 铸造。团队尚未公开——在连接钱包前请验证官方细节。",
+     "status": "等待批准",
+     "source": "https://www.foome.foundation/#checker"
+    }
+   }
   },
   {
    "id": "feral-frog-federation",
@@ -398,7 +704,27 @@
    "portal": "https://dialectica.xyz/app",
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
-   "source": "https://dialectica.xyz/app"
+   "source": "https://dialectica.xyz/app",
+   "i18n": {
+    "en": {
+     "type": "Airdrop",
+     "potential": "Not yet assessed",
+     "risk": "Not yet audited",
+     "verdict": "WATCH",
+     "details": "Dialectica is an AI agent platform with the token $TRUED. Registration via the app: sign up with email or connect X, then create an agent from a prompt. It is recommended not to connect a wallet first.",
+     "status": "Waiting for approval",
+     "source": "https://dialectica.xyz/app"
+    },
+    "zh": {
+     "type": "Airdrop",
+     "potential": "未评估",
+     "risk": "未审计",
+     "verdict": "观察",
+     "details": "Dialectica 是一个拥有代币 $TRUED 的 AI 代理平台。通过应用注册：使用电子邮件注册或连接 X，然后从提示创建代理。建议先不要连接钱包。",
+     "status": "等待批准",
+     "source": "https://dialectica.xyz/app"
+    }
+   }
   },
   {
    "id": "di-decentralized-intelligence",
@@ -462,7 +788,23 @@
    "portal": "https://oozlings.com/robinhood-chain-nft-mints/",
    "found": "2026-11-19",
    "status": "Watch — free stages signed (butuh signature creator via form/raffle); kontrak terpotong di sumber (0x66de…d22d), belum terverifikasi penuh",
-   "source": "['https://oozlings.com/robinhood-chain-nft-mints/']"
+   "source": "['https://oozlings.com/robinhood-chain-nft-mints/']",
+   "i18n": {
+    "en": {
+     "type": "Free Mint (signed/allowlist stages)",
+     "verdict": "WATCH",
+     "details": "Koleksi NFT Cash Grab di Robinhood Chain, max supply 2.222, free mint (gas tetap dibayar). Tahap free memakai signed allowlist lewat form/raffle. Data dari agregator 27 Oktober 2026 dan perlu verifikasi ulang; contract address belum terverifikasi penuh.",
+     "status": "Watch — free stages signed (butuh signature creator via form/raffle); kontrak terpotong di sumber (0x66de…d22d), belum terverifikasi penuh",
+     "source": "['https://oozlings.com/robinhood-chain-nft-mints/']"
+    },
+    "zh": {
+     "type": "Free Mint (signed/allowlist stages)",
+     "verdict": "观察",
+     "details": "Koleksi NFT Cash Grab di Robinhood Chain, max supply 2.222, free mint (gas tetap dibayar). Tahap free memakai signed allowlist lewat form/raffle. Data dari agregator 27 Oktober 2026 dan perlu verifikasi ulang; contract address belum terverifikasi penuh.",
+     "status": "Watch — free stages signed (butuh signature creator via form/raffle); kontrak terpotong di sumber (0x66de…d22d), belum terverifikasi penuh",
+     "source": "['https://oozlings.com/robinhood-chain-nft-mints/']"
+    }
+   }
   },
   {
    "id": "burnout-relic",
@@ -638,7 +980,29 @@
    "portal": "https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+   "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']",
+   "i18n": {
+    "en": {
+     "type": "Free mint / Paid mint (NFT)",
+     "cost": "Not known (price/chain not listed in the source readable this run)",
+     "potential": "Low",
+     "risk": "Cannot be assessed without official contract/website",
+     "verdict": "WATCH",
+     "details": "NFT collection Sonic Bodies; mint recorded on 18 November 2026 in the NFT calendar. Chain, price, and official website not yet verified.",
+     "status": "Watch",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    },
+    "zh": {
+     "type": "Free mint / Paid mint (NFT)",
+     "cost": "未知（价格/链未在此运行可读的来源中列出）",
+     "potential": "低",
+     "risk": "没有官方合约/网站无法评估",
+     "verdict": "观察",
+     "details": "NFT 系列 Sonic Bodies；铸造记录于 2026年11月18日 的 NFT 日历。链、价格和官方网站尚未验证。",
+     "status": "Watch",
+     "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
+    }
+   }
   },
   {
    "id": "skull-monster-09",
@@ -846,7 +1210,20 @@
    "portal": "https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4",
    "found": "2026-11-18",
    "status": "Watch",
-   "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4']"
+   "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4']",
+   "i18n": {
+    "en": {
+     "type": "Free Mint",
+     "cost": "Free (gas Robinhood only)",
+     "potential": "Medium (free mint Robinhood 5.000 supply)",
+     "risk": "Medium (tanpa kontrak/situs = tanpa audit)",
+     "verdict": "WATCH",
+     "details": "ETA is an NFT free mint collection 5.000 supply on Robinhood Chain, mint 20 November 2026. The contract and official website have not been verified.",
+     "status": "Watch",
+     "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4']"
+    },
+    "zh": {}
+   }
   },
   {
    "id": "dripdragons",
