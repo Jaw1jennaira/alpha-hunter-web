@@ -2,7 +2,7 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-19 16:44 WIB",
+  "data_snapshot_at": "2026-11-19 17:14 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
    "total": 104,
@@ -204,7 +204,7 @@
    "details": "Ditemukan wl-scan 05:50 WIB 19 Nov 2026 dari pencarian 'whitelist NFT Robinhood Chain'. Motes = NFT-native financial agent ecosystem di Robinhood Chain; Genesis 1.000 NFT, holder dapat 10% supply $MOTES (multiplier maks 50 NFT/wallet) + prioritas future sales + Motes Aura. Mint date + WL BELUM diumumkan; panduan resmi: pantau [akun] + docs. Bukan kandidat daftar saat ini — hanya pantau.",
    "portal": "https://meetmotes.com/apply-form",
    "found": "2026-11-19",
-   "status": "MENUNGGU APPROVED — form allowlist LIVE di meetmotes.com/apply-form (terverifikasi live browser 19 Nov 2026 11:53 WIB): 5 langkah — 1 Connect X (OAuth, tanpa kolom handle manual), 2 Your wallet (terkunci, belum terlihat ",
+   "status": "MENUNGGU APPROVED — form allowlist LIVE di meetmotes.com/apply-form (terverifikasi live browser 19 Nov 2026 11:53 WIB): 5 langkah — 1 Connect X (OAuth, tanpa kolom handle manual), 2 Your wallet (terkunci, belum terlihat",
    "source": "Bitrue $MOTES airdrop guide (22 jam lalu, merujuk docs resmi + X [akun]) + daftar 99airdrops.com ('Motes Genesis NFT', Robinhood Chain)"
   },
   {
@@ -832,7 +832,7 @@
    "source": "['https://8bitcrypto.com/nft-day-volume-453k-courtyard-grant-yun-sections-nov18-brief/']"
   },
   {
-   "id": "eta-entertheanime-free-mint",
+   "id": "eta-akun-free-mint",
    "project": "ETA ([akun]) — free mint",
    "chain": "Robinhood",
    "category": "freemint",
@@ -880,7 +880,7 @@
    "source": "['https://dime-ghosts-site.pages.dev', 'https://www.[wallet].bh/en-BH/square/profile/square-creator-a4c8ed3e80fa1']"
   },
   {
-   "id": "debugz-unvault-free-mint",
+   "id": "debugz-akun-free-mint",
    "project": "DEBUGZ ([akun]) — free mint",
    "chain": "Ethereum",
    "category": "freemint",
@@ -944,7 +944,7 @@
    "source": "['https://www.kucoin.com/news/community/NFT/6aedce24abae5e0007c53604']"
   },
   {
-   "id": "bugz-unvault-free-mint",
+   "id": "bugz-akun-free-mint",
    "project": "BUGZ ([akun]) — free mint",
    "chain": "Ethereum",
    "category": "freemint",
@@ -1001,7 +1001,7 @@
    "potential": "Sedang — free lane lebar 1.695, simulasi lolos, pace lambat (tidak buru-buru); tapi tanpa pasar sekunder",
    "risk": "Sedang — audit CAUTION 60/100 (skor mentah 77; cap: renderer mutable & tidak terverifikasi — owner bisa ganti art kapan saja; owner live bisa tutup free lane/ubah harga; tim anonim; tanpa refund; tanpa pasar sekunder).",
    "verdict": "CAUTION 60/100 — preview APPROVED dikirim ke Telegram 17 Nov 2026 ~13:20 WIB (approval-create --kind mint, calldata mint() 0x1249c58b, value 0, chain 56, erc721; id 584a4c76fbf4, pesan 1909) + laporan lengkap pesan 1911. Auto BLOKIR (audit bukan GO + saldo BNB 0,000296 di [alat]ah cadangan 0,0005).",
-   "details": "Kontrak [alamat wallet], Sourcify exact_match (creation + runtime, 28 Okt 2026). Live state blok 134068622 (~13:15 WIB): totalSupply 7.314/10.000, freeMinted 6.805/8.500 (freeLeft 1.695), mintOpen/freeOpen/syncOpen true, price 0,0005 BNB, maxPerWallet 10, reserve 100/100 habis. wallet: balanceOf 0, freeClaimed false, freeAvailable true, nextPrice 0, Agent ID 1 -> ELIGIBLE, kuota gratis BELUM PERNAH dipakai. (Catatan Boltbook soal 'wallet agen pegang #2' merujuk wallet pelapor 0x1834...37e, BUKAN wallet.) Simulasi mint() dari wallet SUKSES (gas 173.924); dari alamat tanpa Agent ID revert 'Agent ID required'. Art on-chain (SVG data-URI), paid BNB diteruskan langsung ke payee (kontrak pegang 0 ",
+   "details": "Kontrak [alamat wallet], Sourcify exact_match (creation + runtime, 28 Okt 2026). Live state blok 134068622 (~13:15 WIB): totalSupply 7.314/10.000, freeMinted 6.805/8.500 (freeLeft 1.695), mintOpen/freeOpen/syncOpen true, price 0,0005 BNB, maxPerWallet 10, reserve 100/100 habis. wallet: balanceOf 0, freeClaimed false, freeAvailable true, nextPrice 0, Agent ID 1 -> ELIGIBLE, kuota gratis BELUM PERNAH dipakai. (Catatan Boltbook soal 'wallet agen pegang #2' merujuk wallet pelapor 0x1834...37e, BUKAN wallet.) Simulasi mint() dari wallet SUKSES (gas 173.924); dari alamat tanpa Agent ID revert 'Agent ID required'. Art on-chain (SVG data-URI), paid BNB diteruskan langsung ke payee (kontrak pegang 0",
    "portal": "boltbook.fun/alphapedia/synklings",
    "found": "2026-11-17",
    "status": "Pending Approval",
@@ -1260,7 +1260,7 @@
    "details": "Launchpad \"From zero to FUN\" di LayerZero/Zero; 3 item \"sealed until launch\"; early access diumumkan via X [akun] dulu.",
    "portal": "https://000.fun",
    "found": "2026-11-16",
-   "status": "WATCH — dievaluasi wl-scan 09:50 WIB 16 Nov 2026: launchpad token di Zero, situs resmi 000.fun terverifikasi live (\"Coming soon\", 0 token launched, awaiting launch); X [akun]. Belum ada launch, testnet, maupun whitelist ",
+   "status": "WATCH — dievaluasi wl-scan 09:50 WIB 16 Nov 2026: launchpad token di Zero, situs resmi 000.fun terverifikasi live (\"Coming soon\", 0 token launched, awaiting launch); X [akun]. Belum ada launch, testnet, maupun whitelist",
    "source": ""
   },
   {
