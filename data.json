@@ -2,14 +2,14 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-19 22:12 WIB",
+  "data_snapshot_at": "2026-11-19 22:15 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
-   "total": 101,
+   "total": 102,
    "early": 11,
    "freemint": 38,
    "airdrop": 31,
-   "whitelist": 21
+   "whitelist": 22
   },
   "withdrawals": 0,
   "tasks": 0
@@ -238,6 +238,22 @@
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED — form allowlist LIVE di meetmotes.com/apply-form (terverifikasi live browser 19 Nov 2026 11:53 WIB): 5 langkah — 1 Connect X (OAuth, tanpa kolom handle manual), 2 Your wallet (terkunci, belum terlihat",
    "source": "Bitrue $MOTES airdrop guide (22 jam lalu, merujuk docs resmi + X [akun]) + daftar 99airdrops.com ('Motes Genesis NFT', Robinhood Chain)"
+  },
+  {
+   "id": "mopes",
+   "project": "Mopes",
+   "chain": "Robinhood Chain",
+   "category": "whitelist",
+   "type": "Whitelist",
+   "cost": "",
+   "potential": "Belum dinilai",
+   "risk": "Belum diaudit",
+   "verdict": "CAUTION",
+   "details": "Koleksi NFT Mopes (1.111 hand-drawn) di Robinhood Chain; free mint via OpenSea, tanggal mint belum diumumkan. Pendaftaran whitelist dibuka.",
+   "portal": "https://mopes.art",
+   "found": "2026-11-19",
+   "status": "SUDAH JOIN",
+   "source": "whitelist-joined.json (join 19 Nov 21:56 WIB)"
   },
   {
    "id": "luxa-ecosystem",
