@@ -2,14 +2,14 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-19 14:47 WIB",
+  "data_snapshot_at": "2026-11-19 15:14 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
-   "total": 72,
-   "early": 7,
-   "freemint": 32,
+   "total": 73,
+   "early": 8,
+   "freemint": 31,
    "airdrop": 17,
-   "whitelist": 16
+   "whitelist": 17
   },
   "withdrawals": 0,
   "tasks": 0
@@ -40,7 +40,7 @@
    "cost": "",
    "potential": "Menengah (10% supply $MOTES untuk holder NFT; 1 NFT = 1 identitas AI agent + smart account)",
    "risk": "Sedang (tanpa tanggal mint, tanpa kontrak, tanpa proses WL resmi; sumber hanya panduan Bitrue + daftar 99airdrops)",
-   "verdict": "WATCH",
+   "verdict": "MENUNGGU APPROVED",
    "details": "Ditemukan wl-scan 05:50 WIB 19 Nov 2026 dari pencarian 'whitelist NFT Robinhood Chain'. Motes = NFT-native financial agent ecosystem di Robinhood Chain; Genesis 1.000 NFT, holder dapat 10% supply $MOTES (multiplier maks 50 NFT/wallet) + prioritas future sales + Motes Aura. Mint date + WL BELUM diumumkan; panduan resmi: pantau [akun] + docs. Bukan kandidat daftar saat ini — hanya pantau.",
    "portal": "https://meetmotes.com/apply-form",
    "found": "2026-11-19",
@@ -62,6 +62,22 @@
    "found": "2026-11-19",
    "status": "WATCH — butuh connect wallet + signature + tx on-chain gas $BNB SETIAP HARI (streak 30 hari) untuk kualifikasi WL Genesis NFT; harga + tanggal mint Genesis NFT BELUM diumumkan; jangan daftar sebelum APPROVED user + top-u",
    "source": "Situs resmi di.xyz (live, ada tautan 'Daily on-chain check-in', crawl 05:52 WIB) + press release GlobeNewswire 17 Nov 2026 (investor OKX Ventures, Lingfeng, Dra"
+  },
+  {
+   "id": "cubist-hoods",
+   "project": "Cubist Hoods",
+   "chain": "Robinhood Chain",
+   "category": "whitelist",
+   "type": "Whitelist",
+   "cost": "",
+   "potential": "",
+   "risk": "",
+   "verdict": "Sudah join",
+   "details": "SUDAH JOIN — aplikasi whitelist TERKIRIM 19 Nov 2026 ~15:0x WIB, situs balas \"APPLICATION RECEIVED — Welcome to the hood. Application received. We'll check your tasks and add your wallet to the whitelist.\" Mint tentatif 24 Nov 2026, supply 7.777, ERC-721, fase Free WL/GTD + Paid (harga paid TBA). Tanpa contract address (belum dipublikasi).",
+   "portal": "https://cubisthoods.io/",
+   "found": "2026-11-19",
+   "status": "Sudah join",
+   "source": "https://cubisthoods.io/whitelist/"
   },
   {
    "id": "cash-grab",
@@ -1152,11 +1168,11 @@
    "source": ""
   },
   {
-   "id": "cubist-hoods",
-   "project": "Cubist Hoods",
+   "id": "burnout-relic",
+   "project": "Burnout Relic",
    "chain": "Robinhood Chain",
-   "category": "freemint",
-   "type": "Whitelist (Free Mint GTD) + Paid Mint",
+   "category": "early",
+   "type": "Paid Mint (Public)",
    "cost": "",
    "potential": "",
    "risk": "",
@@ -1164,7 +1180,7 @@
    "details": "",
    "portal": "",
    "found": "0000-00-00",
-   "status": "BARU 14:00 WIB 19 Nov 2026 — TUGAS X SELESAI hunter: follow [akun] + [akun], like + repost kedua post WL (terverifikasi: 339/285 Liked, 274/229 Reposted), reply komentar di kedua post (https://x.com/[akun]/status/2123320",
+   "status": "WATCH — baru dicatat run 15:00 WIB 19 Nov 2026; belum actionable (tanpa kontrak / akun X / situs resmi — single-source Trencher Daily 19 Nov). Cek ulang saat mint buka 20 Nov 03:20 WIB (night run).",
    "source": ""
   }
  ],
