@@ -788,7 +788,7 @@
               <span class="task-banner-kicker" data-i18n="b2k">One feed, all chains</span>
               <h3 data-i18n="b2t">Early, free mint, airdrop &amp; whitelist in one feed</h3>
               <p data-i18n="b2p">Opportunities from Solana, Base, BSC, Arbitrum, Ink, and Zero appear in one place, no need to switch apps.</p>
-              <span class="task-banner-cta" data-i18n="b2c">49 active opportunities</span>
+              <span class="task-banner-cta" data-i18n="b2c">Live opportunities</span>
             </div>
             <div class="task-banner-slide ab-3">
               <span class="task-banner-kicker" data-i18n="b3k">No auto-sign</span>
@@ -914,7 +914,7 @@
             </span>
             <span class="info-menu-main">
               <span class="info-menu-label" data-i18n="menuAbout">About the App</span>
-              <span class="info-menu-desc" data-i18n="menuAboutD">App description &amp; data snapshot</span>
+              <span class="info-menu-desc" data-i18n="menuAboutD">App description &amp; live data</span>
             </span>
             <svg class="info-menu-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
           </button>
@@ -986,18 +986,18 @@
             <p class="text-[11px] text-slate-500 text-center">Agent Jennai v1.0.4</p>
           </div>
           <div class="glass-panel p-4 rounded-2xl space-y-2.5 text-xs text-slate-300 leading-relaxed">
-            <h3 class="font-bold uppercase tracking-wider text-[11px] text-gold-400 mb-1" data-i18n="snapTitle">Data Snapshot</h3>
+            <h3 class="font-bold uppercase tracking-wider text-[11px] text-gold-400 mb-1" data-i18n="snapTitle">Live Data</h3>
             <div class="divide-y divide-navy-700/60">
               <div class="flex items-center justify-between gap-3 py-2.5">
-                <span class="text-slate-400 flex-none" data-i18n="snapDateL">Data snapshot</span>
-                <span class="text-slate-100 font-semibold text-right">2026-11-18 14:41 WIB</span>
+                <span class="text-slate-400 flex-none" data-i18n="snapDateL">Last data update</span>
+                <span id="snapDateVal" class="text-slate-100 font-semibold text-right">2026-11-18 14:41 WIB</span>
               </div>
               <div class="flex items-center justify-between gap-3 py-2.5">
                 <span class="text-slate-400 flex-none" data-i18n="snapActiveL">Active opportunities</span>
-                <span class="text-slate-100 font-semibold text-right">49 (Early 7 • Free Mint 12 • Airdrop 14 • Whitelist 16)</span>
+                <span id="snapActiveVal" class="text-slate-100 font-semibold text-right">49 (Early 7 • Free Mint 12 • Airdrop 14 • Whitelist 16)</span>
               </div>
             </div>
-            <p class="text-slate-400" data-i18n="snapNote">The feed contains a snapshot of hunter data from when the app was built. Data refresh = the next app update (backend coming later).</p>
+            <p class="text-slate-400" data-i18n="snapNote">The feed is live: hunter data refreshes automatically every 5 minutes, and the counts above always match the feed you see. No fixed refresh schedule.</p>
           </div>
         </div>
 
@@ -1020,7 +1020,7 @@
             <p data-i18n="g1" data-i18n-html="1"><span class="text-gold-400 font-bold">1.</span> Sinyal masuk dari pantauan hunter, lalu kontraknya diaudit dulu label GO / CAUTION / PANTAU ditempel ke kartu. Yang BLOCK tidak pernah tampil.</p>
             <p data-i18n="g2" data-i18n-html="1"><span class="text-gold-400 font-bold">2.</span> Kartu diurutkan gratis didahulukan, deadline dekat naik ke atas, audit GO mengalahkan CAUTION.</p>
             <p data-i18n="g3" data-i18n-html="1"><span class="text-gold-400 font-bold">3.</span> Kamu putuskan di layar detail biaya, risiko, status, dan langkahnya tampil di satu tempat.</p>
-            <p data-i18n="g4" data-i18n-html="1"><span class="text-gold-400 font-bold">4.</span> Tanda tangan Solana lewat Seed Vault (Mobile Wallet Adapter), EVM lewat WalletConnect ke wallet EVM kamu.</p>
+            <p data-i18n="g4" data-i18n-html="1"><span class="text-gold-400 font-bold">4.</span> Tanda tangan Solana lewat Seed Vault (Mobile Wallet Adapter).</p>
           </div>
 
           <div class="glass-panel p-4 rounded-2xl space-y-2.5 text-xs text-slate-300 leading-relaxed">
@@ -1278,14 +1278,20 @@ var SNAPSHOT_AT = '2026-11-18 14:41 WIB';
    item, hanya untuk field prosa (project, type, cost, potential, risk,
    verdict, details, status, source). Tanggal, jam, nama chain, URL,
    perintah, dan kode dibiarkan sama seperti aslinya di dalam teks.
-   L(it, field) mengembalikan teks sesuai bahasa yang dipilih; bahasa 'id'
-   dan field yang tidak diterjemahkan jatuh ke teks sumber ITEMS.
+   Item live (dari backend Replit atau data.json) membawa terjemahannya
+   sendiri di field i18n per item, ditulis translate-feed.py.
+   L(it, field) mengembalikan teks sesuai bahasa yang dipilih; urutan
+   cari: i18n item live, lalu tabel FEED_I18N di bawah (snapshot 49
+   item), lalu teks sumber ITEMS. Bahasa 'id' dan field yang tidak
+   diterjemahkan jatuh ke teks sumber, jadi kartu tidak pernah kosong.
    Logika chip verdict, urutan, dan skor tetap membaca field asli, jadi
    terjemahan tampilan tidak mengubah perilaku apa pun. */
 var FEED_I18N = { en:{}, zh:{} };
 function L(it, f){
   if (!it) return '';
   if (state.lang !== 'id'){
+    var tr = it.i18n && it.i18n[state.lang];
+    if (tr && tr[f]) return tr[f];
     var d = FEED_I18N[state.lang];
     var e = d && d[it.id];
     if (e && e[f]) return e[f];
@@ -1983,7 +1989,7 @@ en: {
   cautionNote:'<span class="font-bold text-amber-300">Note:</span> this item is paid or rated CAUTION, check it carefully before acting. Whatever the status of this item (including free mints and Audit GO), there is no auto-sign and no auto-mint in this app: you always approve every signature yourself, one by one, in your own wallet.',
   actionTitle:'Actions', saveBtn:'Save project', savedBtn:'Saved in Activity',
   solBtn:'Connect Solana wallet (Seed Vault)', solNote:'Signing happens inside Seed Vault on your phone. This app never sees your seed phrase.',
-  evmBtn:'Connect EVM wallet (WalletConnect)', evmNote:'EVM (Base / BSC / Ethereum / Arbitrum): sign via WalletConnect to your own wallet.',
+  
   otherChain:'<span class="font-bold text-amber-300">This chain has no signing path in v1 yet.</span> The app still notifies you; follow the guide on the project portal, or wait for the next wallet path update.',
   openPortal:'Open project portal',
   notifTitle:'Agent Jennai Notifications', markRead:'Mark as read', notifDesc:'The latest finds from the hunter feed, sorted by most recently found. Enable Push Notifications in the Profile tab to also get alerts when the app is closed; this in-app list always stays available.', notifReadToast:'All notifications marked as read.',
@@ -1993,7 +1999,7 @@ en: {
   wdBtn:'Withdraw', wdTitle:'Withdraw Reward', wdAvailable:'Ready to withdraw', wdDestNote:'Paid in USDC on Solana to your SOL address in Account Information.', wdNote:'Your request is recorded in Withdrawal History with Processing status. Payout is processed by the admin in USDC on Solana to your SOL address — make sure that address is correct. The platform fee is deducted from the withdrawal amount; the onchain fee follows the Solana network default.', wdNoBalance:'No reward ready to withdraw yet. Finish tasks and wait until they pass verification first.', wdNeedSol:'Fill in or connect your SOL address first in Profile → Account Information, so the admin knows where to send it.', wdPendingNote:'You already have a withdrawal being processed. Wait until it is finished before requesting another one.', wdSubmit:'Request Withdrawal', wdSentT:'Withdrawal requested! Status: Processing, see Withdrawal History.', wdEmpty:'No withdrawals yet. Withdrawals of verified Task Rewards will appear here once requested.', wdProcess:'Processing', wdDone:'Completed', wdInProcess:'In Progress', wdRejected:'Rejected', wdTxHash:'Tx Hash', wdViewSolscan:'View on Solscan', wdNotifTitle:'Withdrawal Successful', wdNotifBody:'Your withdrawal of {v} has been sent in USDC on Solana.', logWithdrawDone:'Withdrawal completed: {v}', logWithdraw:'Withdrawal requested: {v}',
   wdMinMax:'Min {min} · Max {max} per withdrawal', wdAmount:'Withdrawal amount', wdType:'Account type', wdSeeker:'Seeker', wdNonSeeker:'Non-Seeker', wdFeePlat:'Platform fee ({pct}%)', wdFeeChain:'Onchain fee', wdFeeChainVal:'Network default (±0.000005 SOL)', wdReceive:'You receive', wdReceiveUsdc:'≈ {v} USDC on Solana', wdBelowMin:'Your balance has not reached the minimum withdrawal of {min} yet.', wdCapNote:'Your balance is above the per-withdrawal maximum, so this request withdraws {max} first. The rest can be withdrawn after this one finishes.', wdFeeWord:'fee', wdNetWord:'received',
   b1k:'Non-custodial', b1t:'Your assets stay in your own wallet', b1p:'Agent Jennai never holds your funds, assets, or keys. You always approve every signature yourself in your own wallet.', b1c:'Safe from the start',
-  b2k:'One feed, all chains', b2t:'Early, free mint, airdrop & whitelist in one feed', b2p:'Opportunities from Solana, Base, BSC, Arbitrum, Ink, and Zero appear in one place, no need to switch apps.', b2c:'49 active opportunities',
+  b2k:'One feed, all chains', b2t:'Early, free mint, airdrop & whitelist in one feed', b2p:'Opportunities from Solana, Base, BSC, Arbitrum, Ink, and Zero appear in one place, no need to switch apps.', b2c:'Live opportunities', b2cLive:'{n} active opportunities',
   b3k:'No auto-sign', b3t:'No automatic signatures, period', b3p:'One transaction = one approval. Transaction details and fees are always shown first before you sign.', b3c:'You stay in control',
   b4k:'Task to Earn', b4t:'Complete tasks, collect rewards', b4p:'Social tasks with rewards per task. Submit your proof, and the reward arrives after verification.', b4c:'Check the Task to Earn tab',
   b5k:'Early notifications', b5t:'Notified as soon as a new project appears', b5p:'The newest early projects, free mints, airdrops, and whitelists appear in notifications, so you never miss a mint window.', b5c:'Tap the bell above',
@@ -2001,9 +2007,9 @@ en: {
   rateLiveNote:'Live exchange rate: 1 USD = {rate} (last updated {time}). All amounts are shown in your selected currency.',
   rateFixedNote:'Fixed rate: 1 USD = {rate}. The live rate is unavailable, so this fixed rate is used. All amounts are shown in your selected currency.',
   aboutHeading:'Other Menu',
-  menuAbout:'About the App', menuAboutD:'App description & data snapshot', menuSec:'Security Rules', menuSecD:'Non-custodial, no auto-sign', menuGuide:'Guide', menuGuideD:'How to use the app', menuTerms:'Terms and Conditions', menuTermsD:'Terms of using the app', menuSaved:'Saved Projects', menuSavedD:'Projects you have saved',
+  menuAbout:'About the App', menuAboutD:'App description & live data', menuSec:'Security Rules', menuSecD:'Non-custodial, no auto-sign', menuGuide:'Guide', menuGuideD:'How to use the app', menuTerms:'Terms and Conditions', menuTermsD:'Terms of using the app', menuSaved:'Saved Projects', menuSavedD:'Projects you have saved',
   savedEmpty:'No saved projects yet. Tap the bookmark icon on a project card, or the Save button on a project detail page.',
-  usernameL:'Username', solL:'SOL Address', evmL:'EVM Address', xL:'Twitter/X', notConnected:'Not connected', notSet:'Not set', connectBtn:'Connect', fillBtn:'Fill in', editBtn:'Edit', copyWord:'Copy', copiedT:'Copied', copyEmptyT:'No address connected yet, nothing to copy.',
+  usernameL:'Username', solL:'SOL Address', xL:'Twitter/X', notConnected:'Not connected', notSet:'Not set', connectBtn:'Connect', fillBtn:'Fill in', editBtn:'Edit', copyWord:'Copy', copiedT:'Copied', copyEmptyT:'No address connected yet, nothing to copy.',
   userSavedT:'Hello, {v}! Your username is saved.', welcomeT:'Welcome, {v}! Your username was filled in automatically from Seed Vault.',
   xEmptyT:'Your X handle cannot be empty, fill it in first.', xSavedT:'X handle saved: @{v}',
   savedT:'Project saved, see it in the Activity tab.', unsavedT:'Project removed from your saved list.',
@@ -2011,10 +2017,10 @@ en: {
   solSheetTitle:'Connect Solana wallet', solSheetSub:'Mobile Wallet Adapter opens Seed Vault to request a connection approval.',
   rowPath:'Path', solPathV:'Mobile Wallet Adapter → Seed Vault', rowShared:'What is shared', solSharedV:'Your public wallet address only', rowNever:'What is never shared', solNeverV:'Seed phrase & private key',
   solSheetNote:'In the real app on a Seeker phone, the next step is approval in Seed Vault with fingerprint / PIN. In a browser without a Solana wallet, the connection cannot be completed, that is normal.',
-  evmSheetTitle:'Connect EVM wallet', evmSheetSub:'Base / BSC / Ethereum / Arbitrum / Polygon, via WalletConnect',
-  evmWarn:'<span class="font-bold text-amber-300">Cannot connect in v1 yet.</span> WalletConnect needs a free <b>Project ID</b> from cloud.walletconnect.com. That Project ID is created by the publisher (the app owner) and added in the next app update. This app does not invent a Project ID.',
-  evmNeedK:'What the publisher needs', evmNeedV:'A cloud.walletconnect.com account', evmStepK:'Steps', evmStepV:'Create a new project → copy the Project ID', evmAfterK:'Then', evmAfterV:'Add the Project ID to the app → release an update',
-  evmSheetNote:'Meanwhile, EVM opportunities can still be followed through each project portal. Your EVM wallet stays on your phone, the app never asks for your seed phrase.',
+  
+  
+  
+  
   xSheetTitle:'X / Twitter Handle', xSheetSub:'Enter your X username without the @ sign, it will appear as @handle in Account Information.', xSaveBtn:'Save X handle', xPh:'yourname',
   solFillTitle:'Fill in SOL Address', solFillSub:'Seeker owners can use the Connect button (Seed Vault) instead. If you are not a Seeker owner, just type or paste your Solana wallet address here, the same way you fill in your X handle. This address is only your account identity — the app never asks for your seed phrase or private key.', solFillSave:'Save SOL Address', solPh:'Paste your Solana address', solEmptyT:'SOL address cannot be empty, fill it in first.', solInvalidT:'That does not look like a valid Solana address (32–44 base58 characters), check it and try again.', solSavedT:'SOL address saved: {v}', logSolManual:'SOL address filled in manually: {v}',
   onbTitle:'Welcome to Agent Jennai', onbSub:'Choose how to sign in to start exploring the app. Only this once, after that you will not be asked again.',
@@ -2032,12 +2038,17 @@ en: {
   svBusy1:'Connecting to Seed Vault, approve the connection request in your Seed Vault…', svBusy2:'Wallet connected ({v}). Looking for the .skr name of this wallet…',
   svNoSkr:'Your Solana wallet is connected, but no .skr name was found for this wallet, so the username cannot be filled in automatically. Please enter a username manually below.',
   svFail:'Seed Vault did not connect, the connection failed or is not supported in this environment. No problem, you can continue with a manual username below.',
+svBusy3:'Requesting a login challenge from the server…', svBusy4:'Approve the signature in Seed Vault…',
+svChallengeFail:'The server did not issue a login challenge. Your backend account was NOT created — submissions & withdrawals are not synced yet. Please try again later.',
+svSignFail:'The signature was cancelled or failed. Your backend account was NOT created — please try again.',
+svSignUnsupported:'This wallet cannot sign messages, so the backend account could not be created. Try again from the Seeker app or another wallet.',
+svBackendFail:'Backend login failed ({v}). Your backend account was NOT created — submissions & withdrawals are not synced yet.',
   logSkr:'Username filled in automatically from Seed Vault: {v}', logUser:'Username created: {v}', logSol:'Solana wallet connected: {v}', logX:'X handle set: @{v}', logSave:'Saved project: {v}', logUnsave:'Removed project from saved: {v}', logTask:'Submitted task: {title} ({r}), under review',
   logEmpty:'No activity recorded yet. Your activity in this app, such as saving a project, connecting a wallet, setting a username or X handle, will appear here.',
   txOk:'Transaction succeeded', txFail:'Transaction failed', solRpcErr:'Solana transactions cannot be read right now because the public Solana RPC is not responding. Try again with the Reload button above. No data is invented here.',
   solNoTx:'No transactions recorded for this address on the Solana chain yet.', solLoading:'Loading the latest transactions from the Solana chain…',
   noWalletT:'No wallet connected yet', noWalletD:'Connect your wallet to see onchain activity from that address, read directly from public chain data.', noWalletNote:'Agent Jennai never stores, asks for, or sees your seed phrase / private key.',
-  evmHistNote:'EVM transaction history cannot be shown in v1 yet: reading EVM transaction history needs an explorer service API key (e.g. Etherscan) that is not available in this app yet, so no data is invented. Your address is still recorded, its history will follow once the EVM reading path is available.',
+  
   taskTabA:'Active Tasks', taskTabS:'Finished Events', taskTabD:'Tasks Worked On',
   tb1k:'Task to Earn', tb1t:'Complete tasks, collect rewards', tb1p:'Follow, like, repost, and comment on selected projects in the Hunter feed, submit your proof, and the reward arrives after admin verification.', tb1c:'Rewards per task',
   tb2k:'Prepare your account', tb2t:'Connect your wallet & X handle', tb2p:'Social tasks need an active X account. Fill in your X handle in Profile and connect a wallet so verification and reward payout are easier.', tb2c:'Check the Profile tab',
@@ -2063,7 +2074,7 @@ en: {
   refEmpty:'No friends have registered through your link yet. Share your referral link to start earning points.',
   refNote:'Points have no tiers yet — what points will be used for is still upcoming. For now, points simply collect from every successful referral.',
   aboutDesc:'Your hunter companion, telling you when there are early projects, free mints, airdrops, whitelists, and more.',
-  chip1:'One feed, all chains', chip2:'No auto-sign', snapTitle:'Data Snapshot', snapDateL:'Data snapshot', snapActiveL:'Active opportunities', snapNote:'The feed contains a snapshot of hunter data from when the app was built. Data refresh = the next app update (backend coming later).',
+  chip1:'One feed, all chains', chip2:'No auto-sign', snapTitle:'Live Data', snapDateL:'Last data update', snapActiveL:'Active opportunities', snapNote:'The feed is live: hunter data refreshes automatically every 5 minutes, and the counts above always match the feed you see. No fixed refresh schedule.',
   secTitle:'Security rules',
   sec1:'• <b class="text-slate-100">Non-custodial:</b> the app never holds your funds or assets. All assets stay in your own wallet.',
   sec2:'• <b class="text-slate-100">Seed phrase & private key never enter the app.</b> The app never asks for them, never enter or share your seed phrase / private key with any app, site, or person.',
@@ -2074,7 +2085,7 @@ en: {
   g1:'<span class="text-gold-400 font-bold">1.</span> A signal comes in from hunter monitoring, then its contract is audited first and a GO / CAUTION / WATCH label is attached to the card. BLOCK items never appear.',
   g2:'<span class="text-gold-400 font-bold">2.</span> Cards are sorted with free ones first, near deadlines move up, and Audit GO beats CAUTION.',
   g3:'<span class="text-gold-400 font-bold">3.</span> You decide on the detail screen, where fees, risks, status, and steps are shown in one place.',
-  g4:'<span class="text-gold-400 font-bold">4.</span> Solana signing goes through Seed Vault (Mobile Wallet Adapter), EVM through WalletConnect to your EVM wallet.',
+  g4:'<span class="text-gold-400 font-bold">4.</span> Solana signing goes through Seed Vault (Mobile Wallet Adapter).',
   guide2Title:'Hunter guide',
   h1:'1. Use the category filters to sort projects by opportunity type (Early, Free Mint, Airdrop, Whitelist).',
   h2:'2. Watch the status and release schedule on the card detail so you do not miss the mint window.',
@@ -2087,7 +2098,7 @@ en: {
   t5:'<span class="text-gold-400 font-bold">5.</span> <b class="text-slate-100">Wallet & security.</b> This app is non-custodial, you are fully responsible for guarding your wallet seed phrase and private key. Never share them with anyone, the app never asks for them.',
   t6:'<span class="text-gold-400 font-bold">6.</span> <b class="text-slate-100">Task rewards.</b> Task rewards only apply when stated in the project data and follow the terms of each project organizer. The app does not guarantee reward payment.',
   t7:'<span class="text-gold-400 font-bold">7.</span> <b class="text-slate-100">Changes to terms.</b> These terms and conditions may be updated in the next app version. By using the app, you are considered to agree to the applicable terms and conditions.',
-  solBtnShort:'Connect Solana wallet', evmBtnShort:'Connect EVM wallet', settingsSaved:'Settings saved.'
+  solBtnShort:'Connect Solana wallet', settingsSaved:'Settings saved.'
 },
 id: {
   dateLocale:'id-ID', taskReward:'Task Reward', halo:'Halo,', level:'Level', haloDefault:'Hunter',
@@ -2099,7 +2110,7 @@ id: {
   cautionNote:'<span class="font-bold text-amber-300">Catatan:</span> item ini berbayar atau berlabel CAUTION, periksa baik-baik sebelum bertindak. Apa pun status item ini (termasuk free mint dan Audit GO), tidak ada auto-sign dan auto-mint di aplikasi ini: setiap tanda tangan selalu kamu setujui sendiri, satu per satu, di wallet kamu.',
   actionTitle:'Aksi', saveBtn:'Simpan project', savedBtn:'Tersimpan di Aktivitas',
   solBtn:'Hubungkan wallet Solana (Seed Vault)', solNote:'Tanda tangan terjadi di dalam Seed Vault di HP kamu. Aplikasi tidak pernah melihat seed phrase kamu.',
-  evmBtn:'Connect wallet EVM (WalletConnect)', evmNote:'EVM (Base / BSC / Ethereum / Arbitrum): sign lewat WalletConnect ke wallet kamu sendiri.',
+  
   otherChain:'<span class="font-bold text-amber-300">Chain ini belum punya jalur tanda tangan di v1.</span> Aplikasi tetap memberi tahu kamu; ikuti panduan di portal project, atau tunggu update jalur wallet berikutnya.',
   openPortal:'Buka portal project',
   notifTitle:'Pemberitahuan Agent Jennai', markRead:'Tandai sudah dibaca', notifDesc:'Temuan terbaru dari feed hunter, diurutkan dari yang paling baru ditemukan. Aktifkan Notifikasi Push di tab Profil untuk menerima pemberitahuan juga saat aplikasi ditutup; daftar di dalam aplikasi ini selalu tersedia.', notifReadToast:'Semua notifikasi ditandai sudah dibaca.',
@@ -2109,7 +2120,7 @@ id: {
   wdBtn:'Tarik Reward', wdTitle:'Tarik Reward', wdAvailable:'Siap ditarik', wdDestNote:'Dibayar dalam USDC di jaringan Solana ke SOL address kamu di Informasi Akun.', wdNote:'Pengajuan kamu tercatat di Riwayat Penarikan dengan status Diproses. Pencairan diproses admin dalam USDC di jaringan Solana ke SOL address kamu — pastikan alamat itu sudah benar. Fee platform dipotong dari jumlah penarikan; fee onchain mengikuti bawaan jaringan Solana.', wdNoBalance:'Belum ada reward yang siap ditarik. Selesaikan task dan tunggu sampai lolos verifikasi dulu.', wdNeedSol:'Isi atau hubungkan SOL address kamu dulu di Profil → Informasi Akun, supaya admin tahu mengirimnya ke mana.', wdPendingNote:'Masih ada penarikan kamu yang sedang diproses. Tunggu sampai selesai sebelum mengajukan lagi.', wdSubmit:'Ajukan Penarikan', wdSentT:'Penarikan diajukan! Status: Diproses, lihat Riwayat Penarikan.', wdEmpty:'Belum ada penarikan. Penarikan Task Reward yang sudah lolos verifikasi akan tampil di sini setelah diajukan.', wdProcess:'Diproses', wdDone:'Selesai', wdInProcess:'Dalam Proses', wdRejected:'Ditolak', wdTxHash:'Tx Hash', wdViewSolscan:'Lihat di Solscan', wdNotifTitle:'Penarikan Berhasil', wdNotifBody:'Penarikan {v} kamu sudah dikirim dalam USDC di Solana.', logWithdrawDone:'Penarikan selesai: {v}', logWithdraw:'Mengajukan penarikan reward: {v}',
   wdMinMax:'Min {min} · Maks {max} per penarikan', wdAmount:'Jumlah penarikan', wdType:'Tipe akun', wdSeeker:'Seeker', wdNonSeeker:'Non-Seeker', wdFeePlat:'Fee platform ({pct}%)', wdFeeChain:'Fee onchain', wdFeeChainVal:'Bawaan jaringan (±0,000005 SOL)', wdReceive:'Kamu terima', wdReceiveUsdc:'≈ {v} USDC di Solana', wdBelowMin:'Saldo kamu belum mencapai minimal penarikan {min}.', wdCapNote:'Saldo kamu di atas maksimal per penarikan, jadi pengajuan ini menarik {max} dulu. Sisanya bisa ditarik setelah yang ini selesai.', wdFeeWord:'fee', wdNetWord:'diterima',
   b1k:'Non-custodial', b1t:'Aset kamu tetap di wallet kamu sendiri', b1p:'Agent Jennai tidak pernah memegang dana, aset, atau kunci kamu. Semua tanda tangan selalu kamu setujui sendiri di wallet kamu.', b1c:'Aman sejak awal',
-  b2k:'Satu feed, semua chain', b2t:'Early, free mint, airdrop & whitelist dalam satu feed', b2p:'Peluang dari Solana, Base, BSC, Arbitrum, Ink, dan Zero tampil di satu tempat, tanpa perlu pindah-pindah aplikasi.', b2c:'49 peluang aktif',
+  b2k:'Satu feed, semua chain', b2t:'Early, free mint, airdrop & whitelist dalam satu feed', b2p:'Peluang dari Solana, Base, BSC, Arbitrum, Ink, dan Zero tampil di satu tempat, tanpa perlu pindah-pindah aplikasi.', b2c:'Peluang aktif', b2cLive:'{n} peluang aktif',
   b3k:'Tanpa auto-sign', b3t:'Tidak ada tanda tangan otomatis, titik', b3p:'Satu transaksi = satu persetujuan. Detail dan biaya transaksi selalu ditampilkan dulu sebelum kamu menandatangani.', b3c:'Kamu yang pegang kendali',
   b4k:'Task to Earn', b4t:'Kerjakan tugas, kumpulkan reward rupiah', b4p:'Tugas sosial dengan reward berbeda-beda tiap tugas, sesuai nominal yang tertera di tiap tugas. Kirim buktinya, dan reward masuk setelah lolos verifikasi.', b4c:'Cek tab Task to Earn',
   b5k:'Notifikasi early', b5t:'Diberi tahu begitu ada project baru', b5p:'Project early, free mint, airdrop, dan whitelist terbaru muncul di notifikasi, kamu tidak ketinggalan jendela mint.', b5c:'Ketuk lonceng di atas',
@@ -2117,9 +2128,9 @@ id: {
   rateLiveNote:'Kurs live: 1 USD = {rate} (terakhir diperbarui {time}). Semua jumlah ditampilkan dalam mata uang pilihan kamu.',
   rateFixedNote:'Kurs tetap: 1 USD = {rate}. Kurs live tidak tersedia, jadi kurs tetap ini yang dipakai. Semua jumlah ditampilkan dalam mata uang pilihan kamu.',
   aboutHeading:'Menu Lainnya',
-  menuAbout:'Tentang Aplikasi', menuAboutD:'Deskripsi aplikasi & data snapshot', menuSec:'Aturan Keamanan', menuSecD:'Non-custodial, tanpa auto-sign', menuGuide:'Panduan', menuGuideD:'Cara memakai aplikasi', menuTerms:'Syarat dan Ketentuan', menuTermsD:'Ketentuan pemakaian aplikasi', menuSaved:'Project Tersimpan', menuSavedD:'Daftar project yang kamu simpan',
+  menuAbout:'Tentang Aplikasi', menuAboutD:'Deskripsi aplikasi & data live', menuSec:'Aturan Keamanan', menuSecD:'Non-custodial, tanpa auto-sign', menuGuide:'Panduan', menuGuideD:'Cara memakai aplikasi', menuTerms:'Syarat dan Ketentuan', menuTermsD:'Ketentuan pemakaian aplikasi', menuSaved:'Project Tersimpan', menuSavedD:'Daftar project yang kamu simpan',
   savedEmpty:'Belum ada project yang disimpan. Ketuk ikon bookmark di kartu project, atau tombol Simpan di halaman detail project.',
-  usernameL:'Username', solL:'SOL Address', evmL:'EVM Address', xL:'Twitter/X', notConnected:'Belum terhubung', notSet:'Belum diatur', connectBtn:'Hubungkan', fillBtn:'Isi', editBtn:'Ubah', copyWord:'Salin', copiedT:'Disalin', copyEmptyT:'Address belum terhubung, belum ada yang bisa disalin.',
+  usernameL:'Username', solL:'SOL Address', xL:'Twitter/X', notConnected:'Belum terhubung', notSet:'Belum diatur', connectBtn:'Hubungkan', fillBtn:'Isi', editBtn:'Ubah', copyWord:'Salin', copiedT:'Disalin', copyEmptyT:'Address belum terhubung, belum ada yang bisa disalin.',
   userSavedT:'Halo, {v}! Username kamu sudah tersimpan.', welcomeT:'Selamat datang, {v}! Username kamu terisi otomatis dari Seed Vault.',
   xEmptyT:'Handle X tidak boleh kosong, isi dulu ya.', xSavedT:'Handle X disimpan: @{v}',
   savedT:'Project disimpan, lihat di tab Aktivitas.', unsavedT:'Project dihapus dari daftar simpan.',
@@ -2127,10 +2138,10 @@ id: {
   solSheetTitle:'Hubungkan wallet Solana', solSheetSub:'Mobile Wallet Adapter membuka Seed Vault untuk meminta persetujuan koneksi.',
   rowPath:'Jalur', solPathV:'Mobile Wallet Adapter → Seed Vault', rowShared:'Yang dibagikan', solSharedV:'Alamat publik wallet saja', rowNever:'Yang tidak pernah dibagikan', solNeverV:'Seed phrase & kunci privat',
   solSheetNote:'Di aplikasi asli di HP Seeker, langkah berikutnya adalah persetujuan di Seed Vault dengan sidik jari / PIN. Di browser tanpa wallet Solana, koneksi memang tidak bisa diselesaikan, itu normal.',
-  evmSheetTitle:'Connect wallet EVM', evmSheetSub:'Base / BSC / Ethereum / Arbitrum / Polygon, via WalletConnect',
-  evmWarn:'<span class="font-bold text-amber-300">Belum bisa terhubung di v1.</span> WalletConnect butuh <b>Project ID</b> gratis dari cloud.walletconnect.com. Project ID itu dibuat oleh publisher (pemilik aplikasi) dan ditambahkan pada update aplikasi berikutnya. Aplikasi ini tidak mengarang Project ID.',
-  evmNeedK:'Yang dibutuhkan publisher', evmNeedV:'Akun cloud.walletconnect.com', evmStepK:'Langkah', evmStepV:'Buat project baru → salin Project ID', evmAfterK:'Lalu', evmAfterV:'Masukkan Project ID ke aplikasi → rilis update',
-  evmSheetNote:'Sementara itu, peluang EVM tetap bisa diikuti lewat portal project masing-masing. Wallet EVM kamu tetap di HP kamu, aplikasi tidak pernah meminta seed phrase.',
+  
+  
+  
+  
   xSheetTitle:'Handle X / Twitter', xSheetSub:'Isi username X kamu tanpa tanda @, nanti tampil sebagai @handle di Informasi Akun.', xSaveBtn:'Simpan handle X', xPh:'namakamu',
   solFillTitle:'Isi SOL Address', solFillSub:'Pemilik Seeker bisa pakai tombol Hubungkan (Seed Vault). Kalau kamu bukan pemilik Seeker, cukup ketik atau tempel alamat wallet Solana kamu di sini, sama seperti mengisi handle X. Alamat ini hanya untuk identitas akun — aplikasi tidak pernah meminta seed phrase atau private key kamu.', solFillSave:'Simpan SOL Address', solPh:'Tempel alamat Solana kamu', solEmptyT:'SOL address tidak boleh kosong, isi dulu ya.', solInvalidT:'Sepertinya itu bukan alamat Solana yang valid (32–44 karakter base58), periksa lagi ya.', solSavedT:'SOL address disimpan: {v}', logSolManual:'SOL address diisi manual: {v}',
   onbTitle:'Selamat datang di Agent Jennai', onbSub:'Pilih cara masuk untuk mulai menjelajah aplikasi. Cukup sekali ini saja, setelah itu kamu tidak akan diminta lagi.',
@@ -2148,12 +2159,17 @@ id: {
   svBusy1:'Menghubungkan ke Seed Vault, setujui permintaan koneksi di Seed Vault kamu…', svBusy2:'Wallet terhubung ({v}). Mencari nama .skr milik wallet ini…',
   svNoSkr:'Wallet Solana kamu sudah terhubung, tapi tidak ditemukan nama .skr untuk wallet ini, jadi username tidak bisa terisi otomatis. Isi username manual di bawah ya.',
   svFail:'Seed Vault tidak terhubung, koneksi gagal atau belum didukung di lingkungan ini. Tidak apa-apa, kamu tetap bisa lanjut dengan username manual di bawah.',
+svBusy3:'Meminta tantangan login dari server…', svBusy4:'Setujui tanda tangan di Seed Vault…',
+svChallengeFail:'Server tidak memberikan tantangan login. Akun backend BELUM dibuat — submission & penarikan belum tersinkron. Coba lagi nanti.',
+svSignFail:'Tanda tangan dibatalkan atau gagal. Akun backend BELUM dibuat — coba lagi.',
+svSignUnsupported:'Wallet ini tidak bisa menandatangani pesan, jadi akun backend tidak bisa dibuat. Coba lagi dari aplikasi Seeker atau wallet lain.',
+svBackendFail:'Login backend gagal ({v}). Akun backend BELUM dibuat — submission & penarikan belum tersinkron.',
   logSkr:'Username terisi otomatis dari Seed Vault: {v}', logUser:'Username dibuat: {v}', logSol:'Wallet Solana terhubung: {v}', logX:'Handle X diatur: @{v}', logSave:'Menyimpan project: {v}', logUnsave:'Menghapus project dari simpanan: {v}', logTask:'Mengirim tugas: {title} ({r}), sedang ditinjau',
   logEmpty:'Belum ada aktivitas tercatat. Aktivitas kamu di aplikasi ini, seperti menyimpan project, menghubungkan wallet, mengatur username atau handle X, akan muncul di sini sejak fitur ini ada.',
   txOk:'Transaksi berhasil', txFail:'Transaksi gagal', solRpcErr:'Transaksi Solana belum bisa dibaca saat ini karena RPC publik Solana tidak merespons. Coba lagi lewat tombol Muat ulang di atas. Tidak ada data yang dikarang di sini.',
   solNoTx:'Belum ada transaksi tercatat untuk address ini di chain Solana.', solLoading:'Memuat transaksi terbaru dari chain Solana…',
   noWalletT:'Belum ada wallet terhubung', noWalletD:'Hubungkan wallet kamu untuk melihat aktivitas onchain dari address tersebut, dibaca langsung dari data publik chain.', noWalletNote:'Agent Jennai tidak pernah menyimpan, meminta, atau melihat seed phrase / private key kamu.',
-  evmHistNote:'Riwayat transaksi EVM belum bisa ditampilkan di v1: membaca riwayat transaksi EVM butuh API key layanan explorer (mis. Etherscan) yang belum tersedia di aplikasi ini, jadi tidak ada data yang dikarang. Address kamu tetap tercatat, riwayatnya menyusul setelah jalur baca EVM tersedia.',
+  
   taskTabA:'Tugas Aktif', taskTabS:'Event Selesai', taskTabD:'Tugas Dikerjakan',
   tb1k:'Task to Earn', tb1t:'Kerjakan tugas, kumpulkan reward rupiah', tb1p:'Follow, like, repost, dan komen project pilihan di feed Hunter, kirim buktinya, reward masuk setelah lolos verifikasi admin.', tb1c:'Reward berbeda tiap tugas',
   tb2k:'Siapkan akunmu', tb2t:'Hubungkan wallet & handle X kamu', tb2p:'Tugas sosial butuh akun X aktif. Isi handle X di Profil dan hubungkan wallet supaya verifikasi dan pencairan reward lebih gampang.', tb2c:'Cek di tab Profil',
@@ -2179,7 +2195,7 @@ id: {
   refEmpty:'Belum ada teman yang daftar lewat link kamu. Bagikan link referral kamu untuk mulai mengumpulkan poin.',
   refNote:'Poin belum ada jenjangnya — poin nanti dipakai untuk apa masih upcoming. Untuk sekarang, poin terkumpul dari setiap referral yang berhasil.',
   aboutDesc:'Pendamping hunter untuk anda, memberi tahu kamu saat ada early project, free mint, airdrop, dan whitelist, dan lain lain.',
-  chip1:'Satu feed, semua chain', chip2:'Tanpa auto-sign', snapTitle:'Data Snapshot', snapDateL:'Snapshot data', snapActiveL:'Peluang aktif', snapNote:'Feed berisi snapshot data hunter saat aplikasi dibuat. Refresh data = update aplikasi berikutnya (backend menyusul).',
+  chip1:'Satu feed, semua chain', chip2:'Tanpa auto-sign', snapTitle:'Data Live', snapDateL:'Terakhir diperbarui', snapActiveL:'Peluang aktif', snapNote:'Feed sudah live: data hunter diperbarui otomatis tiap 5 menit, dan angka di atas selalu sama dengan feed yang kamu lihat. Tidak ada jadwal refresh tetap.',
   secTitle:'Aturan keamanan',
   sec1:'• <b class="text-slate-100">Non-custodial :</b> aplikasi tidak pernah memegang dana atau aset kamu. Semua aset tetap berada di wallet kamu sendiri.',
   sec2:'• <b class="text-slate-100">Seed phrase & private key tidak pernah masuk aplikasi.</b> Aplikasi tidak pernah memintanya jangan pernah memasukkan atau membagikan seed phrase / private key kamu ke aplikasi, situs, atau orang mana pun.',
@@ -2190,7 +2206,7 @@ id: {
   g1:'<span class="text-gold-400 font-bold">1.</span> Sinyal masuk dari pantauan hunter, lalu kontraknya diaudit dulu label GO / CAUTION / PANTAU ditempel ke kartu. Yang BLOCK tidak pernah tampil.',
   g2:'<span class="text-gold-400 font-bold">2.</span> Kartu diurutkan gratis didahulukan, deadline dekat naik ke atas, audit GO mengalahkan CAUTION.',
   g3:'<span class="text-gold-400 font-bold">3.</span> Kamu putuskan di layar detail biaya, risiko, status, dan langkahnya tampil di satu tempat.',
-  g4:'<span class="text-gold-400 font-bold">4.</span> Tanda tangan Solana lewat Seed Vault (Mobile Wallet Adapter), EVM lewat WalletConnect ke wallet EVM kamu.',
+  g4:'<span class="text-gold-400 font-bold">4.</span> Tanda tangan Solana lewat Seed Vault (Mobile Wallet Adapter).',
   guide2Title:'Panduan hunter',
   h1:'1. Gunakan filter kategori untuk menyaring project sesuai jenis peluang (Early, Free Mint, Airdrop, Whitelist).',
   h2:'2. Perhatikan status dan jadwal rilis di detail kartu agar tidak ketinggalan jendela mint.',
@@ -2203,7 +2219,7 @@ id: {
   t5:'<span class="text-gold-400 font-bold">5.</span> <b class="text-slate-100">Wallet & keamanan.</b> Aplikasi ini non-custodial kamu bertanggung jawab penuh menjaga seed phrase dan private key walletmu. Jangan pernah membagikannya kepada siapa pun aplikasi tidak pernah memintanya.',
   t6:'<span class="text-gold-400 font-bold">6.</span> <b class="text-slate-100">Reward task.</b> Reward tugas hanya berlaku bila tercantum di data project dan mengikuti ketentuan penyelenggara project masing-masing. Aplikasi tidak menjamin pembayaran reward.',
   t7:'<span class="text-gold-400 font-bold">7.</span> <b class="text-slate-100">Perubahan ketentuan.</b> Syarat dan ketentuan ini dapat diperbarui pada versi aplikasi berikutnya. Dengan memakai aplikasi, kamu dianggap menyetujui syarat dan ketentuan yang berlaku.',
-  solBtnShort:'Hubungkan wallet Solana', evmBtnShort:'Hubungkan wallet EVM', settingsSaved:'Pengaturan disimpan.'
+  solBtnShort:'Hubungkan wallet Solana', settingsSaved:'Pengaturan disimpan.'
 },
 zh: {
   dateLocale:'zh-CN', taskReward:'任务奖励', halo:'你好，', level:'等级', haloDefault:'猎人',
@@ -2215,7 +2231,7 @@ zh: {
   cautionNote:'<span class="font-bold text-amber-300">注意：</span>此项目为付费项目或审计评级为谨慎，行动前请仔细检查。无论此项目状态如何（包括免费铸造和审计 GO），本应用没有自动签名和自动铸造：每一次签名都由你本人在自己的钱包中逐一批准。',
   actionTitle:'操作', saveBtn:'保存项目', savedBtn:'已保存到活动',
   solBtn:'连接 Solana 钱包 (Seed Vault)', solNote:'签名在手机上的 Seed Vault 内完成。本应用永远看不到你的助记词。',
-  evmBtn:'连接 EVM 钱包 (WalletConnect)', evmNote:'EVM (Base / BSC / 以太坊 / Arbitrum)：通过 WalletConnect 在你自己的钱包中签名。',
+  
   otherChain:'<span class="font-bold text-amber-300">该链在 v1 中尚无签名通道。</span>应用仍会通知你；请按照项目门户的指南操作，或等待下一次钱包通道更新。',
   openPortal:'打开项目门户',
   notifTitle:'Agent Jennai 通知', markRead:'标记为已读', notifDesc:'猎人动态的最新发现，按发现时间从新到旧排序。在“个人资料”标签中启用推送通知，即可在应用关闭时也能收到提醒；此应用内列表始终可用。', notifReadToast:'所有通知已标记为已读。',
@@ -2225,7 +2241,7 @@ zh: {
   wdBtn:'提现', wdTitle:'提现奖励', wdAvailable:'可提现', wdDestNote:'以 Solana 网络上的 USDC 支付到你账户信息中的 SOL 地址。', wdNote:'你的申请会记录在提现记录中，状态为处理中。款项由管理员以 Solana 网络上的 USDC 处理并发送到你的 SOL 地址——请确保该地址正确。平台费从提现金额中扣除；链上费用按 Solana 网络默认标准。', wdNoBalance:'尚无可提现的奖励。先完成任务并等待通过验证。', wdNeedSol:'请先在“个人资料 → 账户信息”中填写或连接你的 SOL 地址，以便管理员知道发送到哪里。', wdPendingNote:'你已有一笔提现正在处理中。请等待完成后再申请下一笔。', wdSubmit:'申请提现', wdSentT:'提现已申请！状态：处理中，请查看提现记录。', wdEmpty:'尚无提现记录。已通过验证的任务奖励提现申请后会显示在这里。', wdProcess:'处理中', wdDone:'已完成', wdInProcess:'发送中', wdRejected:'已拒绝', wdTxHash:'交易哈希', wdViewSolscan:'在 Solscan 查看', wdNotifTitle:'提现成功', wdNotifBody:'你的 {v} 提现已通过 Solana 上的 USDC 发送。', logWithdrawDone:'提现完成：{v}', logWithdraw:'已申请提现奖励：{v}',
   wdMinMax:'最低 {min} · 每笔最高 {max}', wdAmount:'提现金额', wdType:'账户类型', wdSeeker:'Seeker', wdNonSeeker:'非 Seeker', wdFeePlat:'平台费 ({pct}%)', wdFeeChain:'链上费用', wdFeeChainVal:'网络默认 (±0.000005 SOL)', wdReceive:'你将收到', wdReceiveUsdc:'≈ {v} USDC (Solana)', wdBelowMin:'你的余额尚未达到最低提现额 {min}。', wdCapNote:'你的余额超过每笔最高限额，因此本次先提取 {max}。其余部分可在此笔完成后提取。', wdFeeWord:'费用', wdNetWord:'实收',
   b1k:'非托管', b1t:'你的资产始终留在你自己的钱包里', b1p:'Agent Jennai 从不持有你的资金、资产或密钥。所有签名始终由你本人在自己的钱包中批准。', b1c:'从一开始就安全',
-  b2k:'一个动态，全部链', b2t:'早期、免费铸造、空投和白名单都在一个动态里', b2p:'来自 Solana、Base、BSC、Arbitrum、Ink 和 Zero 的机会集中在一个地方，无需切换应用。', b2c:'49 个活跃机会',
+  b2k:'一个动态，全部链', b2t:'早期、免费铸造、空投和白名单都在一个动态里', b2p:'来自 Solana、Base、BSC、Arbitrum、Ink 和 Zero 的机会集中在一个地方，无需切换应用。', b2c:'实时机会', b2cLive:'{n} 个活跃机会',
   b3k:'无自动签名', b3t:'没有自动签名，就是这样', b3p:'一笔交易 = 一次批准。交易详情和费用总是在你签名之前先展示。', b3c:'由你掌控',
   b4k:'做任务赚奖励', b4t:'完成任务，收集奖励', b4p:'社交任务，每个任务都有奖励。提交凭证，验证通过后奖励到账。', b4c:'查看做任务赚奖励标签',
   b5k:'早期通知', b5t:'新项目一出现就通知你', b5p:'最新的早期项目、免费铸造、空投和白名单都会出现在通知中，你不会错过铸造窗口。', b5c:'点击上方的铃铛',
@@ -2233,9 +2249,9 @@ zh: {
   rateLiveNote:'实时汇率：1 USD = {rate}（最后更新于 {time}）。所有金额均以你选择的货币显示。',
   rateFixedNote:'固定汇率：1 USD = {rate}。实时汇率不可用，因此使用此固定汇率。所有金额均以你选择的货币显示。',
   aboutHeading:'其他菜单',
-  menuAbout:'关于应用', menuAboutD:'应用说明与数据快照', menuSec:'安全规则', menuSecD:'非托管，无自动签名', menuGuide:'指南', menuGuideD:'如何使用本应用', menuTerms:'条款与条件', menuTermsD:'应用使用条款', menuSaved:'已保存的项目', menuSavedD:'你保存的项目列表',
+  menuAbout:'关于应用', menuAboutD:'应用说明与实时数据', menuSec:'安全规则', menuSecD:'非托管，无自动签名', menuGuide:'指南', menuGuideD:'如何使用本应用', menuTerms:'条款与条件', menuTermsD:'应用使用条款', menuSaved:'已保存的项目', menuSavedD:'你保存的项目列表',
   savedEmpty:'尚无保存的项目。点击项目卡片上的书签图标，或项目详情页上的保存按钮。',
-  usernameL:'用户名', solL:'SOL 地址', evmL:'EVM 地址', xL:'Twitter/X', notConnected:'未连接', notSet:'未设置', connectBtn:'连接', fillBtn:'填写', editBtn:'修改', copyWord:'复制', copiedT:'已复制', copyEmptyT:'尚未连接地址，没有可复制的内容。',
+  usernameL:'用户名', solL:'SOL 地址', xL:'Twitter/X', notConnected:'未连接', notSet:'未设置', connectBtn:'连接', fillBtn:'填写', editBtn:'修改', copyWord:'复制', copiedT:'已复制', copyEmptyT:'尚未连接地址，没有可复制的内容。',
   userSavedT:'你好，{v}！你的用户名已保存。', welcomeT:'欢迎，{v}！你的用户名已从 Seed Vault 自动填写。',
   xEmptyT:'X 账号不能为空，请先填写。', xSavedT:'X 账号已保存：@{v}',
   savedT:'项目已保存，在活动标签中查看。', unsavedT:'项目已从保存列表中移除。',
@@ -2243,10 +2259,10 @@ zh: {
   solSheetTitle:'连接 Solana 钱包', solSheetSub:'Mobile Wallet Adapter 会打开 Seed Vault 请求连接批准。',
   rowPath:'通道', solPathV:'Mobile Wallet Adapter → Seed Vault', rowShared:'共享内容', solSharedV:'仅你的公开钱包地址', rowNever:'从不共享', solNeverV:'助记词和私钥',
   solSheetNote:'在 Seeker 手机的真实应用中，下一步是在 Seed Vault 中用指纹/PIN 批准。在没有 Solana 钱包的浏览器中无法完成连接，这是正常的。',
-  evmSheetTitle:'连接 EVM 钱包', evmSheetSub:'Base / BSC / 以太坊 / Arbitrum / Polygon，通过 WalletConnect',
-  evmWarn:'<span class="font-bold text-amber-300">v1 尚无法连接。</span>WalletConnect 需要从 cloud.walletconnect.com 获取免费的 <b>Project ID</b>。该 Project ID 由发布者（应用所有者）创建，并将在下一次应用更新中加入。本应用不会编造 Project ID。',
-  evmNeedK:'发布者需要', evmNeedV:'cloud.walletconnect.com 账户', evmStepK:'步骤', evmStepV:'创建新项目 → 复制 Project ID', evmAfterK:'然后', evmAfterV:'将 Project ID 加入应用 → 发布更新',
-  evmSheetNote:'与此同时，EVM 机会仍可通过各项目门户参与。你的 EVM 钱包留在你的手机上，应用从不要求助记词。',
+  
+  
+  
+  
   xSheetTitle:'X / Twitter 账号', xSheetSub:'填写你的 X 用户名，不要带 @ 符号，它会以 @handle 显示在账户信息中。', xSaveBtn:'保存 X 账号', xPh:'你的用户名',
   solFillTitle:'填写 SOL 地址', solFillSub:'Seeker 用户可以使用“连接”按钮 (Seed Vault)。如果你不是 Seeker 用户，只需像填写 X 账号一样，在这里输入或粘贴你的 Solana 钱包地址。此地址仅用于账户身份——本应用从不要求助记词或私钥。', solFillSave:'保存 SOL 地址', solPh:'粘贴你的 Solana 地址', solEmptyT:'SOL 地址不能为空，请先填写。', solInvalidT:'这似乎不是有效的 Solana 地址（32–44 个 base58 字符），请检查后重试。', solSavedT:'SOL 地址已保存：{v}', logSolManual:'已手动填写 SOL 地址：{v}',
   onbTitle:'欢迎来到 Agent Jennai', onbSub:'选择登录方式，开始探索应用。只需这一次，之后不会再要求。',
@@ -2264,12 +2280,17 @@ zh: {
   svBusy1:'正在连接 Seed Vault，请在你的 Seed Vault 中批准连接请求…', svBusy2:'钱包已连接 ({v})。正在查找此钱包的 .skr 名称…',
   svNoSkr:'你的 Solana 钱包已连接，但未找到此钱包的 .skr 名称，因此无法自动填写用户名。请在下方手动填写用户名。',
   svFail:'Seed Vault 未连接，连接失败或此环境不支持。没关系，你可以在下方使用手动用户名继续。',
+svBusy3:'正在向服务器请求登录验证…', svBusy4:'请在 Seed Vault 中批准签名…',
+svChallengeFail:'服务器未发放登录验证，你的后端账户尚未创建，任务提交与提现尚未同步，请稍后再试。',
+svSignFail:'签名已取消或失败，你的后端账户尚未创建，请重试。',
+svSignUnsupported:'此钱包无法签署消息，因此无法创建后端账户，请从 Seeker 应用或其他钱包重试。',
+svBackendFail:'后端登录失败（{v}），你的后端账户尚未创建，任务提交与提现尚未同步。',
   logSkr:'用户名已从 Seed Vault 自动填写：{v}', logUser:'已创建用户名：{v}', logSol:'Solana 钱包已连接：{v}', logX:'X 账号已设置：@{v}', logSave:'已保存项目：{v}', logUnsave:'已从保存中移除项目：{v}', logTask:'已提交任务：{title} ({r})，审核中',
   logEmpty:'尚未记录任何活动。你在本应用中的活动，例如保存项目、连接钱包、设置用户名或 X 账号，都会显示在这里。',
   txOk:'交易成功', txFail:'交易失败', solRpcErr:'目前无法读取 Solana 交易，因为公共 Solana RPC 没有响应。请点击上方的重新加载按钮重试。这里不会编造任何数据。',
   solNoTx:'该地址在 Solana 链上尚无交易记录。', solLoading:'正在从 Solana 链加载最新交易…',
   noWalletT:'尚未连接钱包', noWalletD:'连接你的钱包，查看该地址的链上活动，直接从公共链数据读取。', noWalletNote:'Agent Jennai 从不存储、要求或查看你的助记词/私钥。',
-  evmHistNote:'v1 尚无法显示 EVM 交易历史：读取 EVM 交易历史需要浏览器服务 API 密钥（例如 Etherscan），本应用尚不具备，因此不会编造任何数据。你的地址已被记录，EVM 读取通道可用后历史记录会随后显示。',
+  
   taskTabA:'进行中的任务', taskTabS:'已结束的活动', taskTabD:'已做的任务',
   tb1k:'做任务赚奖励', tb1t:'完成任务，收集奖励', tb1p:'关注、点赞、转发并评论猎人动态中的精选项目，提交凭证，管理员验证通过后奖励到账。', tb1c:'每个任务都有奖励',
   tb2k:'准备你的账户', tb2t:'连接钱包和 X 账号', tb2p:'社交任务需要活跃的 X 账户。在个人资料中填写 X 账号并连接钱包，验证和奖励发放会更方便。', tb2c:'在个人资料标签中查看',
@@ -2295,7 +2316,7 @@ zh: {
   refEmpty:'尚无朋友通过你的链接注册。分享你的推荐链接开始赚取积分。',
   refNote:'积分目前尚无等级——积分的用途即将公布。目前，积分通过每次成功推荐累积。',
   aboutDesc:'你的猎人伙伴，在有早期项目、免费铸造、空投、白名单等机会时通知你。',
-  chip1:'一个动态，全部链', chip2:'无自动签名', snapTitle:'数据快照', snapDateL:'数据快照', snapActiveL:'活跃机会', snapNote:'动态包含应用构建时的猎人数据快照。数据刷新 = 下一次应用更新（后端稍后推出）。',
+  chip1:'一个动态，全部链', chip2:'无自动签名', snapTitle:'实时数据', snapDateL:'数据最近更新', snapActiveL:'活跃机会', snapNote:'动态为实时数据：猎人数据每 5 分钟自动更新，上面的数字始终与你看到的动态一致，没有固定的刷新时间表。',
   secTitle:'安全规则',
   sec1:'• <b class="text-slate-100">非托管：</b>应用从不持有你的资金或资产。所有资产都留在你自己的钱包中。',
   sec2:'• <b class="text-slate-100">助记词和私钥从不进入应用。</b>应用从不要求它们，切勿向任何应用、网站或个人输入或分享你的助记词/私钥。',
@@ -2306,7 +2327,7 @@ zh: {
   g1:'<span class="text-gold-400 font-bold">1.</span> 信号从猎人监控进入，然后先审计其合约，并将 GO / 谨慎 / 关注 标签贴到卡片上。BLOCK 项目从不出现。',
   g2:'<span class="text-gold-400 font-bold">2.</span> 卡片排序时免费的优先，截止日期近的上升，审计 GO 胜过谨慎。',
   g3:'<span class="text-gold-400 font-bold">3.</span> 你在详情页做决定，费用、风险、状态和步骤都集中显示在一处。',
-  g4:'<span class="text-gold-400 font-bold">4.</span> Solana 签名通过 Seed Vault (Mobile Wallet Adapter)，EVM 通过 WalletConnect 到你的 EVM 钱包。',
+  g4:'<span class="text-gold-400 font-bold">4.</span> Solana 签名通过 Seed Vault (Mobile Wallet Adapter)。',
   guide2Title:'猎人指南',
   h1:'1. 使用类别筛选，按机会类型（早期、免费铸造、空投、白名单）筛选项目。',
   h2:'2. 注意卡片详情中的状态和发布时间表，以免错过铸造窗口。',
@@ -2319,7 +2340,7 @@ zh: {
   t5:'<span class="text-gold-400 font-bold">5.</span> <b class="text-slate-100">钱包与安全。</b>本应用为非托管应用，你对保管钱包助记词和私钥负全部责任。切勿与任何人分享，应用从不要求它们。',
   t6:'<span class="text-gold-400 font-bold">6.</span> <b class="text-slate-100">任务奖励。</b>任务奖励仅在项目数据中注明时适用，并遵循各项目组织者的条款。应用不保证奖励支付。',
   t7:'<span class="text-gold-400 font-bold">7.</span> <b class="text-slate-100">条款变更。</b>本条款与条件可能会在下一个应用版本中更新。使用本应用即视为你同意适用的条款与条件。',
-  solBtnShort:'连接 Solana 钱包', evmBtnShort:'连接 EVM 钱包', settingsSaved:'设置已保存。'
+  solBtnShort:'连接 Solana 钱包', settingsSaved:'设置已保存。'
 }
 };
 function t(key){
@@ -3625,6 +3646,13 @@ function showManualUsernameForm(){
    wallet tidak punya nama .skr, tampilkan pesan jujur dan tawarkan kembali
    isi username manual. */
 var seedVaultBusy = false;
+/* Penanda signer untuk alur challenge (bug KRITIS 19 Nov 2026): backend
+   menuntut signature atas challenge server. Diisi saat connect berhasil —
+   {kind:'injected', provider} atau {kind:'standard', wallet, account}.
+   Jalur MWA manual lama tidak mengisi ini (authorize saja, tidak bisa
+   signMessage) sehingga signSeedVaultChallenge mengembalikan
+   'sign-not-supported' yang jujur. */
+var lastSeedVaultSigner = null;
 function setSeedVaultBusy(busy){
   seedVaultBusy = busy;
   var b1 = document.getElementById('choiceUsernameBtn');
@@ -3691,17 +3719,49 @@ function connectSeedVaultOnboarding(){
         updateOnboardingVisibility();
         showToast(tf('welcomeT', { v: skr }));
         /* Backend akun aktif: daftarkan / kenali wallet ini di backend.
-           Bila akun belum punya PIN, tawarkan buat PIN cadangan (sekali);
-           Seed Vault tetap jadi kredensial utama, PIN hanya cadangan. */
+           Alur challenge (bug KRITIS 19 Nov 2026): backend menuntut
+           challengeId + signature wallet — minta challenge dulu, minta
+           Seed Vault menandatangani pesannya, baru kirim seed-vault.
+           Bila LANGKAH MANA PUN gagal, tampilkan error yang jelas di
+           kotak status dan JANGAN pura-pura login backend: akun backend
+           BELUM dibuat sampai seed-vault mengembalikan ok. */
         if (authEnabled()){
-          AH.auth.seedVault(state.solAddress, skr).then(function (out){
-            var res = out.res || {};
-            if (!res.ok) return; /* lanjut lokal: sudah login via Seed Vault */
-            var reminded = false;
-            try { reminded = !!(window.AH && AH.store && AH.store.data.pinReminderShown); } catch (e) {}
-            if (out.needsPin && !reminded) openPinSheet('backup');
-            renderAccountInfo();
-            renderReferral();
+          setSeedVaultStatus('loading', t('svBusy3'));
+          AH.auth.requestChallenge(state.solAddress).then(function (ch){
+            if (!ch.ok || !ch.data || !ch.data.challengeId || !ch.data.message){
+              setSeedVaultStatus('error', t('svChallengeFail'));
+              try { if (window.AH && AH.store){ AH.store.data.lastSyncError = (ch && ch.error) || 'challenge-gagal'; AH.store.saveSoon(); } } catch (e) {}
+              try { console.warn('[AH] requestChallenge gagal:', ch && (ch.error || ch.status)); } catch (e) {}
+              return null;
+            }
+            setSeedVaultStatus('loading', t('svBusy4'));
+            return signSeedVaultChallenge(ch.data.message).then(function (sig){
+              if (!sig.ok){
+                setSeedVaultStatus('error', t(sig.error === 'sign-not-supported' ? 'svSignUnsupported' : 'svSignFail'));
+                try { if (window.AH && AH.store){ AH.store.data.lastSyncError = sig.error || 'sign-gagal'; AH.store.saveSoon(); } } catch (e) {}
+                return null;
+              }
+              return AH.auth.seedVault(state.solAddress, skr, { challengeId: ch.data.challengeId, signature: sig.signature }).then(function (out){
+                var res = out.res || {};
+                if (!res.ok){
+                  /* JANGAN lanjut lokal diam-diam: backend menolak =
+                     akun backend BELUM dibuat. Tampilkan alasannya. */
+                  setSeedVaultStatus('error', tf('svBackendFail', { v: res.error || ('HTTP ' + (res.status || '?')) }));
+                  try { if (window.AH && AH.store){ AH.store.data.lastSyncError = res.error || 'seed-vault-gagal'; AH.store.saveSoon(); } } catch (e) {}
+                  try { console.warn('[AH] seed-vault backend ditolak:', res.error || res.status); } catch (e) {}
+                  return;
+                }
+                setSeedVaultStatus('', '');
+                var reminded = false;
+                try { reminded = !!(window.AH && AH.store && AH.store.data.pinReminderShown); } catch (e) {}
+                if (out.needsPin && !reminded) openPinSheet('backup');
+                renderAccountInfo();
+                renderReferral();
+              });
+            });
+          }).catch(function (err){
+            setSeedVaultStatus('error', t('svChallengeFail'));
+            try { console.warn('[AH] alur challenge seed-vault gagal:', err); } catch (e) {}
           });
         }
       } else {
@@ -3726,6 +3786,7 @@ function attemptSolanaConnect(){
     return provider.connect().then(function(res){
       var pk = (res && res.publicKey) ? res.publicKey : provider.publicKey;
       if (!pk) throw new Error('no-pubkey');
+      lastSeedVaultSigner = { kind: 'injected', provider: provider };
       return pk.toString();
     });
   }
@@ -3808,6 +3869,7 @@ function attemptStandardMwaConnect(){
     return feature.connect().then(function(result){
       var accounts = (result && result.accounts && result.accounts.length) ? result.accounts : wallet.accounts;
       if (!accounts || !accounts.length || !accounts[0].address) throw new Error('mwa-no-account');
+      lastSeedVaultSigner = { kind: 'standard', wallet: wallet, account: accounts[0] };
       return String(accounts[0].address);
     });
   });
@@ -3825,6 +3887,11 @@ function b64ToBytes(b64){
   var out = new Uint8Array(bin.length);
   for (var i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
   return out;
+}
+function bytesToBase64(bytes){
+  var bin = '';
+  for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+  return btoa(bin);
 }
 var B58_ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
 function bytesToBase58(bytes){
@@ -3953,6 +4020,55 @@ function attemptMwaConnect(){
       })
       .catch(function(){ fail(); });
   });
+}
+/* --- Tanda tangani pesan challenge server (bug KRITIS 19 Nov 2026) ---
+   Backend /api/auth/seed-vault menuntut {challengeId, signature}: signature
+   adalah Ed25519 atas byte UTF-8 persis dari `message` yang dikembalikan
+   POST /api/auth/challenge, dikirim sebagai base64. Urutan signer:
+   (1) provider injected (window.solana / Phantom) signMessage;
+   (2) Wallet Standard MWA (Seed Vault di HP Seeker) fitur
+   'standard:signMessage' (fallback 'solana:signMessage'), bentuk input
+   objek dulu lalu array (spesifikasi Wallet Standard memakai array);
+   (3) jalur MWA manual lama tidak bisa sign -> 'sign-not-supported'
+   (jujur, bukan pura-pura berhasil). Mengembalikan Promise
+   {ok:true, signature} atau {ok:false, error}. */
+function signSeedVaultChallenge(message){
+  var bytes;
+  try { bytes = new TextEncoder().encode(String(message || '')); } catch (e) { return Promise.resolve({ ok: false, error: 'sign-failed' }); }
+  function normSig(res){
+    var sig = null;
+    if (res && res.signature) sig = res.signature;
+    else if (res && res.length && res[0] && res[0].signature) sig = res[0].signature;
+    else if (typeof res === 'string') sig = res;
+    if (typeof sig === 'string' && sig) return { ok: true, signature: sig };
+    if (sig && sig.length) { try { return { ok: true, signature: bytesToBase64(sig) }; } catch (e) { return { ok: false, error: 'sign-failed' }; } }
+    return { ok: false, error: 'sign-failed' };
+  }
+  var s = lastSeedVaultSigner;
+  /* 1. Provider injected. */
+  if (s && s.kind === 'injected' && s.provider && typeof s.provider.signMessage === 'function'){
+    return Promise.resolve().then(function(){ return s.provider.signMessage(bytes); })
+      .then(normSig)
+      .catch(function(){ return { ok: false, error: 'sign-failed' }; });
+  }
+  /* 2. Wallet Standard MWA. */
+  if (s && s.kind === 'standard' && s.wallet){
+    var feats = s.wallet.features || {};
+    var feature = feats['standard:signMessage'] || feats['solana:signMessage'] || null;
+    if (feature && typeof feature.signMessage === 'function'){
+      var input = { message: bytes };
+      if (s.account) input.account = s.account;
+      return Promise.resolve().then(function(){ return feature.signMessage(input); })
+        .then(normSig)
+        .catch(function(){
+          return Promise.resolve().then(function(){ return feature.signMessage([input]); })
+            .then(normSig)
+            .catch(function(){ return { ok: false, error: 'sign-failed' }; });
+        });
+    }
+  }
+  /* 3. Tidak ada signer yang bisa menandatangani pesan. */
+  return Promise.resolve({ ok: false, error: 'sign-not-supported' });
 }
 /* --- Cari nama .skr milik wallet lewat AllDomains (@solana-mobile/skr-domain) ---
    .skr BUKAN domain Bonfida SNS (.sol/.sns): endpoint Bonfida dihapus karena
@@ -4479,25 +4595,16 @@ function openConnectSolana(){
     '<p class="text-[11px] text-slate-500 leading-relaxed mt-2">' + t('pinLinkSolNote') + '</p>'
   );
 }
-function openConnectEvm(){
-  openSheet(
-    '<h3 class="text-base font-extrabold text-white text-center">' + t('evmSheetTitle') + '</h3>' +
-    '<p class="text-xs text-slate-400 text-center mt-1">' + t('evmSheetSub') + '</p>' +
-    '<div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200/90 text-xs leading-relaxed mt-3">' + t('evmWarn') + '</div>' +
-    sheetKv([[t('evmNeedK'), t('evmNeedV')],[t('evmStepK'), t('evmStepV')],[t('evmAfterK'), t('evmAfterV')]]) +
-    '<p class="text-[11px] text-slate-500 leading-relaxed">' + t('evmSheetNote') + '</p>'
-  );
-}
 
 /* ===== Tab Aktivitas: statistik hunter, log aktivitas pengguna, onchain =====
    Statistik & log dibaca dari state pengguna ini sendiri (mulai dari nol /
    kosong untuk pengguna baru). Aktivitas dicatat ke state.activityLog oleh
    aksi-aksi yang sudah ada (simpan project, hubungkan wallet, atur username
    / handle X) sejak fitur ini ada, tidak ada entri yang dikarang.
-   Aktivitas onchain dibaca dari data publik chain untuk address yang
-   terhubung: Solana lewat RPC publik (getSignaturesForAddress). Riwayat EVM
-   butuh API key explorer yang belum tersedia di v1, jadi ditampilkan pesan
-   jujur, tidak ada transaksi yang dikarang. */
+   Aktivitas onchain dibaca dari data publik chain untuk address Solana yang
+   terhubung, lewat RPC publik (getSignaturesForAddress). Aplikasi ini hanya
+   memakai wallet Solana (Seed Vault), jadi tidak ada riwayat chain lain yang
+   ditampilkan dan tidak ada transaksi yang dikarang. */
 var ACTIVITY_ICON = { save:'bookmark', wallet:'wallet', user:'user', x:'share', task:'star' };
 function logActivity(type, text){
   state.activityLog.unshift({ type:type, text:text, at:Date.now() });
@@ -4858,7 +4965,37 @@ function switchTab(t){ showView(t); }
    Kartu Data Snapshot di halaman Tentang Aplikasi berisi teks statis
    (tanggal snapshot & jumlah peluang), tidak ada elemen meta yang
    perlu dirender dinamis di sana. */
-function renderAbout(){}
+function renderAbout(){
+  /* Kartu Data Live di Tentang Aplikasi: angka selalu dihitung dari feed
+     yang sedang tampil (window.ITEMS), bukan angka saat aplikasi dibuat.
+     Sebelum feed live termuat, tampil angka snapshot bawaan sampai
+     AHFeed.apply() memanggil renderAbout() lagi setelah fetch berhasil. */
+  var items = [];
+  try { if (Array.isArray(window.ITEMS)) items = window.ITEMS; } catch (e) {}
+  var counts = { early:0, freemint:0, airdrop:0, whitelist:0 };
+  items.forEach(function (it) { var c = it && it.category; if (counts[c] != null) counts[c]++; });
+  var total = items.length;
+  var activeEl = document.getElementById('snapActiveVal');
+  if (activeEl) {
+    activeEl.textContent = total + ' (' + CAT_LABEL.early + ' ' + counts.early + ' \u2022 ' + CAT_LABEL.freemint + ' ' + counts.freemint + ' \u2022 ' + CAT_LABEL.airdrop + ' ' + counts.airdrop + ' \u2022 ' + CAT_LABEL.whitelist + ' ' + counts.whitelist + ')';
+  }
+  var dateEl = document.getElementById('snapDateVal');
+  if (dateEl) {
+    var when = '';
+    try {
+      var feedMeta = window.__AH_FEED_META__;
+      if (feedMeta && feedMeta.data_snapshot_at) when = String(feedMeta.data_snapshot_at);
+      else if (window.__AH_FEED_FETCHED_AT__) when = new Date(window.__AH_FEED_FETCHED_AT__).toLocaleString('id-ID');
+    } catch (e) {}
+    if (when) dateEl.textContent = when;
+  }
+  /* Banner peluang memakai angka live yang sama. */
+  try {
+    var label = tf('b2cLive', { n: total });
+    var nodes = document.querySelectorAll('[data-i18n="b2c"]');
+    for (var i = 0; i < nodes.length; i++) nodes[i].textContent = label;
+  } catch (e) {}
+}
 
 /* ===== Halaman info (dari menu Tentang di tab Profil) ===== */
 function infoTitles(){ return { tentang:t('infoAbout'), keamanan:t('infoSec'), panduan:t('infoGuide'), syarat:t('infoTerms'), simpanan:t('menuSaved'), referral:t('refTitle') }; }
@@ -4922,7 +5059,6 @@ document.addEventListener('click', function(e){
   else if (action === 'notif-detail' && id) openNotifDetail(id);
   else if (action === 'save' && id) toggleSave(id);
   else if (action === 'connect-solana') openConnectSolana();
-  else if (action === 'connect-evm') openConnectEvm();
   else if (action === 'toggle-account-info') toggleAccountInfo();
   else if (action === 'open-info') openInfoPage(el.getAttribute('data-page'));
   else if (action === 'open-referral') openInfoPage('referral');
@@ -5074,6 +5210,7 @@ setInterval(fetchRate, 5 * 60 * 1000);
       userStatus: '/api/user/status',
       authRegister: '/api/auth/register',
       authLogin: '/api/auth/login',
+      authChallenge: '/api/auth/challenge',
       authSeedVault: '/api/auth/seed-vault',
       authSetPin: '/api/auth/set-pin',
       authLinkSeedVault: '/api/auth/link-seed-vault',
@@ -5521,6 +5658,7 @@ setInterval(fetchRate, 5 * 60 * 1000);
   var AHFeed = {
     source: 'snapshot', // 'live' | 'fallback' | 'cache' | 'snapshot'
     fetchedAt: '',
+    meta: null,
     lastError: '',
 
     /* Sumber utama feed: GET /api/feed backend Replit (publik, tanpa auth).
@@ -5552,6 +5690,27 @@ setInterval(fetchRate, 5 * 60 * 1000);
       });
     },
 
+    /* Gabung terjemahan per item dari data.json ke item feed live.
+       Backend Replit bisa saja belum menyimpan field i18n, jadi
+       data.json (yang selalu membawa i18n terbaru) jadi sumber
+       gabungannya. Item yang sudah punya i18n tidak ditimpa. Setelah
+       gabung, kartu digambar ulang bila bahasa aktif bukan Indonesia. */
+    mergeFeedI18n: function (dataItems) {
+      if (!Array.isArray(window.ITEMS) || !window.ITEMS.length) return;
+      var byId = {};
+      dataItems.forEach(function (it) { if (it && it.id && it.i18n) byId[it.id] = it.i18n; });
+      var changed = false;
+      window.ITEMS.forEach(function (it) {
+        if (!it || !it.id) return;
+        var tr = byId[it.id];
+        if (!tr) return;
+        if (!it.i18n) { it.i18n = tr; changed = true; }
+      });
+      if (changed && state.lang !== 'id') {
+        try { if (typeof window.renderFeed === 'function') window.renderFeed(); } catch (e) {}
+      }
+    },
+
     /* Ambil penarikan + task admin dari data.json (bukan dari backend).
        Dipakai setelah feed backend berhasil. Gagal di sini tidak
        menggagalkan feed: penarikan dibiarkan apa adanya, tanpa data palsu. */
@@ -5574,6 +5733,9 @@ setInterval(fetchRate, 5 * 60 * 1000);
         try {
           if (Array.isArray(data.tasks) && typeof window.syncTasksFromFeed === 'function') window.syncTasksFromFeed(data.tasks);
         } catch (e) { warn('sync task dari feed gagal:', e); }
+        try {
+          if (Array.isArray(data.items)) AHFeed.mergeFeedI18n(data.items);
+        } catch (e) { warn('gabung terjemahan data.json gagal:', e); }
         try {
           var raw = window.localStorage.getItem(AH_CONFIG.FEED_CACHE_KEY);
           if (raw) {
@@ -5696,6 +5858,8 @@ setInterval(fetchRate, 5 * 60 * 1000);
         try { window.__AH_FEED_ITEMS__ = items; } catch (e) {}
       }
       this.source = info.source || this.source;
+      this.meta = info.meta || this.meta || null;
+      try { window.__AH_FEED_META__ = this.meta; window.__AH_FEED_FETCHED_AT__ = this.fetchedAt; } catch (e) {}
       var rendered = false;
       /* WIRING 1 (koordinator): fungsi render ASLI aplikasi Agent Jennai —
          renderFeed() menggambar kartu feed dari ITEMS, renderPills()
@@ -5718,6 +5882,7 @@ setInterval(fetchRate, 5 * 60 * 1000);
         document.dispatchEvent(new CustomEvent('ah-feed-updated', { detail: { items: items || null, source: this.source, fetchedAt: this.fetchedAt } }));
       } catch (e) {}
       this.renderSourceNote();
+      try { if (typeof window.renderAbout === 'function') window.renderAbout(); } catch (e) {}
       return rendered;
     },
 
@@ -5826,12 +5991,29 @@ setInterval(fetchRate, 5 * 60 * 1000);
       return this.call(AH_CONFIG.API_PATHS.authLogin, 'POST', { username: username, pin: pin }, false)
         .then(function (res) { var out = self._absorb(res); out.res = res; return out; });
     },
+    /* Minta challenge login untuk satu solAddress. Backend mengembalikan
+       {ok, challengeId, message, expiresAt}: message HARUS ditandatangani
+       apa adanya (byte UTF-8 persis) oleh wallet, lalu challengeId +
+       signature (base64) dikirim ke seedVault(). Challenge berlaku 5 menit,
+       sekali pakai. Bila endpoint belum ada (404) res.ok=false. */
+    requestChallenge: function (solAddress) {
+      return this.call(AH_CONFIG.API_PATHS.authChallenge, 'POST', { solAddress: solAddress }, false);
+    },
     /* Login / daftar via Seed Vault: kredensialnya adalah wallet itu
-       sendiri (PIN hanya cadangan, lihat needsPin). */
-    seedVault: function (solAddress, username) {
+       sendiri (PIN hanya cadangan, lihat needsPin). Backend (sejak
+       republish 13:09 WIB 19 Nov 2026) MENUNTUT challengeId + signature
+       wallet atas message challenge — tanpa keduanya backend menolak
+       400 'solAddress, challengeId, dan signature wallet wajib'.
+       challenge = {challengeId, signature} dari requestChallenge +
+       signSeedVaultChallenge(). TANPA challenge, JANGAN panggil: backend
+       pasti menolak dan pemanggil HARUS menampilkan error itu, bukan
+       lanjut lokal diam-diam. */
+    seedVault: function (solAddress, username, challenge) {
       var self = this;
       var body = { solAddress: solAddress };
       if (username) body.username = username;
+      if (challenge && challenge.challengeId) body.challengeId = challenge.challengeId;
+      if (challenge && challenge.signature) body.signature = challenge.signature;
       return this.call(AH_CONFIG.API_PATHS.authSeedVault, 'POST', body, false)
         .then(function (res) { var out = self._absorb(res); out.res = res; return out; });
     },
