@@ -2,13 +2,13 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-20 05:44 WIB",
+  "data_snapshot_at": "2026-11-20 06:14 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
-   "total": 101,
+   "total": 102,
    "early": 11,
    "freemint": 38,
-   "airdrop": 30,
+   "airdrop": 31,
    "whitelist": 22
   },
   "withdrawals": 0,
@@ -16,6 +16,40 @@
   "stale_filtered": 1
  },
  "items": [
+  {
+   "id": "zxoxo",
+   "project": "Zxoxo",
+   "chain": "BSC",
+   "category": "airdrop",
+   "type": "Airdrop",
+   "cost": "",
+   "potential": "",
+   "risk": "tanpa kontrak, aksi gratis tanpa pembayaran; portal terisi, risiko: belum diaudit kontrak",
+   "verdict": "CAUTION — tanpa kontrak, aksi gratis tanpa pembayaran; portal terisi, risiko: belum diaudit kontrak",
+   "details": "https://x.com/zxoxocash/status/2123477059791904899",
+   "portal": "https://zxoxo.xyz/mine",
+   "found": "2026-11-20",
+   "status": "MENUNGGU APPROVED",
+   "source": "airdropfind (msg 129788)",
+   "i18n": {
+    "en": {
+     "type": "Airdrop",
+     "risk": "no contract, free action without payment; portal filled, risk: contract not yet audited",
+     "verdict": "CAUTION, no contract, free action without payment; portal filled, risk: contract not yet audited",
+     "details": "https://x.com/zxoxocash/status/2123477059791904899",
+     "status": "Waiting for approval",
+     "source": "airdropfind (msg 129788)"
+    },
+    "zh": {
+     "type": "Airdrop",
+     "risk": "无合约，免费操作无付款；门户已填充，风险：合约尚未审计",
+     "verdict": "观察， 无合约，免费操作无付款；门户已填充，风险：合约尚未审计",
+     "details": "https://x.com/zxoxocash/status/2123477059791904899",
+     "status": "等待批准",
+     "source": "airdropfind (msg 129788)"
+    }
+   }
+  },
   {
    "id": "ilovedrama-tv",
    "project": "ilovedrama.tv",
