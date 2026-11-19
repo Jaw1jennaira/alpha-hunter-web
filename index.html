@@ -2658,8 +2658,13 @@ function sortOpportunities(v){ state.sort = v; renderFeed(); }
    kembalikan '' supaya barisnya disembunyikan. */
 function publicStatus(it){
   var s = L(it, 'status') || '';
-  s = s.replace(/^\s*menunggu\s+(approved|persetujuan)\b\s*(?:[^\w\s]+\s*)?/i, '');
-  return s.trim();
+  // Hapus awalan penanda persetujuan internal (ID/EN) + pemisah sesudahnya.
+  s = s.replace(/^\s*(menunggu\s+(approved|persetujuan)|waiting\s+for\s+approval|pending\s+approval|awaiting\s+approval)\b\s*(?:[^\w\s]+\s*)?/i, '');
+  // Bentuk Mandarin (tanpa \b karena karakter CJK bukan \w).
+  s = s.replace(/^\s*(等待批准|待批准)\s*(?:[^\w\s]+\s*)?/, '');
+  // Hapus fragmen "(APPROVED-gated)" di tengah teks.
+  s = s.replace(/\(APPROVED-gated\)/gi, '');
+  return s.replace(/\s{2,}/g, ' ').trim();
 }
 function cardHtml(it){
   var fl = foundLabel(it.found);
