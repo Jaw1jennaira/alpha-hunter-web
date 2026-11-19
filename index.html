@@ -5037,7 +5037,8 @@ setInterval(fetchRate, 5 * 60 * 1000);
       authLinkSeedVault: '/api/auth/link-seed-vault',
       authMe: '/api/auth/me',
       userSync: '/api/user/sync',
-      checkUsername: '/api/auth/check-username'
+      checkUsername: '/api/auth/check-username',
+      feed: '/api/feed'
     },
 
     STATE_KEY: 'ah-state-v1',       // satu kunci persistensi state user
@@ -5099,7 +5100,7 @@ setInterval(fetchRate, 5 * 60 * 1000);
       referralRegisteredConfirmed: false,
       outbox: [],           // payload sync yang gagal terkirim (dikirim ulang nanti)
       proofStorageLimited: false,
-      feedSource: 'snapshot', // 'live' | 'cache' | 'snapshot'
+      feedSource: 'snapshot', // 'live' | 'fallback' | 'cache' | 'snapshot'
       feedFetchedAt: '',
       hasPin: false,        // akun punya PIN cadangan (BOOLEAN saja; PIN tidak pernah disimpan di sini)
       pinReminderShown: false, // pengingat buat PIN cadangan sudah pernah ditampilkan sekali
@@ -5456,7 +5457,7 @@ setInterval(fetchRate, 5 * 60 * 1000);
     get: function (submissionId) { return this.memory[submissionId] || null; }
   };
 
-  /* ============================ FEED LIVE (data.json) =================== */
+  /* ============================ FEED LIVE (backend Replit + fallback data.json) =================== */
   function normalizePortal(p) {
     if (!p) return '';
     if (Array.isArray(p)) return p[0] || '';
@@ -5476,11 +5477,102 @@ setInterval(fetchRate, 5 * 60 * 1000);
   }
 
   var AHFeed = {
-    source: 'snapshot', // 'live' | 'cache' | 'snapshot'
+    source: 'snapshot', // 'live' | 'fallback' | 'cache' | 'snapshot'
     fetchedAt: '',
     lastError: '',
 
+    /* Sumber utama feed: GET /api/feed backend Replit (publik, tanpa auth).
+       Bila backend gagal (belum live, non-200, respons tidak valid) maka
+       fallback ke data.json seperti sebelumnya. Penarikan + task admin
+       TETAP dibaca dari data.json, bukan dari backend. */
+    fetchBackendFeed: function () {
+      if (!AHSync.enabled()) return Promise.reject(new Error('backend tidak dikonfigurasi'));
+      var ctrl = null, timer = null;
+      try {
+        ctrl = new AbortController();
+        timer = setTimeout(function () { try { ctrl.abort(); } catch (e) {} }, AH_CONFIG.FEED_TIMEOUT_MS);
+      } catch (e) { ctrl = null; }
+      var opts = { method: 'GET', cache: 'no-store' };
+      if (ctrl) opts.signal = ctrl.signal;
+      return fetch(AHSync.base() + AH_CONFIG.API_PATHS.feed, opts).then(function (r) {
+        if (timer) clearTimeout(timer);
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      }).then(function (data) {
+        if (!data || !Array.isArray(data.items) || !data.items.length) throw new Error('feed backend tanpa items');
+        var items = [];
+        data.items.forEach(function (it) { var n = normalizeItem(it); if (n) items.push(n); });
+        if (!items.length) throw new Error('feed backend tanpa item valid');
+        return { items: items, meta: data.meta || null };
+      }).catch(function (err) {
+        if (timer) clearTimeout(timer);
+        throw err;
+      });
+    },
+
+    /* Ambil penarikan + task admin dari data.json (bukan dari backend).
+       Dipakai setelah feed backend berhasil. Gagal di sini tidak
+       menggagalkan feed: penarikan dibiarkan apa adanya, tanpa data palsu. */
+    syncExtrasFromDataJson: function () {
+      var ctrl = null, timer = null;
+      try {
+        ctrl = new AbortController();
+        timer = setTimeout(function () { try { ctrl.abort(); } catch (e) {} }, AH_CONFIG.FEED_TIMEOUT_MS);
+      } catch (e) { ctrl = null; }
+      var opts = { cache: 'no-store' };
+      if (ctrl) opts.signal = ctrl.signal;
+      fetch(AH_CONFIG.DATA_JSON_URL, opts).then(function (r) {
+        if (timer) clearTimeout(timer);
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      }).then(function (data) {
+        try {
+          if (Array.isArray(data.withdrawals) && typeof window.syncWithdrawalsFromFeed === 'function') window.syncWithdrawalsFromFeed(data.withdrawals);
+        } catch (e) { warn('sync penarikan dari feed gagal:', e); }
+        try {
+          if (Array.isArray(data.tasks) && typeof window.syncTasksFromFeed === 'function') window.syncTasksFromFeed(data.tasks);
+        } catch (e) { warn('sync task dari feed gagal:', e); }
+        try {
+          var raw = window.localStorage.getItem(AH_CONFIG.FEED_CACHE_KEY);
+          if (raw) {
+            var cached = JSON.parse(raw);
+            if (cached && Array.isArray(cached.items)) {
+              cached.withdrawals = Array.isArray(data.withdrawals) ? data.withdrawals : null;
+              cached.tasks = Array.isArray(data.tasks) ? data.tasks : null;
+              window.localStorage.setItem(AH_CONFIG.FEED_CACHE_KEY, JSON.stringify(cached));
+            }
+          }
+        } catch (e) { warn('gagal simpan extras ke cache feed:', e); }
+      }).catch(function (err) {
+        if (timer) clearTimeout(timer);
+        warn('extras data.json tidak terjangkau (feed backend tetap dipakai):', err);
+      });
+    },
+
     fetchLive: function () {
+      var self = this;
+      return this.fetchBackendFeed().then(function (backend) {
+        self.source = 'live';
+        self.fetchedAt = new Date().toISOString();
+        self.lastError = '';
+        try {
+          window.localStorage.setItem(AH_CONFIG.FEED_CACHE_KEY, JSON.stringify({ fetchedAt: self.fetchedAt, items: backend.items, meta: backend.meta, withdrawals: null, tasks: null }));
+        } catch (e) { warn('gagal cache feed:', e); }
+        AHStore.data.feedSource = 'live';
+        AHStore.data.feedFetchedAt = self.fetchedAt;
+        AHStore.saveSoon();
+        self.apply(backend.items, { source: 'live', meta: backend.meta });
+        self.syncExtrasFromDataJson();
+        return { ok: true, source: 'live', count: backend.items.length };
+      }).catch(function (backendErr) {
+        self.lastError = String(backendErr && backendErr.message || backendErr);
+        return self.fetchDataJson();
+      });
+    },
+
+    /* Fallback: feed dari data.json (perilaku lama). Sumber dicatat
+       'fallback' supaya teks status tidak pernah mengklaim live. */
+    fetchDataJson: function () {
       var self = this;
       var ctrl = null, timer = null;
       try {
@@ -5498,16 +5590,16 @@ setInterval(fetchRate, 5 * 60 * 1000);
         var items = [];
         data.items.forEach(function (it) { var n = normalizeItem(it); if (n) items.push(n); });
         if (!items.length) throw new Error('data.json tanpa item valid');
-        self.source = 'live';
+        self.source = 'fallback';
         self.fetchedAt = new Date().toISOString();
         self.lastError = '';
         try {
           window.localStorage.setItem(AH_CONFIG.FEED_CACHE_KEY, JSON.stringify({ fetchedAt: self.fetchedAt, items: items, meta: data.meta || null, withdrawals: Array.isArray(data.withdrawals) ? data.withdrawals : null, tasks: Array.isArray(data.tasks) ? data.tasks : null }));
         } catch (e) { warn('gagal cache feed:', e); }
-        AHStore.data.feedSource = 'live';
+        AHStore.data.feedSource = 'fallback';
         AHStore.data.feedFetchedAt = self.fetchedAt;
         AHStore.saveSoon();
-        self.apply(items, { source: 'live', meta: data.meta || null });
+        self.apply(items, { source: 'fallback', meta: data.meta || null });
         /* Sinkron penarikan dari data.json: status + tx_hash dari admin.
            Fungsi aplikasi memfilter hanya penarikan milik user yang login. */
         try {
@@ -5517,7 +5609,7 @@ setInterval(fetchRate, 5 * 60 * 1000);
         try {
           if (Array.isArray(data.tasks) && typeof window.syncTasksFromFeed === 'function') window.syncTasksFromFeed(data.tasks);
         } catch (e) { warn('sync task dari feed gagal:', e); }
-        return { ok: true, source: 'live', count: items.length };
+        return { ok: true, source: 'fallback', count: items.length };
       }).catch(function (err) {
         if (timer) clearTimeout(timer);
         self.lastError = String(err && err.message || err);
@@ -5593,7 +5685,8 @@ setInterval(fetchRate, 5 * 60 * 1000);
     sourceText: function () {
       var at = '';
       try { at = this.fetchedAt ? new Date(this.fetchedAt).toLocaleString('id-ID') : ''; } catch (e) {}
-      if (this.source === 'live') return 'Feed diperbarui dari data.json' + (at ? ' • ' + at : '') + '.';
+      if (this.source === 'live') return 'Feed diperbarui dari backend Replit' + (at ? ' • ' + at : '') + '.';
+      if (this.source === 'fallback') return 'Feed diperbarui dari data.json (cadangan)' + (at ? ' • ' + at : '') + '. Backend belum terjangkau saat ini.';
       if (this.source === 'cache') return 'Menampilkan feed tersimpan' + (at ? ' (' + at + ')' : '') + ' — data.json tidak terjangkau saat ini.';
       return 'Menampilkan snapshot bawaan aplikasi (18 Nov 2026 14:41 WIB) — data.json tidak terjangkau saat ini.';
     },
@@ -5615,7 +5708,10 @@ setInterval(fetchRate, 5 * 60 * 1000);
     },
     refreshMessage: function (res) {
       if (res && res.ok && res.source === 'live') {
-        return 'Feed diperbarui dari server (' + res.count + ' project). Data terbaru akan tampil begitu backend memperbarui data.json.';
+        return 'Feed diperbarui dari backend Replit (' + res.count + ' project).';
+      }
+      if (res && res.ok && res.source === 'fallback') {
+        return 'Feed diperbarui dari data.json cadangan (' + res.count + ' project). Backend belum terjangkau, feed beralih ke backend otomatis begitu tersedia.';
       }
       if (res && res.source === 'cache') {
         return 'Data terbaru tidak terjangkau — menampilkan feed tersimpan terakhir (' + res.count + ' project). Coba lagi nanti.';
