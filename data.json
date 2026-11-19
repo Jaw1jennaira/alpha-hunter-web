@@ -2,7 +2,7 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-19 13:15 WIB",
+  "data_snapshot_at": "2026-11-19 13:25 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
    "total": 71,
@@ -11,7 +11,8 @@
    "airdrop": 17,
    "whitelist": 16
   },
-  "withdrawals": 0
+  "withdrawals": 0,
+  "tasks": 0
  },
  "items": [
   {
@@ -1151,5 +1152,6 @@
    "source": ""
   }
  ],
- "withdrawals": []
+ "withdrawals": [],
+ "tasks": []
 }
