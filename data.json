@@ -2,12 +2,12 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-19 14:44 WIB",
+  "data_snapshot_at": "2026-11-19 14:47 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
-   "total": 73,
+   "total": 72,
    "early": 7,
-   "freemint": 33,
+   "freemint": 32,
    "airdrop": 17,
    "whitelist": 16
   },
@@ -46,22 +46,6 @@
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED — form allowlist LIVE di meetmotes.com/apply-form (terverifikasi live browser 19 Nov 2026 11:53 WIB): 5 langkah — 1 Connect X (OAuth, tanpa kolom handle manual), 2 Your wallet (terkunci, belum terlihat ",
    "source": "Bitrue $MOTES airdrop guide (22 jam lalu, merujuk docs resmi + X [akun]) + daftar 99airdrops.com ('Motes Genesis NFT', Robinhood Chain)"
-  },
-  {
-   "id": "mendlingsnft",
-   "project": "MendlingsNFT",
-   "chain": "Robinhood Chain",
-   "category": "freemint",
-   "type": "Free Mint (WL GTD giveaway)",
-   "cost": "",
-   "potential": "",
-   "risk": "",
-   "verdict": "Watch — mint TBA, GTD WL via giveaway (follow + repost); belum ada kontrak/tanggal",
-   "details": "Supply 7.777, free mint, tanggal TBA. Kualifikasi GTD: follow [akun] & [akun] + repost pinned post.",
-   "portal": "['https://teapaw.org/0xikem/status/2120575385121472640']",
-   "found": "2026-11-19",
-   "status": "Watch — mint TBA, GTD WL via giveaway (follow + repost); belum ada kontrak/tanggal",
-   "source": "['https://teapaw.org/0xikem/status/2120575385121472640']"
   },
   {
    "id": "di-decentralized-intelligence-genesis-nft-whitelist-via-daily-check-in-bnb-chain",
@@ -1180,7 +1164,7 @@
    "details": "",
    "portal": "",
    "found": "0000-00-00",
-   "status": "BARU 14:00 WIB 19 Nov 2026 — WL SEDANG DIKERJAKAN hunter (follow [akun] + [akun], like/repost/komen 2 post WL, isi form cubisthoods.io/whitelist/ dg alamat [wallet] EVM). Mint tentatif 24 Nov 2026, supply 7.777, ERC-721,",
+   "status": "BARU 14:00 WIB 19 Nov 2026 — TUGAS X SELESAI hunter: follow [akun] + [akun], like + repost kedua post WL (terverifikasi: 339/285 Liked, 274/229 Reposted), reply komentar di kedua post (https://x.com/[akun]/status/2123320",
    "source": ""
   }
  ],
