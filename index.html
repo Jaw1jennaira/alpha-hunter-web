@@ -2652,6 +2652,15 @@ function clearSearch(){
 function sortOpportunities(v){ state.sort = v; renderFeed(); }
 
 /* ===== Feed cards ===== */
+/* Status publik untuk kartu/notifikasi: awalan status internal hunter
+   ("MENUNGGU APPROVED", "Menunggu persetujuan") TIDAK ditampilkan di
+   aplikasi publik, hanya sisa info project-nya. Bila tidak ada sisa,
+   kembalikan '' supaya barisnya disembunyikan. */
+function publicStatus(it){
+  var s = L(it, 'status') || '';
+  s = s.replace(/^\s*menunggu\s+(approved|persetujuan)\b\s*(?:[^\w\s]+\s*)?/i, '');
+  return s.trim();
+}
 function cardHtml(it){
   var fl = foundLabel(it.found);
   return '<article data-action="detail" data-id="' + it.id + '" class="glass-panel rounded-2xl p-4 cursor-pointer shadow-card-glow active:scale-[.99] transition">' +
@@ -2662,7 +2671,7 @@ function cardHtml(it){
     '</div>' +
     '<h3 class="text-[15px] font-bold text-slate-50 mt-2.5 leading-snug">' + esc(L(it,'project')) + '</h3>' +
     (L(it,'cost') ? '<p class="text-xs text-slate-400 mt-1">' + t('costWord') + ': <span class="text-slate-200 font-semibold">' + esc(L(it,'cost')) + '</span></p>' : '') +
-    (L(it,'status') ? '<p class="text-xs text-gold-400/90 mt-1.5 leading-relaxed clamp2">' + esc(L(it,'status')) + '</p>' : '') +
+    (publicStatus(it) ? '<p class="text-xs text-gold-400/90 mt-1.5 leading-relaxed clamp2">' + esc(publicStatus(it)) + '</p>' : '') +
     '<div class="flex items-center gap-3 mt-3 pt-3 border-t border-dashed border-navy-600/70 text-[11px] text-slate-500">' +
       (fl ? '<span>' + t('foundWord') + ' <span class="text-slate-300 font-semibold">' + esc(fl) + '</span></span>' : '<span>' + t('noDate') + '</span>') +
       '<button data-action="save" data-id="' + it.id + '" aria-label="' + t('saveAria') + '" class="ml-auto w-7 h-7 rounded-full flex items-center justify-center flex-none ' + (state.saved[it.id] ? 'bg-gold-500/20 text-gold-400' : 'bg-navy-700/70 text-slate-400') + '">' + icon('bookmark', 'text-[11px]', state.saved[it.id]) + '</button>' +
@@ -2705,7 +2714,7 @@ function renderNotif(){
         '<span class="text-xs font-bold text-gold-400 flex items-center gap-2">' + (unread ? '<span class="w-2 h-2 rounded-full bg-red-500 flex-none"></span>' : icon('bell', 'text-[10px]')) + esc(L(it,'project')) + '</span>' +
         '<span class="text-[10px] text-slate-500 flex-none">' + esc(foundLabel(it.found) || '') + '</span>' +
       '</div>' +
-      '<p class="text-xs text-slate-300 leading-relaxed clamp2">' + esc((L(it,'status') || L(it,'details')).slice(0, 160)) + '</p>' +
+      '<p class="text-xs text-slate-300 leading-relaxed clamp2">' + esc((publicStatus(it) || L(it,'details')).slice(0, 160)) + '</p>' +
       '<p class="text-[10px] text-slate-500">' + esc(CAT_LABEL[it.category] || it.category) + ' • ' + esc(it.chain || '') + '</p>' +
     '</div>';
   }).join('');
@@ -5685,7 +5694,7 @@ setInterval(fetchRate, 5 * 60 * 1000);
     sourceText: function () {
       var at = '';
       try { at = this.fetchedAt ? new Date(this.fetchedAt).toLocaleString('id-ID') : ''; } catch (e) {}
-      if (this.source === 'live') return 'Feed diperbarui dari backend Replit' + (at ? ' • ' + at : '') + '.';
+      if (this.source === 'live') return 'Feed diperbarui' + (at ? ' • ' + at : '') + '.';
       if (this.source === 'fallback') return 'Feed diperbarui dari data.json (cadangan)' + (at ? ' • ' + at : '') + '. Backend belum terjangkau saat ini.';
       if (this.source === 'cache') return 'Menampilkan feed tersimpan' + (at ? ' (' + at + ')' : '') + ' — data.json tidak terjangkau saat ini.';
       return 'Menampilkan snapshot bawaan aplikasi (18 Nov 2026 14:41 WIB) — data.json tidak terjangkau saat ini.';
@@ -5708,7 +5717,7 @@ setInterval(fetchRate, 5 * 60 * 1000);
     },
     refreshMessage: function (res) {
       if (res && res.ok && res.source === 'live') {
-        return 'Feed diperbarui dari backend Replit (' + res.count + ' project).';
+        return 'Feed diperbarui (' + res.count + ' project).';
       }
       if (res && res.ok && res.source === 'fallback') {
         return 'Feed diperbarui dari data.json cadangan (' + res.count + ' project). Backend belum terjangkau, feed beralih ke backend otomatis begitu tersedia.';
