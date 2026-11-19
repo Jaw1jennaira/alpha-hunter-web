@@ -2685,13 +2685,22 @@ function projectSummary(it){
   if (!s || s === '-') return '';
   return s;
 }
+/* Chain bersih: nama chain saja, tanpa catatan di dalam kurung
+   ("Solana (inferensi ...)" jadi "Solana", "Ink chain (INK, [akun])"
+   jadi "Ink chain"). "?" (chain tidak diketahui) jadi kosong. */
+function cleanChain(it){
+  var c = (it.chain || '').trim();
+  if (!c || c === '?') return '';
+  var m = c.match(/^(.+?)\s*\(.*$/);
+  return (m ? m[1] : c).trim();
+}
 function cardHtml(it){
   var fl = foundLabel(it.found);
   return '<article data-action="detail" data-id="' + it.id + '" class="glass-panel rounded-2xl p-4 cursor-pointer shadow-card-glow active:scale-[.99] transition">' +
     '<div class="flex items-center gap-2 flex-wrap">' +
       '<span class="text-[10px] font-bold px-2 py-0.5 rounded-md ' + (CAT_STYLE[it.category] || CAT_STYLE.early) + '">' + esc(CAT_LABEL[it.category] || it.category) + '</span>' +
       verdictChip(it.verdict) +
-      '<span class="ml-auto text-[11px] text-slate-400 font-medium flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-gold-400 inline-block"></span>' + esc(it.chain || '') + '</span>' +
+      '<span class="ml-auto text-[11px] text-slate-400 font-medium flex items-center gap-1.5">' + (cleanChain(it) ? '<span class="w-1.5 h-1.5 rounded-full bg-gold-400 inline-block"></span>' + esc(cleanChain(it)) : '') + '</span>' +
     '</div>' +
     '<h3 class="text-[15px] font-bold text-slate-50 mt-2.5 leading-snug">' + esc(shortName(it)) + '</h3>' +
     (L(it,'cost') ? '<p class="text-xs text-slate-400 mt-1">' + t('costWord') + ': <span class="text-slate-200 font-semibold">' + esc(L(it,'cost')) + '</span></p>' : '') +
@@ -2739,7 +2748,7 @@ function renderNotif(){
         '<span class="text-[10px] text-slate-500 flex-none">' + esc(foundLabel(it.found) || '') + '</span>' +
       '</div>' +
       '<p class="text-xs text-slate-300 leading-relaxed clamp2">' + esc((projectSummary(it) || L(it,'type')).slice(0, 160)) + '</p>' +
-      '<p class="text-[10px] text-slate-500">' + esc(CAT_LABEL[it.category] || it.category) + ' • ' + esc(it.chain || '') + '</p>' +
+      '<p class="text-[10px] text-slate-500">' + esc(CAT_LABEL[it.category] || it.category) + (cleanChain(it) ? ' • ' + esc(cleanChain(it)) : '') + '</p>' +
     '</div>';
   }).join('');
 }
@@ -3171,7 +3180,7 @@ function openDetail(id, skipCount){
       '<div class="flex items-center gap-2 flex-wrap">' +
         '<span class="text-[10px] font-bold px-2 py-0.5 rounded-md ' + (CAT_STYLE[it.category] || '') + '">' + esc(CAT_LABEL[it.category] || it.category) + '</span>' +
         verdictChip(it.verdict) +
-        '<span class="ml-auto text-[11px] text-slate-400 font-medium">' + esc(it.chain || '') + '</span>' +
+        '<span class="ml-auto text-[11px] text-slate-400 font-medium">' + esc(cleanChain(it)) + '</span>' +
       '</div>' +
       '<h2 class="text-lg font-extrabold text-white mt-3 leading-snug">' + esc(shortName(it)) + '</h2>' +
     '</div>' +
