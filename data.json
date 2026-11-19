@@ -2,12 +2,12 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-19 13:44 WIB",
+  "data_snapshot_at": "2026-11-19 14:14 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
-   "total": 71,
+   "total": 73,
    "early": 7,
-   "freemint": 31,
+   "freemint": 33,
    "airdrop": 17,
    "whitelist": 16
   },
@@ -520,11 +520,11 @@
    "cost": "Gratis (gas ETH saja)",
    "potential": "Sedang (free mint ETH, Genesis Bugs = akses prioritas drop Unvault berikutnya)",
    "risk": "Sedang (tanpa kontrak = tanpa audit; selisih supply 5.000 vs 5.600)",
-   "verdict": "Watch — cek live run 11:43 WIB 19 Nov (browser.open, crawl 04:45 UTC / 11:45 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka. Genesis Bugz dijadwalkan Rabu 2 PM ET (= Kam 02:00 WIB) — kini ~9 jam 45 mnt lewat jadwal tanpa buka (DeBugz Selasa 2 PM ET juga lewat). Gazette 18 Nov: DeBugz ditunda karena DDoS, tanpa tanggal baru. Tanpa countdown, tanpa alamat kontrak di halaman (hanya \"uses the DeBugz contract\"). Fase publik 309 slot belum mulai.",
+   "verdict": "Watch — cek live run 13:43 WIB 19 Nov (browser.open, crawl 06:44 UTC / 13:44 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka. Genesis Bugz dijadwalkan Rabu 2 PM ET (= Kam 02:00 WIB) — kini ~11 jam 45 mnt lewat jadwal tanpa buka (DeBugz Selasa 2 PM ET juga lewat). Gazette 18 Nov: DeBugz ditunda karena DDoS, tanpa tanggal baru. Tanpa countdown, tanpa alamat kontrak di halaman (hanya \"uses the DeBugz contract\"). Fase publik 309 slot belum mulai.",
    "details": "Free mint 5.600 NFT di Ethereum, mint 18 Nov 19:00 UTC (19 Nov 02:00 WIB) via unvault.com.",
    "portal": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']",
    "found": "2026-11-18",
-   "status": "Watch — cek live run 11:43 WIB 19 Nov (browser.open, crawl 04:45 UTC / 11:45 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka. Genesis Bugz dijadwalkan Rabu 2 PM ET (= Kam 02:00 WIB) — kini ~9 jam 45 mnt lewat ",
+   "status": "Watch — cek live run 13:43 WIB 19 Nov (browser.open, crawl 06:44 UTC / 13:44 WIB): unvault.com/bugz MASIH \"Soonererer\", mint BELUM buka. Genesis Bugz dijadwalkan Rabu 2 PM ET (= Kam 02:00 WIB) — kini ~11 jam 45 mnt lewat",
    "source": "['https://www.kucoin.com/news/trends/ETH/6afc7a789278e40007d861c4', 'https://unvault.com']"
   },
   {
@@ -1149,6 +1149,38 @@
    "portal": "",
    "found": "0000-00-00",
    "status": "BUTUH KAMU",
+   "source": ""
+  },
+  {
+   "id": "feral-frog-federation",
+   "project": "Feral Frog Federation",
+   "chain": "Robinhood Chain",
+   "category": "freemint",
+   "type": "Free Mint",
+   "cost": "",
+   "potential": "",
+   "risk": "",
+   "verdict": "",
+   "details": "",
+   "portal": "",
+   "found": "0000-00-00",
+   "status": "Watch — mint buka 20 Nov 2026 03:00 UTC (10:00 WIB), supply 5.000, fase HOLDER, gratis. Belum ada situs resmi / akun X / contract address di sumber (Trencher Daily 19 Nov). Cek ulang saat mint buka.",
+   "source": ""
+  },
+  {
+   "id": "cubist-hoods",
+   "project": "Cubist Hoods",
+   "chain": "Robinhood Chain",
+   "category": "freemint",
+   "type": "Whitelist (Free Mint GTD) + Paid Mint",
+   "cost": "",
+   "potential": "",
+   "risk": "",
+   "verdict": "",
+   "details": "",
+   "portal": "",
+   "found": "0000-00-00",
+   "status": "BARU 14:00 WIB 19 Nov 2026 — WL SEDANG DIKERJAKAN hunter (follow [akun] + [akun], like/repost/komen 2 post WL, isi form cubisthoods.io/whitelist/ dg alamat [wallet] EVM). Mint tentatif 24 Nov 2026, supply 7.777, ERC-721,",
    "source": ""
   }
  ],
