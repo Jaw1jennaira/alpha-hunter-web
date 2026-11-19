@@ -2,17 +2,18 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-19 23:14 WIB",
+  "data_snapshot_at": "2026-11-19 23:27 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
-   "total": 102,
+   "total": 101,
    "early": 11,
    "freemint": 38,
-   "airdrop": 31,
+   "airdrop": 30,
    "whitelist": 22
   },
   "withdrawals": 0,
-  "tasks": 0
+  "tasks": 0,
+  "stale_filtered": 1
  },
  "items": [
   {
@@ -510,22 +511,6 @@
    "found": "2026-11-19",
    "status": "MENUNGGU APPROVED",
    "source": "https://agentgames.zkverify.io/register?ref=H3MWL6YR"
-  },
-  {
-   "id": "acurast",
-   "project": "Acurast",
-   "chain": "",
-   "category": "airdrop",
-   "type": "Airdrop",
-   "cost": "",
-   "potential": "Belum dinilai",
-   "risk": "Belum diaudit",
-   "verdict": "CAUTION",
-   "details": "Acurast adalah jaringan compute terdesentralisasi yang ditenagai smartphone; ACU adalah token native mainnet-nya. Airdrop Cloud Rebellion (10 juta ACU berdasarkan poin MIST) sudah berakhir — jendela klaim 27 Januari-27 Februari 2026 — dan token yang diklaim vesting linear selama 24 bulan.",
-   "portal": "https://hub.acurast.com/airdrop",
-   "found": "2026-11-19",
-   "status": "MENUNGGU APPROVED",
-   "source": "https://hub.acurast.com/airdrop"
   },
   {
    "id": "100millionseek",
