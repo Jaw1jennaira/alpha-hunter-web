@@ -2,14 +2,14 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-20 11:14 WIB",
+  "data_snapshot_at": "2026-11-20 11:44 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
-   "total": 103,
+   "total": 104,
    "early": 11,
    "freemint": 38,
    "airdrop": 31,
-   "whitelist": 23
+   "whitelist": 24
   },
   "withdrawals": 0,
   "tasks": 0,
@@ -81,6 +81,40 @@
      "details": "https://x.com/NFTX_/status/2123520507136163994?a=MaMvKuaC-mrhn7EhiA4&s=19",
      "status": "等待批准",
      "source": "airdropfind (msg 129794)"
+    }
+   }
+  },
+  {
+   "id": "plumbers",
+   "project": "Plumbers",
+   "chain": "",
+   "category": "whitelist",
+   "type": "Whitelist",
+   "cost": "",
+   "potential": "",
+   "risk": "tanpa kontrak, aksi gratis tanpa pembayaran; portal terisi, risiko: belum diaudit kontrak",
+   "verdict": "CAUTION — tanpa kontrak, aksi gratis tanpa pembayaran; portal terisi, risiko: belum diaudit kontrak",
+   "details": "https://x.com/plumbers_wtf/status/2123094727843078633",
+   "portal": "https://plumbers.wtf/apply",
+   "found": "2026-11-20",
+   "status": "MENUNGGU APPROVED",
+   "source": "airdropfind (msg 129798)",
+   "i18n": {
+    "en": {
+     "type": "Whitelist",
+     "risk": "without contract, free action without payment; portal filled, risk: contract not audited",
+     "verdict": "CAUTION, without contract, free action without payment; portal filled, risk: contract not audited",
+     "details": "https://x.com/plumbers_wtf/status/2123094727843078633",
+     "status": "Waiting for approval",
+     "source": "airdropfind (msg 129798)"
+    },
+    "zh": {
+     "type": "Whitelist",
+     "risk": "无合约，免费操作无付款；门户已填满，风险：合约未审计",
+     "verdict": "谨慎， 无合约，免费操作无付款；门户已填满，风险：合约未审计",
+     "details": "https://x.com/plumbers_wtf/status/2123094727843078633",
+     "status": "等待批准",
+     "source": "airdropfind (msg 129798)"
     }
    }
   },
