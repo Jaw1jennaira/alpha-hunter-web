@@ -2,14 +2,14 @@
  "meta": {
   "app": "Alpha Hunter",
   "version": "1.0.0",
-  "data_snapshot_at": "2026-11-20 09:44 WIB",
+  "data_snapshot_at": "2026-11-20 10:14 WIB",
   "note": "Snapshot data hunter saat build. Refresh data = update aplikasi berikutnya (backend menyusul).",
   "counts": {
-   "total": 102,
+   "total": 103,
    "early": 11,
    "freemint": 38,
    "airdrop": 31,
-   "whitelist": 22
+   "whitelist": 23
   },
   "withdrawals": 0,
   "tasks": 0,
@@ -47,6 +47,40 @@
      "details": "https://x.com/zxoxocash/status/2123477059791904899",
      "status": "等待批准",
      "source": "airdropfind (msg 129788)"
+    }
+   }
+  },
+  {
+   "id": "thinkers",
+   "project": "Thinkers",
+   "chain": "",
+   "category": "whitelist",
+   "type": "Whitelist",
+   "cost": "",
+   "potential": "",
+   "risk": "tanpa kontrak, aksi gratis tanpa pembayaran; portal terisi, risiko: belum diaudit kontrak",
+   "verdict": "CAUTION — tanpa kontrak, aksi gratis tanpa pembayaran; portal terisi, risiko: belum diaudit kontrak",
+   "details": "https://x.com/NFTX_/status/2123520507136163994?a=MaMvKuaC-mrhn7EhiA4&s=19",
+   "portal": "https://nftx.io/thinkers",
+   "found": "2026-11-20",
+   "status": "MENUNGGU APPROVED",
+   "source": "airdropfind (msg 129794)",
+   "i18n": {
+    "en": {
+     "type": "Whitelist",
+     "risk": "without contract, free action without payment; portal filled, risk: contract not yet audited",
+     "verdict": "CAUTION, without contract, free action without payment; portal filled, risk: contract not yet audited",
+     "details": "https://x.com/NFTX_/status/2123520507136163994?a=MaMvKuaC-mrhn7EhiA4&s=19",
+     "status": "Waiting for approval",
+     "source": "airdropfind (msg 129794)"
+    },
+    "zh": {
+     "type": "Whitelist",
+     "risk": "没有合约，免费操作无付款；门户已填满，风险：合约尚未审计",
+     "verdict": "谨慎， 没有合约，免费操作无付款；门户已填满，风险：合约尚未审计",
+     "details": "https://x.com/NFTX_/status/2123520507136163994?a=MaMvKuaC-mrhn7EhiA4&s=19",
+     "status": "等待批准",
+     "source": "airdropfind (msg 129794)"
     }
    }
   },
